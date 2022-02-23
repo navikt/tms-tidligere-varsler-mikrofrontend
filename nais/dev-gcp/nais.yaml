@@ -1,29 +1,29 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: tms-mikrofrontend-template
+  name: tms-min-side-varslinger
   namespace: min-side
   labels:
     team: min-side
 spec:
   envFrom:
-    - secret: tms-mikrofrontend-template-secrets
+    - secret: tms-min-side-varslinger-secrets
   image: { { version } }
-  port: 7100
+  port: 7600
   liveness:
-    path: /tms-mikrofrontend-template/internal/isAlive
+    path: /tms-min-side-varslinger/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /tms-mikrofrontend-template/internal/isReady
+    path: /tms-min-side-varslinger/internal/isReady
     initialDelay: 10
   prometheus:
     enabled: true
-    path: /tms-mikrofrontend-template/internal/metrics
+    path: /tms-min-side-varslinger/internal/metrics
   replicas:
     min: 2
     max: 4
   ingresses:
-    - "https://person.dev.nav.no/tms-mikrofrontend-template"
+    - "https://person.dev.nav.no/tms-min-side-varslinger"
   resources:
     limits:
       cpu: "3"

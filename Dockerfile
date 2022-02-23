@@ -10,5 +10,5 @@ RUN npm install
 
 CMD ["node", "./server.js"]
 
-ENV PORT=8080
+ENV PORT=7600
 EXPOSE $PORT
