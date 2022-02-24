@@ -8,7 +8,7 @@ metadata:
 spec:
   envFrom:
     - secret: tms-min-side-varslinger-secrets
-  image: { { version } }
+  image: {{version}}
   port: 7600
   liveness:
     path: /tms-min-side-varslinger/internal/isAlive
