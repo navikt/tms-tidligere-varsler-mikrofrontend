@@ -19,5 +19,5 @@ const EVENT_HANDLER_URL = {
   production: "https://person.nav.no/dittnav-event-handler",
 };
 
-export const notifikasjonerUrl = `${EVENT_HANDLER_URL[getEnvironment()]}/notifikasjon`;
-export const inaktiveNotifikasjonerUrl = `${EVENT_HANDLER_URL[getEnvironment()]}/notifikasjon/inaktiv`;
+export const notifikasjonerUrl = `${EVENT_HANDLER_URL[getEnvironment()]}/fetch/event`;
+export const inaktiveNotifikasjonerUrl = `${EVENT_HANDLER_URL[getEnvironment()]}/fetch/event/inaktive`;
