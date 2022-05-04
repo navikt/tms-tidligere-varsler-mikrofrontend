@@ -1,11 +1,19 @@
+const notifikasjoner = require("./mockData/notifikasjoner");
+const notifikasjonerInaktiv = require("./mockData/notifikasjoner-inaktiv");
+
 export default [
   {
-    url: "/api/endpoint",
+    url: "/api/notifikasjon",
     method: "get",
     response: () => {
-      return {
-        tekst: "Dette kommer til å bli en awesome mikrofrontend! 😊 🎉",
-      };
+      return notifikasjoner;
+    },
+  },
+  {
+    url: "/api/notifikasjon/inaktiv",
+    method: "get",
+    response: () => {
+      return notifikasjonerInaktiv;
     },
   },
 ];

@@ -4,7 +4,12 @@ body {
 }
 
 body {
-  background-color: #1f1d2e;
-  color: #575279;
-  font-family: sans-serif;
+  background-color: var(--navds-semantic-color-canvas-background);
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  width: 100%;
+  max-width: 808px;
 }

@@ -1,0 +1,33 @@
+.brukernotifikasjon-panel {
+  margin-bottom: 0.25rem;
+  border-radius: 0.5rem;
+  display: flex;
+}
+
+.brukernotifikasjon-innhold {
+}
+
+.brukernotifikasjon-tekst-wrapper {
+}
+
+.brukernotifikasjon-panel .brukernotifikasjon-title-tekst {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: var(--navds-semantic-color-text);
+}
+
+.brukernotifikasjon-dato-beskrivelse {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-top: 0.25rem;
+  color: var(--navds-semantic-color-text-muted);
+}
+.arkiver-knapp-container {
+  display: flex;
+  align-items: center;
+}
+
+.arkiver-knapp {
+  font-size: 1rem !important;
+}

@@ -1,0 +1,24 @@
+.search-field-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-ikon {
+  position: absolute;
+  left: 1rem;
+  top: 3rem;
+}
+.navds-text-field__input {
+  padding-left: 2.75rem;
+  padding-right: 2.75rem;
+}
+
+.clear-button {
+  position: absolute;
+  height: 3rem;
+  bottom: 0;
+  right: 0;
+
+  border: 0;
+  background: transparent;
+}
