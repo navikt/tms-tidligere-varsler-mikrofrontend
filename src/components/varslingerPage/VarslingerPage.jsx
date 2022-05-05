@@ -1,11 +1,11 @@
-import { fetchInktivBrukernotifikasjoner, fetchAktivBrukernotifikasjoner } from "../../api/api";
+import { fetchInktivBrukernotifikasjoner, fetchAktivNotifikasjoner } from "../../api/api";
 import { setLocaleDate } from "../../utils/date";
 import VarslingerList from "../varslingerList/VarslingerList";
 import Filter from "../filter/Filter";
 import "./Varslinger.css";
 
 const VarslingerPage = () => {
-  const { isLoading, data: notifikasjoner } = fetchAktivBrukernotifikasjoner();
+  const { isLoading, data: notifikasjoner } = fetchAktivNotifikasjoner();
   const { isLoading: isLoadingInaktiv, data: inaktiveNotifikasjoner } = fetchInktivBrukernotifikasjoner();
 
   setLocaleDate();

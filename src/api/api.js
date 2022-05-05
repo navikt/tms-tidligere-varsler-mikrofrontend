@@ -1,5 +1,12 @@
 import { useQuery } from "react-query";
-import { notifikasjonerUrl, inaktiveNotifikasjonerUrl } from "./urls";
+import {
+  oppgaverApiUrl,
+  beskjederApiUrl,
+  innboksApiUrl,
+  inaktiveBeskjederApiUrl,
+  inaktiveOppgaverApiUrl,
+  inaktiveInnboksApiUrl,
+} from "./urls";
 
 const checkResponse = (response) => {
   if (!response.ok) {
@@ -17,14 +24,29 @@ export const fetcher = async ({ queryKey }) => {
   return response.json();
 };
 
-export const fetchAktivBrukernotifikasjoner = () => {
-  console.log(notifikasjonerUrl);
-  const response = useQuery(notifikasjonerUrl, fetcher);
-  return response;
+const fetchNotifikasjonMedType = (notifikasjonsurl, type) => {
+  const { isLoading, data, isSuccess } = useQuery(notifikasjonsurl, fetcher);
+  const typetEllerTomNotifikasjoner = isSuccess ? data.map((notifikasjon) => ({ ...notifikasjon, type: type })) : [];
+
+  return { isLoading: isLoading, data: typetEllerTomNotifikasjoner };
+};
+
+export const fetchAktivNotifikasjoner = () => {
+  const { isLoading: isLoadingOppgave, data: oppgave } = fetchNotifikasjonMedType(oppgaverApiUrl, "oppgave");
+  const { isLoading: isLoadingBeskjed, data: beskjed } = fetchNotifikasjonMedType(beskjederApiUrl, "beskjed");
+  const { isLoading: isLoadingInnboks, data: innboks } = fetchNotifikasjonMedType(innboksApiUrl, "innboks");
+
+  const isLoading = isLoadingOppgave || isLoadingBeskjed || isLoadingInnboks;
+  const samletNotifikasjoner = [...oppgave, ...beskjed, ...innboks];
+  return { isLoading: isLoading, data: samletNotifikasjoner };
 };
 
 export const fetchInktivBrukernotifikasjoner = () => {
-  console.log(inaktiveNotifikasjonerUrl);
-  const response = useQuery(inaktiveNotifikasjonerUrl, fetcher);
-  return response;
+  const { isLoading: isLoadingOppgave, data: oppgave } = fetchNotifikasjonMedType(inaktiveOppgaverApiUrl, "oppgave");
+  const { isLoading: isLoadingBeskjed, data: beskjed } = fetchNotifikasjonMedType(inaktiveBeskjederApiUrl, "beskjed");
+  const { isLoading: isLoadingInnboks, data: innboks } = fetchNotifikasjonMedType(inaktiveInnboksApiUrl, "innboks");
+
+  const isLoading = isLoadingOppgave || isLoadingBeskjed || isLoadingInnboks;
+  const samletNotifikasjoner = [...oppgave, ...beskjed, ...innboks];
+  return { isLoading: isLoading, data: samletNotifikasjoner };
 };
