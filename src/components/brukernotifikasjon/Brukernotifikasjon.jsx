@@ -13,7 +13,7 @@ const Brukernotifikasjon = ({ notifikasjon }) => {
 
   const erPanelMedArkiver = notifikasjon.link === "" && type === "beskjed";
   const innholderSok = notifikasjon.tekst.toLowerCase().includes(filterSok.toLowerCase());
-  const showNotifikasjon = filterType === type || (filterType === "alle" && innholderSok);
+  const showNotifikasjon = (filterType === type || filterType === "alle") && innholderSok;
 
   if (!showNotifikasjon) {
     return "";
