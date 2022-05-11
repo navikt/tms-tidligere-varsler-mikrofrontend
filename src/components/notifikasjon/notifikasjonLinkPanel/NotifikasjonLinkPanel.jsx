@@ -4,11 +4,11 @@ import ChatIkon from "../../../assets/ChatIkon";
 import { formatToReadableDate } from "../../../utils/date";
 import "./NotifikasjonLinkPanel.css";
 
-const NotifikasjonLinkPanel = ({ tittel, dato, type }) => {
+const NotifikasjonLinkPanel = ({ tittel, dato, type, link }) => {
   const Icon = type === "oppgave" ? OppgaveIkon : ChatIkon;
 
   return (
-    <LinkPanel className="notifikasjon-link-panel" border={false} href="#">
+    <LinkPanel className="notifikasjon-link-panel" border={false} href={link}>
       <div
         style={{
           display: "grid",

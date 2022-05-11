@@ -20,9 +20,9 @@ const Notifikasjon = ({ notifikasjon }) => {
     return "";
   }
   return isArkiver ? (
-    <NotifikasjonPanel tittel={tittel} dato={dato} link />
+    <NotifikasjonPanel tittel={tittel} dato={dato} />
   ) : (
-    <NotifikasjonLinkPanel tittel={tittel} dato={dato} type={type} link />
+    <NotifikasjonLinkPanel tittel={tittel} dato={dato} type={type} link={link} />
   );
 };
 export default Notifikasjon;
