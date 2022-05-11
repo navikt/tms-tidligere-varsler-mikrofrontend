@@ -1,20 +1,20 @@
-import { fetchInktivBrukernotifikasjoner, fetchAktivNotifikasjoner } from "../../api/api";
+import { fetchInaktiveNotifikasjoner, fetchAktiveNotifikasjoner } from "../../api/api";
 import { setLocaleDate } from "../../utils/date";
 import VarslingerList from "../varslingerList/VarslingerList";
 import Filter from "../filter/Filter";
 import "./Varslinger.css";
 
 const VarslingerPage = () => {
-  const { isLoading, data: notifikasjoner } = fetchAktivNotifikasjoner();
-  const { isLoading: isLoadingInaktiv, data: inaktiveNotifikasjoner } = fetchInktivBrukernotifikasjoner();
+  const { isLoading, data: notifikasjoner } = fetchAktiveNotifikasjoner();
+  const { isLoading: isLoadingInaktiv, data: inaktiveNotifikasjoner } = fetchInaktiveNotifikasjoner();
 
   setLocaleDate();
   return (
     <section className="varslinger">
       <Filter />
-      <VarslingerList brukernotifikasjoner={notifikasjoner} tittel={"Nye varsler"} isLoading={isLoading} />
+      <VarslingerList notifikasjoner={notifikasjoner} tittel={"Nye varsler"} isLoading={isLoading} />
       <VarslingerList
-        brukernotifikasjoner={inaktiveNotifikasjoner}
+        notifikasjoner={inaktiveNotifikasjoner}
         tittel={"Tidligere varsler"}
         isLoading={isLoadingInaktiv}
       />

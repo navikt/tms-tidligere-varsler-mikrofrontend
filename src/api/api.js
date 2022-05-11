@@ -31,7 +31,7 @@ const fetchNotifikasjonMedType = (notifikasjonsurl, type) => {
   return { isLoading: isLoading, data: typetEllerTomNotifikasjoner };
 };
 
-export const fetchAktivNotifikasjoner = () => {
+export const fetchAktiveNotifikasjoner = () => {
   const { isLoading: isLoadingOppgave, data: oppgave } = fetchNotifikasjonMedType(oppgaverApiUrl, "oppgave");
   const { isLoading: isLoadingBeskjed, data: beskjed } = fetchNotifikasjonMedType(beskjederApiUrl, "beskjed");
   const { isLoading: isLoadingInnboks, data: innboks } = fetchNotifikasjonMedType(innboksApiUrl, "innboks");
@@ -41,7 +41,7 @@ export const fetchAktivNotifikasjoner = () => {
   return { isLoading: isLoading, data: samletNotifikasjoner };
 };
 
-export const fetchInktivBrukernotifikasjoner = () => {
+export const fetchInaktiveNotifikasjoner = () => {
   const { isLoading: isLoadingOppgave, data: oppgave } = fetchNotifikasjonMedType(inaktiveOppgaverApiUrl, "oppgave");
   const { isLoading: isLoadingBeskjed, data: beskjed } = fetchNotifikasjonMedType(inaktiveBeskjederApiUrl, "beskjed");
   const { isLoading: isLoadingInnboks, data: innboks } = fetchNotifikasjonMedType(inaktiveInnboksApiUrl, "innboks");

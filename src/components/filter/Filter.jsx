@@ -1,14 +1,14 @@
 import { Panel } from "@navikt/ds-react";
 import "@navikt/ds-css";
-import ToggleBrukernotifikasjon from "./ToggleBrukernotifikasjon/ToggleBrukernotifikasjon";
-import SearchField from "./SearchField/SearchField";
+import ToggleNotifikasjon from "./toggleNotifikasjon/ToggleNotifikasjon";
+import SearchField from "./searchField/SearchField";
 import "./Filter.css";
 
 const Filter = () => {
   return (
     <Panel className="filter">
       <SearchField />
-      <ToggleBrukernotifikasjon />
+      <ToggleNotifikasjon />
     </Panel>
   );
 };

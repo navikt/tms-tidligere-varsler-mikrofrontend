@@ -1,10 +1,10 @@
 import React from "react";
 import { ToggleGroup } from "@navikt/ds-react";
-import "./ToggleBrukernotifikasjon.css";
+import "./ToggleNotifikasjon.css";
 import useStore from "../../../store/store";
 import { selectAlle, selectBeskjed, selectOppgave, selectInnboks } from "../../../store/selectors";
 
-const ToggleBrukernotifikasjon = () => {
+const ToggleNotifikasjon = () => {
   const [value, setValue] = React.useState("ulest");
   const alle = useStore(selectAlle);
   const oppgave = useStore(selectOppgave);
@@ -12,7 +12,7 @@ const ToggleBrukernotifikasjon = () => {
   const innboks = useStore(selectInnboks);
 
   return (
-    <ToggleGroup className="toggle-brukernotifikasjon" onChange={setValue} value={value} size="small">
+    <ToggleGroup className="toggle-notifikasjon" onChange={setValue} value={value} size="small">
       <ToggleGroup.Item value="alle" onClick={alle}>
         Alle
       </ToggleGroup.Item>
@@ -29,4 +29,4 @@ const ToggleBrukernotifikasjon = () => {
   );
 };
 
-export default ToggleBrukernotifikasjon;
+export default ToggleNotifikasjon;

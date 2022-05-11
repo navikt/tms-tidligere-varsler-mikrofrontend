@@ -1,8 +1,8 @@
 import { Heading } from "@navikt/ds-react";
 import "./VarslingerList.css";
-import Brukernotifikasjon from "../brukernotifikasjon/Brukernotifikasjon";
+import Notifikasjon from "../notifikasjon/Notifikasjon";
 
-const VarslingerList = ({ brukernotifikasjoner, tittel, isLoading }) => {
+const VarslingerList = ({ notifikasjoner, tittel, isLoading }) => {
   return (
     <section className="varslinger-list">
       <Heading spacing size="medium" level="4" className="varslinger-liste-heading">
@@ -11,8 +11,8 @@ const VarslingerList = ({ brukernotifikasjoner, tittel, isLoading }) => {
       <div>
         {isLoading
           ? "Loading..."
-          : brukernotifikasjoner.map((notifikasjon) => (
-              <Brukernotifikasjon key={notifikasjon.eventId} notifikasjon={notifikasjon} />
+          : notifikasjoner.map((notifikasjon) => (
+              <Notifikasjon key={notifikasjon.eventId} notifikasjon={notifikasjon} />
             ))}
       </div>
     </section>

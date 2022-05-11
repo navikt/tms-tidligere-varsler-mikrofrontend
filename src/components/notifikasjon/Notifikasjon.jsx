@@ -1,27 +1,28 @@
 import useStore from "../../store/store";
 import { selectSearch, selectType } from "../../store/selectors";
-import BrukernotifikasjonPanel from "./brukernotifikasjonPanel/BrukernotifikasjonPanel";
-import BrukernotifikasjonLinkPanel from "./brukernotifikasjonLinkPanel/BrukernotifikasjonLinkPanel";
+import NotifikasjonPanel from "./notifikasjonPanel/NotifikasjonPanel";
+import NotifikasjonLinkPanel from "./notifikasjonLinkPanel/NotifikasjonLinkPanel";
 
-const Brukernotifikasjon = ({ notifikasjon }) => {
+const Notifikasjon = ({ notifikasjon }) => {
   const filterType = useStore(selectType);
   const filterSok = useStore(selectSearch);
 
   const tittel = notifikasjon.tekst;
   const dato = notifikasjon.sistOppdatert;
   const type = notifikasjon.type;
+  const link = notifikasjon.link;
 
-  const erPanelMedArkiver = notifikasjon.link === "" && type === "beskjed";
+  const isArkiver = link === "" && type === "beskjed";
   const innholderSok = notifikasjon.tekst.toLowerCase().includes(filterSok.toLowerCase());
   const showNotifikasjon = (filterType === type || filterType === "alle") && innholderSok;
 
   if (!showNotifikasjon) {
     return "";
   }
-  return erPanelMedArkiver ? (
-    <BrukernotifikasjonPanel tittel={tittel} dato={dato} />
+  return isArkiver ? (
+    <NotifikasjonPanel tittel={tittel} dato={dato} link />
   ) : (
-    <BrukernotifikasjonLinkPanel tittel={tittel} dato={dato} type={type} />
+    <NotifikasjonLinkPanel tittel={tittel} dato={dato} type={type} link />
   );
 };
-export default Brukernotifikasjon;
+export default Notifikasjon;

@@ -1,22 +1,16 @@
-.brukernotifikasjon-link-panel {
+.notifikasjon-link-panel {
   margin-bottom: 0.25rem;
   border-radius: 0.5rem;
 }
 
-.brukernotifikasjon-innhold {
-}
-
-.brukernotifikasjon-tekst-wrapper {
-}
-
-.brukernotifikasjon-title-tekst {
+.notifikasjon-link-panel-tittel {
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
 }
 
-.brukernotifikasjon-dato-beskrivelse {
+.notifikasjon-link-panel-dato {
   font-size: 1rem;
   font-weight: normal;
   margin-top: 0.25rem;

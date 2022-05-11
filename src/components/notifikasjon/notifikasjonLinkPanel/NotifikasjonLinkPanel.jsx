@@ -2,13 +2,13 @@ import { LinkPanel } from "@navikt/ds-react";
 import OppgaveIkon from "../../../assets/OppgaveIkon";
 import ChatIkon from "../../../assets/ChatIkon";
 import { formatToReadableDate } from "../../../utils/date";
-import "./BrukernotifikasjonLinkPanel.css";
+import "./NotifikasjonLinkPanel.css";
 
-const BrukernotifikasjonLinkPanel = ({ tittel, dato, type }) => {
+const NotifikasjonLinkPanel = ({ tittel, dato, type }) => {
   const Icon = type === "oppgave" ? OppgaveIkon : ChatIkon;
 
   return (
-    <LinkPanel className="brukernotifikasjon-link-panel" border={false} href="#">
+    <LinkPanel className="notifikasjon-link-panel" border={false} href="#">
       <div
         style={{
           display: "grid",
@@ -18,9 +18,9 @@ const BrukernotifikasjonLinkPanel = ({ tittel, dato, type }) => {
         }}
       >
         {<Icon />}
-        <div className="brukernotifikasjon-tekst-wrapper">
-          <LinkPanel.Title className="brukernotifikasjon-title-tekst">{tittel}</LinkPanel.Title>
-          <LinkPanel.Description className="brukernotifikasjon-dato-beskrivelse">
+        <div className="notifikasjon-link-panel-text-wrapper">
+          <LinkPanel.Title className="notifikasjon-link-panel-tittel">{tittel}</LinkPanel.Title>
+          <LinkPanel.Description className="notifikasjon-link-panel-dato">
             {formatToReadableDate(dato)}
           </LinkPanel.Description>
         </div>
@@ -29,4 +29,4 @@ const BrukernotifikasjonLinkPanel = ({ tittel, dato, type }) => {
   );
 };
 
-export default BrukernotifikasjonLinkPanel;
+export default NotifikasjonLinkPanel;
