@@ -1,3 +1,4 @@
+@import '../node_modules/@navikt/ds-css';
 html,
 body {
   height: 100%;
@@ -5,8 +6,18 @@ body {
 
 body {
   background-color: var(--navds-semantic-color-canvas-background);
+}
+
+.page-wrapper {
+  height: auto;
+  min-height: 100%;
+}
+
+.page-layout {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 main {

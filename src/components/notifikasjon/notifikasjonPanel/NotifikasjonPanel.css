@@ -1,22 +1,17 @@
 .notifikasjon-panel {
   margin-bottom: 0.25rem;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem !important;
   display: flex;
+  justify-content: space-between;
 }
 
 .notifikasjon-panel-tittel{
   font-size: 1.125rem;
-  font-weight: 400;
+  font-weight: 400 !important;
   line-height: 1.5rem;
   color: var(--navds-semantic-color-text);
 }
 
-.notifikasjon-panel-dato {
-  font-size: 1rem;
-  font-weight: normal;
-  margin-top: 0.25rem;
-  color: var(--navds-semantic-color-text-muted);
-}
 .arkiver-button-container {
   display: flex;
   align-items: center;

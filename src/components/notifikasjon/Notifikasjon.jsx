@@ -2,6 +2,7 @@ import useStore from "../../store/store";
 import { selectSearch, selectType } from "../../store/selectors";
 import NotifikasjonPanel from "./notifikasjonPanel/NotifikasjonPanel";
 import NotifikasjonLinkPanel from "./notifikasjonLinkPanel/NotifikasjonLinkPanel";
+import "./Notifikasjon.css";
 
 const Notifikasjon = ({ notifikasjon }) => {
   const filterType = useStore(selectType);

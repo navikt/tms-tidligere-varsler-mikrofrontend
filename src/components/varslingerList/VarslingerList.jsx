@@ -1,4 +1,5 @@
 import { Heading } from "@navikt/ds-react";
+import PropTypes from "prop-types";
 import "./VarslingerList.css";
 import Notifikasjon from "../notifikasjon/Notifikasjon";
 
@@ -17,6 +18,11 @@ const VarslingerList = ({ notifikasjoner, tittel, isLoading }) => {
       </div>
     </section>
   );
+};
+
+VarslingerList.prototypes = {
+  isLoading: PropTypes.bool.isRequired,
+  tittel: PropTypes.string.isRequired,
 };
 
 export default VarslingerList;
