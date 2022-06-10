@@ -1,29 +1,29 @@
 import useStore from "../../store/store";
 import { selectSearch, selectType } from "../../store/selectors";
-import NotifikasjonPanel from "./notifikasjonPanel/NotifikasjonPanel";
-import NotifikasjonLinkPanel from "./notifikasjonLinkPanel/NotifikasjonLinkPanel";
+import Beskjed from "./beskjed/Beskjed";
+import Oppgave from "./oppgave/Oppgave";
+import Innboks from "./innboks/Innboks";
 import "./Notifikasjon.css";
 
-const Notifikasjon = ({ notifikasjon }) => {
+const MapTypeToComponent = {
+  beskjed: Beskjed,
+  oppgave: Oppgave,
+  innboks: Innboks,
+};
+
+const Notifikasjon = ({ notifikasjon, aktiv }) => {
   const filterType = useStore(selectType);
   const filterSok = useStore(selectSearch);
 
-  const tittel = notifikasjon.tekst;
-  const dato = notifikasjon.sistOppdatert;
   const type = notifikasjon.type;
-  const link = notifikasjon.link;
+  const NotifikasjonComponent = MapTypeToComponent[type];
 
-  const isArkiver = link === "" && type === "beskjed";
   const innholderSok = notifikasjon.tekst.toLowerCase().includes(filterSok.toLowerCase());
   const showNotifikasjon = (filterType === type || filterType === "alle") && innholderSok;
 
   if (!showNotifikasjon) {
     return "";
   }
-  return isArkiver ? (
-    <NotifikasjonPanel tittel={tittel} dato={dato} />
-  ) : (
-    <NotifikasjonLinkPanel tittel={tittel} dato={dato} type={type} link={link} />
-  );
+  return <NotifikasjonComponent props={notifikasjon} aktiv={aktiv} />;
 };
 export default Notifikasjon;

@@ -1,10 +1,12 @@
 import { Panel, Heading, BodyLong, Button } from "@navikt/ds-react";
-import PropTypes from "prop-types";
-import ChatIkon from "../../../assets/ChatIkon";
+import BeskjedIkon from "../../../assets/BeskjedIkon";
 import { formatToReadableDate } from "../../../utils/date";
-import "./NotifikasjonPanel.css";
+import "./BeskjedPanel.css";
 
-const NotifikasjonPanel = ({ tittel, dato }) => {
+const BeskjedPanel = ({ props, handleArkiver, aktiv }) => {
+  const tittel = props.tekst;
+  const dato = props.forstBehandlet;
+
   return (
     <Panel className="notifikasjon-panel">
       <div
@@ -15,23 +17,29 @@ const NotifikasjonPanel = ({ tittel, dato }) => {
           alignItems: "center",
         }}
       >
-        <ChatIkon />
+        <BeskjedIkon />
         <div className="notifikasjon-panel-text-wrapper">
           <Heading className="notifikasjon-panel-tittel">{tittel}</Heading>
           <BodyLong className="notifikasjon-dato">{formatToReadableDate(dato)}</BodyLong>
         </div>
       </div>
       <div className="arkiver-button-container">
-        <Button size={"small"} variant={"tertiary"} className="arkiver-button" aria-label="Tøm">
-          Arkiver
-        </Button>
+        {aktiv ? (
+          <Button
+            size={"small"}
+            variant={"tertiary"}
+            className="arkiver-button"
+            aria-label="Tøm"
+            onClick={handleArkiver}
+          >
+            Arkiver
+          </Button>
+        ) : (
+          ""
+        )}
       </div>
     </Panel>
   );
 };
-NotifikasjonPanel.prototypes = {
-  tittel: PropTypes.string.isRequired,
-  dato: PropTypes.string.isRequired,
-};
 
-export default NotifikasjonPanel;
+export default BeskjedPanel;

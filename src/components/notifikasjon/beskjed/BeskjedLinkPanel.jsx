@@ -1,12 +1,11 @@
 import { LinkPanel } from "@navikt/ds-react";
-import PropTypes from "prop-types";
-import OppgaveIkon from "../../../assets/OppgaveIkon";
-import ChatIkon from "../../../assets/ChatIkon";
+import BeskjedIkon from "../../../assets/BeskjedIkon";
 import { formatToReadableDate } from "../../../utils/date";
-import "./NotifikasjonLinkPanel.css";
 
-const NotifikasjonLinkPanel = ({ tittel, dato, type, link }) => {
-  const Icon = type === "oppgave" ? OppgaveIkon : ChatIkon;
+const BeskjedLinkPanel = ({ props }) => {
+  const tittel = props.tekst;
+  const dato = props.forstBehandlet;
+  const link = props.link;
 
   return (
     <LinkPanel className="notifikasjon-link-panel" border={false} href={link}>
@@ -18,7 +17,7 @@ const NotifikasjonLinkPanel = ({ tittel, dato, type, link }) => {
           alignItems: "center",
         }}
       >
-        {<Icon />}
+        {<BeskjedIkon />}
         <div className="notifikasjon-link-panel-text-wrapper">
           <LinkPanel.Title className="notifikasjon-link-panel-tittel">{tittel}</LinkPanel.Title>
           <LinkPanel.Description className="notifikasjon-dato">{formatToReadableDate(dato)}</LinkPanel.Description>
@@ -28,11 +27,4 @@ const NotifikasjonLinkPanel = ({ tittel, dato, type, link }) => {
   );
 };
 
-NotifikasjonLinkPanel.prototypes = {
-  tittel: PropTypes.string.isRequired,
-  dato: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-};
-
-export default NotifikasjonLinkPanel;
+export default BeskjedLinkPanel;

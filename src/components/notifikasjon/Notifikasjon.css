@@ -5,3 +5,14 @@
   color: var(--navds-semantic-color-text-muted);
   font-weight: normal !important;
 }
+
+.notifikasjon-link-panel {
+  margin-bottom: 0.25rem !important;
+  border-radius: 0.5rem !important;
+}
+
+.notifikasjon-link-panel-tittel {
+  font-style: normal !important;
+  font-size: 18px !important;
+  line-height: 24px !important;
+}
