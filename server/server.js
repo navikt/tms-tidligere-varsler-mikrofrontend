@@ -5,10 +5,17 @@ const basePath = "/tms-min-side-varslinger";
 const buildPath = path.resolve(__dirname, "../dist");
 const server = express();
 const corsAllowedOrigin = process.env.CORS_ALLOWED_ORIGIN || "http://localhost:3000";
+const expressStaticGzip = require("express-static-gzip");
 
 server.use(cors({ origin: corsAllowedOrigin }));
 
-server.use(basePath, express.static(buildPath));
+server.use(
+  basePath,
+  expressStaticGzip(buildPath, {
+    enableBrotli: true,
+    orderPreference: ["br"],
+  })
+);
 
 server.get(`${basePath}/internal/isAlive`, (req, res) => {
   res.sendStatus(200);
