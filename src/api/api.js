@@ -14,6 +14,8 @@ import {
   inaktiveBeskjederApiUrl,
   inaktiveOppgaverApiUrl,
   inaktiveInnboksApiUrl,
+  DONE_URL,
+  DIGISOS_DONE_URL,
 } from "./urls";
 
 const checkResponse = (response) => {
@@ -94,5 +96,5 @@ export const fetchInaktiveNotifikasjoner = () => {
   return { isLoading, inaktiveNotifikasjoner };
 };
 
-export const postDone = (content) => postJSON(`${Dittnav.DONE_URL}`, content);
-export const postDigisosDone = (content) => postJSON(`${Dittnav.DIGISOS_DONE_URL}`, content);
+export const postDone = (content) => postJSON(`${DONE_URL}`, content);
+export const postDigisosDone = (content) => postJSON(`${DIGISOS_DONE_URL}`, content);
