@@ -1,7 +1,8 @@
 import { LinkPanel } from "@navikt/ds-react";
-import OppgaveIkon from "../../../assets/OppgaveIkon";
+import { Task } from "@navikt/ds-icons";
 import { formatToReadableDate } from "../../../utils/date";
 import { loginserviceStepUpUrl } from "../../../api/urls";
+import "./Oppgave.css";
 
 const Oppgave = ({ props, isMasked }) => {
   const dato = props.forstBehandlet;
@@ -11,7 +12,7 @@ const Oppgave = ({ props, isMasked }) => {
     : props.tekst;
 
   return (
-    <LinkPanel className="notifikasjon-link-panel" border={false} href={link}>
+    <LinkPanel className="notifikasjon-link-panel oppgave-link-panel" border={false} href={link}>
       <div
         style={{
           display: "grid",
@@ -20,7 +21,9 @@ const Oppgave = ({ props, isMasked }) => {
           alignItems: "center",
         }}
       >
-        {<OppgaveIkon />}
+        <div className="icon-container oppgave-icon-container">
+          <Task className="oppgave-icon" fontSize="1.5rem" />
+        </div>
         <div className="notifikasjon-link-panel-text-wrapper">
           <LinkPanel.Title className="notifikasjon-link-panel-tittel">{tittel}</LinkPanel.Title>
           <LinkPanel.Description className="notifikasjon-dato">{formatToReadableDate(dato)}</LinkPanel.Description>

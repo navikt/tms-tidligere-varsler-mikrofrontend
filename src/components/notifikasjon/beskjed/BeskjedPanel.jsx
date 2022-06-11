@@ -1,9 +1,20 @@
 import { Panel, Heading, BodyLong, Button } from "@navikt/ds-react";
-import BeskjedIkon from "../../../assets/BeskjedIkon";
+import { SpeechBubble, FileFolder } from "@navikt/ds-icons";
 import { formatToReadableDate } from "../../../utils/date";
+import { useState } from "react";
 import "./BeskjedPanel.css";
 
 const BeskjedPanel = ({ tittel, dato, handleArkiver, aktiv }) => {
+  const [showArkiverIkon, setShowArkiverIkon] = useState(false);
+
+  const handleArkiverknappMouseEnter = () => {
+    setShowArkiverIkon(true);
+  };
+
+  const handleArkiverknappMouseLeave = () => {
+    setShowArkiverIkon(false);
+  };
+
   return (
     <Panel className="notifikasjon-panel">
       <div
@@ -14,7 +25,13 @@ const BeskjedPanel = ({ tittel, dato, handleArkiver, aktiv }) => {
           alignItems: "center",
         }}
       >
-        <BeskjedIkon />
+        <div className="icon-container beskjed-icon-container">
+          {showArkiverIkon ? (
+            <FileFolder className="beskjed-icon" fontSize="1.5rem" />
+          ) : (
+            <SpeechBubble className="beskjed-icon" fontSize="1.5rem" />
+          )}
+        </div>
         <div className="notifikasjon-panel-text-wrapper">
           <Heading className="notifikasjon-panel-tittel">{tittel}</Heading>
           <BodyLong className="notifikasjon-dato">{formatToReadableDate(dato)}</BodyLong>
@@ -28,6 +45,12 @@ const BeskjedPanel = ({ tittel, dato, handleArkiver, aktiv }) => {
             className="arkiver-button"
             aria-label="Tøm"
             onClick={handleArkiver}
+            onMouseEnter={() => {
+              setShowArkiverIkon(true);
+            }}
+            onMouseLeave={() => {
+              setShowArkiverIkon(false);
+            }}
           >
             Arkiver
           </Button>

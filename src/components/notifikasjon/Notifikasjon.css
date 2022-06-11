@@ -16,3 +16,29 @@
   font-size: 18px !important;
   line-height: 24px !important;
 }
+.notifikasjon-link-panel-tittel {
+  text-decoration: none !important;
+  color: var(--navds-global-color-gray-900) !important;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+}
+
+.beskjed-icon {
+  color: #0067c5;
+}
+
+.beskjed-icon-container {
+  background-color: #e6f0ff;
+}
+
+.beskejd-link-panel:hover,
+.innboks-link-panel:hover {
+  background-color: #99c3ff;
+}
