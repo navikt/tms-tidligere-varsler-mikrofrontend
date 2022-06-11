@@ -56,7 +56,7 @@ export const inaktiveOppgaverApiUrl = `${dittNavApiUrl}/oppgave/inaktiv`;
 export const inaktiveBeskjederApiUrl = `${dittNavApiUrl}/beskjed/inaktiv`;
 export const inaktiveInnboksApiUrl = `${dittNavApiUrl}/innboks/inaktiv`;
 
-export const doneUrl = `${dittNavApiUrl}/producer/done`;
+export const doneUrl = `${dittNavApiUrl}/produce/done`;
 export const digisosDoneUrl = `${dittNavApiUrl}/digisos/paabegynte/done`;
 
 export const loginserviceStepUpUrl = `${LOGINSERVICE_LEVEL4_URL}&redirect=${MIN_SIDE_URL}`;
