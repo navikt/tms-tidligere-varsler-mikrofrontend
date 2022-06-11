@@ -20,7 +20,6 @@ const Notifikasjon = ({ notifikasjon, aktiv, isMasked }) => {
 
   const innholderSok = notifikasjon.tekst.toLowerCase().includes(filterSok.toLowerCase());
   const showNotifikasjon = (filterType === type || filterType === "alle") && innholderSok;
-  console.log(isMasked);
 
   if (!showNotifikasjon) {
     return "";
