@@ -1,11 +1,14 @@
 import { LinkPanel } from "@navikt/ds-react";
 import OppgaveIkon from "../../../assets/OppgaveIkon";
 import { formatToReadableDate } from "../../../utils/date";
+import { loginserviceStepUpUrl } from "../../../api/urls";
 
-const Oppgave = ({ props }) => {
-  const tittel = props.tekst;
+const Oppgave = ({ props, isMasked }) => {
   const dato = props.forstBehandlet;
-  const link = props.link;
+  const link = isMasked ? loginserviceStepUpUrl : props.link;
+  const tittel = isMasked
+    ? "Du har fått en oppgave, logg inn med høyere sikkerhetsnivå for å se oppgaven."
+    : props.tekst;
 
   return (
     <LinkPanel className="notifikasjon-link-panel" border={false} href={link}>

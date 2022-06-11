@@ -5,17 +5,17 @@
 
 .search-ikon {
   position: absolute;
-  left: 1rem;
-  top: 3rem;
+  left: 16px;
+  top: 48px;
 }
 .navds-text-field__input {
-  padding-left: 2.75rem;
-  padding-right: 2.75rem;
+  padding-left: 2.75rem !important;
+  padding-right: 2.75rem !important;
 }
 
 .clear-button {
   position: absolute;
-  height: 3rem;
+  height: 44px;
   bottom: 0;
   right: 0;
 

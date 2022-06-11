@@ -11,7 +11,7 @@ const MapTypeToComponent = {
   innboks: Innboks,
 };
 
-const Notifikasjon = ({ notifikasjon, aktiv }) => {
+const Notifikasjon = ({ notifikasjon, aktiv, isMasked }) => {
   const filterType = useStore(selectType);
   const filterSok = useStore(selectSearch);
 
@@ -20,10 +20,11 @@ const Notifikasjon = ({ notifikasjon, aktiv }) => {
 
   const innholderSok = notifikasjon.tekst.toLowerCase().includes(filterSok.toLowerCase());
   const showNotifikasjon = (filterType === type || filterType === "alle") && innholderSok;
+  console.log(isMasked);
 
   if (!showNotifikasjon) {
     return "";
   }
-  return <NotifikasjonComponent props={notifikasjon} aktiv={aktiv} />;
+  return <NotifikasjonComponent props={notifikasjon} aktiv={aktiv} isMasked={isMasked} />;
 };
 export default Notifikasjon;

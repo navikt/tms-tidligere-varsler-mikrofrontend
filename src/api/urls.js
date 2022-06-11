@@ -2,15 +2,21 @@ const isProduction = window.location.href.includes("www.nav.no");
 const isDevelopment = window.location.href.includes("www.dev.nav.no");
 
 export const getEnvironment = () => {
-  if (isProduction) {
-    return "production";
-  }
-
   if (isDevelopment) {
     return "development";
   }
 
+  if (isProduction) {
+    return "production";
+  }
+
   return "local";
+};
+
+const INNLOGGINSSTATUS_URL = {
+  local: "http://localhost:3000/innloggingsstatus/summary",
+  development: "https://innloggingsstatus.dev.nav.no/person/innloggingsstatus/summary",
+  production: "https://innloggingsstatus.nav.no/person/innloggingsstatus/summary",
 };
 
 const EVENT_HANDLER_URL = {
@@ -23,6 +29,18 @@ const DITTNAV_API_URL = {
   local: "http://localhost:3000/api/dittnav-api",
   development: "https://person.dev.nav.no/dittnav-api",
   production: "https://person.nav.no/dittnav-api",
+};
+
+const LOGINSERVICE_LEVEL4_URL = {
+  local: "http://localhost:3000/loginservice",
+  development: "https://loginservice.dev.nav.no/login?level=Level4",
+  production: "https://loginservice.nav.no/login?level=Level4",
+};
+
+const MIN_SIDE_URL = {
+  local: "http://localhost:3000/minside",
+  development: "https://www.dev.nav.no/minside",
+  production: "https://www.intern.nav.no/minside",
 };
 
 const dittNavApiUrl = DITTNAV_API_URL[getEnvironment()];
@@ -40,3 +58,6 @@ export const inaktiveInnboksApiUrl = `${dittNavApiUrl}/innboks/inaktiv`;
 
 export const doneUrl = `${dittNavApiUrl}/producer/done`;
 export const digisosDoneUrl = `${dittNavApiUrl}/digisos/paabegynte/done`;
+
+export const loginserviceStepUpUrl = `${LOGINSERVICE_LEVEL4_URL}&redirect=${MIN_SIDE_URL}`;
+export const innloggingsstatusUrl = INNLOGGINSSTATUS_URL[getEnvironment()];

@@ -3,10 +3,7 @@ import BeskjedIkon from "../../../assets/BeskjedIkon";
 import { formatToReadableDate } from "../../../utils/date";
 import "./BeskjedPanel.css";
 
-const BeskjedPanel = ({ props, handleArkiver, aktiv }) => {
-  const tittel = props.tekst;
-  const dato = props.forstBehandlet;
-
+const BeskjedPanel = ({ tittel, dato, handleArkiver, aktiv }) => {
   return (
     <Panel className="notifikasjon-panel">
       <div

@@ -14,8 +14,9 @@ import {
   inaktiveBeskjederApiUrl,
   inaktiveOppgaverApiUrl,
   inaktiveInnboksApiUrl,
-  DONE_URL,
-  DIGISOS_DONE_URL,
+  doneUrl,
+  digisosDoneUrl,
+  innloggingsstatusUrl,
 } from "./urls";
 
 const checkResponse = (response) => {
@@ -57,6 +58,11 @@ const postJSON = (url, content) =>
       .catch((e) => reject(e));
   });
 
+export const fetchInnloggingsstatus = () => {
+  const { data } = useQuery(innloggingsstatusUrl, fetcher);
+  return data;
+};
+
 export const fetchAktiveNotifikasjoner = () => {
   const beskjedList = useStore(selectBeskjedList);
   const setBeskjedList = useStore(selectSetBeskjedList);
@@ -96,5 +102,5 @@ export const fetchInaktiveNotifikasjoner = () => {
   return { isLoading, inaktiveNotifikasjoner };
 };
 
-export const postDone = (content) => postJSON(`${DONE_URL}`, content);
-export const postDigisosDone = (content) => postJSON(`${DIGISOS_DONE_URL}`, content);
+export const postDone = (content) => postJSON(`${doneUrl}`, content);
+export const postDigisosDone = (content) => postJSON(`${digisosDoneUrl}`, content);

@@ -2,11 +2,7 @@ import { LinkPanel } from "@navikt/ds-react";
 import BeskjedIkon from "../../../assets/BeskjedIkon";
 import { formatToReadableDate } from "../../../utils/date";
 
-const BeskjedLinkPanel = ({ props }) => {
-  const tittel = props.tekst;
-  const dato = props.forstBehandlet;
-  const link = props.link;
-
+const BeskjedLinkPanel = ({ tittel, dato, link }) => {
   return (
     <LinkPanel className="notifikasjon-link-panel" border={false} href={link}>
       <div
