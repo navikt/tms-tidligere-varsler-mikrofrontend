@@ -5,7 +5,7 @@ import Oppgave from "./oppgave/Oppgave";
 import Innboks from "./innboks/Innboks";
 import "./Notifikasjon.css";
 
-const MapTypeToComponent = {
+const mapTypeToComponent = {
   beskjed: Beskjed,
   oppgave: Oppgave,
   innboks: Innboks,
@@ -16,14 +16,12 @@ const Notifikasjon = ({ notifikasjon, aktiv, isMasked }) => {
   const filterSok = useStore(selectSearch);
 
   const type = notifikasjon.type;
-  const NotifikasjonComponent = MapTypeToComponent[type];
+  const NotifikasjonComponent = mapTypeToComponent[type];
 
   const innholderSok = notifikasjon.tekst.toLowerCase().includes(filterSok.toLowerCase());
   const showNotifikasjon = (filterType === type || filterType === "alle") && innholderSok;
 
-  if (!showNotifikasjon) {
-    return "";
-  }
-  return <NotifikasjonComponent props={notifikasjon} aktiv={aktiv} isMasked={isMasked} />;
+  return showNotifikasjon && <NotifikasjonComponent props={notifikasjon} aktiv={aktiv} isMasked={isMasked} />;
 };
+
 export default Notifikasjon;
