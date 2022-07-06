@@ -21,11 +21,28 @@ const actions = (set) => ({
     set({
       filterSearch: search,
     }),
+
+  setBeskjedList: (list) =>
+    set(() => ({
+      beskjedList: list.map((obj) => ({ ...obj, type: "beskjed" })),
+    })),
+
+  removeBeskjed: (beskjed) =>
+    set((state) => ({
+      beskjedList: state.beskjedList.filter((b) => b.eventId !== beskjed.eventId),
+    })),
+
+  setInaktivBeskjedList: (list) =>
+    set(() => ({ inaktivBeskjedList: list.map((obj) => ({ ...obj, type: "beskjed" })) })),
+
+  addInaktivBeskjedList: (beskjed) => set((state) => ({ inaktivBeskjedList: [...state.inaktivBeskjedList, beskjed] })),
 });
 
 const useStore = create((set) => ({
   filterType: "alle",
   filterSearch: "",
+  beskjedList: [],
+  inaktivBeskjedList: [],
   ...actions(set),
 }));
 
