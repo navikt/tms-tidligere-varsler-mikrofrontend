@@ -16,7 +16,7 @@ export const getEnvironment = () => {
 const INNLOGGINSSTATUS_URL = {
   local: "http://localhost:3000/innloggingsstatus/summary",
   development: "https://innloggingsstatus.dev.nav.no/person/innloggingsstatus/summary",
-  production: "https://innloggingsstatus.nav.no/person/innloggingsstatus/summary",
+  production: "https://www.nav.no/person/innloggingsstatus/summary",
 };
 
 const EVENT_HANDLER_URL = {
