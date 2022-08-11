@@ -74,7 +74,11 @@ export const fetchAktiveNotifikasjoner = () => {
   });
 
   const isLoading = isLoadingOppgave || isLoadingBeskjed || isLoadingInnboks;
-  const notifikasjoner = [...oppgave, ...beskjedList, ...innboks];
+  const notifikasjoner = [
+    ...oppgave.sort(byForstBehandlet),
+    ...beskjedList.sort(byForstBehandlet),
+    ...innboks.sort(byForstBehandlet),
+  ];
   return { isLoading, notifikasjoner };
 };
 
