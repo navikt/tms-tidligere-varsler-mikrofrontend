@@ -59,5 +59,7 @@ export const inaktiveInnboksApiUrl = `${dittNavApiUrl}/innboks/inaktiv`;
 export const doneUrl = `${dittNavApiUrl}/produce/done`;
 export const digisosDoneUrl = `${dittNavApiUrl}/digisos/paabegynte/done`;
 
-export const loginserviceStepUpUrl = `${LOGINSERVICE_LEVEL4_URL}&redirect=${MIN_SIDE_URL}`;
+export const loginserviceStepUpUrl = `${LOGINSERVICE_LEVEL4_URL[getEnvironment()]}&redirect=${
+  MIN_SIDE_URL[getEnvironment()]
+}`;
 export const innloggingsstatusUrl = INNLOGGINSSTATUS_URL[getEnvironment()];
