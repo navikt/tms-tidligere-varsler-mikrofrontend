@@ -12,7 +12,7 @@ const VarslingerList = ({ notifikasjoner, tittel, isLoading, aktiv, innloggingss
       </Heading>
       <div>
         {isLoading
-          ? "Loading..."
+          ? "Laster innhold..."
           : notifikasjoner.map((notifikasjon) => (
               <Notifikasjon
                 key={notifikasjon.eventId}

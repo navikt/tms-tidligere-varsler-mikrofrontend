@@ -5,14 +5,13 @@ import useStore from "../../../store/store";
 import { selectAlle, selectBeskjed, selectOppgave, selectInnboks } from "../../../store/selectors";
 
 const ToggleNotifikasjon = () => {
-  const [value, setValue] = React.useState("ulest");
   const alle = useStore(selectAlle);
   const oppgave = useStore(selectOppgave);
   const beskjed = useStore(selectBeskjed);
   const innboks = useStore(selectInnboks);
 
   return (
-    <ToggleGroup className="toggle-notifikasjon" onChange={setValue} value={value} size="small">
+    <ToggleGroup className="toggle-notifikasjon" size="small" defaultValue="alle">
       <ToggleGroup.Item value="alle" onClick={alle}>
         Alle
       </ToggleGroup.Item>

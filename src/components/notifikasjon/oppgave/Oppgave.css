@@ -1,11 +1,7 @@
 .oppgave-link-panel:hover {
-  background: rgba(255, 215, 153, 1);
-}
-
-.oppgave-icon {
-  color: rgba(212, 123, 0, 1);
+  background: #ffd799;
 }
 
 .oppgave-icon-container {
-  background-color: #fff6e5;
+  background-color: #ffeccc;
 }
