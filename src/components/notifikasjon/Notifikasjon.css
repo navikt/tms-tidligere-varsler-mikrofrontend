@@ -7,16 +7,15 @@
 }
 
 .notifikasjon-link-panel {
-  margin-bottom: 0.25rem ;
-  border-radius: 0.5rem !important;
+  margin-bottom: 0.25rem;
+  border: 1px solid transparent !important;
+  border-radius: 0.25rem !important;
 }
 
 .notifikasjon-link-panel-tittel {
   font-style: normal !important;
   font-size: 18px !important;
   line-height: 24px !important;
-}
-.notifikasjon-link-panel-tittel {
   text-decoration: none !important;
   color: var(--navds-global-color-gray-900) !important;
 }
@@ -30,15 +29,11 @@
   border-radius: 1.5rem;
 }
 
-.beskjed-icon {
-  color: #0067c5;
-}
-
 .beskjed-icon-container {
-  background-color: #e6f0ff;
+  background-color: #cce2f0;
 }
 
 .beskejd-link-panel:hover,
 .innboks-link-panel:hover {
-  background-color: #99c3ff;
+  background-color: #99c4dd;
 }
