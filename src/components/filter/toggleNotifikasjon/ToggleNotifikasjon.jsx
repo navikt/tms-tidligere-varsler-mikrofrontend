@@ -12,7 +12,7 @@ const ToggleNotifikasjon = () => {
   const innboks = useStore(selectInnboks);
 
   return (
-    <ToggleGroup className="toggle-notifikasjon" onChange={setValue} value={value} size="small">
+    <ToggleGroup className="toggle-notifikasjon" onChange={setValue} size="small" defaultValue="alle">
       <ToggleGroup.Item value="alle" onClick={alle}>
         Alle
       </ToggleGroup.Item>
