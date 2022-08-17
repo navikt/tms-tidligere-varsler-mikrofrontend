@@ -1,10 +1,17 @@
 import { LinkPanel } from "@navikt/ds-react";
 import { formatToReadableDate } from "../../../utils/date";
 import { SpeechBubble } from "@navikt/ds-icons";
+import { logAmplitudeEvent, komponent } from "../../../utils/amplitude";
 
-const BeskjedLinkPanel = ({ tittel, dato, link }) => {
+const BeskjedLinkPanel = ({ tittel, dato, link, aktiv }) => {
+  const amplitudeKomponent = aktiv ? komponent.nyBeskjed : komponent.tidligereBeskjed;
   return (
-    <LinkPanel className="notifikasjon-link-panel beskejd-link-panel" border={false} href={link}>
+    <LinkPanel
+      className="notifikasjon-link-panel beskejd-link-panel"
+      border={false}
+      href={link}
+      onClick={() => logAmplitudeEvent(amplitudeKomponent)}
+    >
       <div
         style={{
           display: "grid",
