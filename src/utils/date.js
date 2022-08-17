@@ -11,7 +11,7 @@ export const setLocaleDate = () => {
 };
 
 export const formatToReadableDate = (date) => {
-  return dayjs(date).format("DD. MMMM YYYY");
+  return dayjs(date).format("DD.MM.YYYY - HH:mm");
 };
 
 export const byForstBehandlet = (a, b) => {
