@@ -2,8 +2,10 @@ import { LinkPanel } from "@navikt/ds-react";
 import { SpeechBubble } from "@navikt/ds-icons";
 import { formatToReadableDate } from "../../../utils/date";
 import { loginserviceStepUpUrl } from "../../../api/urls";
+import { logAmplitudeEvent, komponent } from "../../../utils/amplitude";
 
-const Innboks = ({ props, isMasked }) => {
+const Innboks = ({ props, isMasked, aktiv }) => {
+  const amplitudeKomponent = aktiv ? komponent.nyInnboks : komponent.tidligereInnboks;
   const dato = props.forstBehandlet;
   const tittel = isMasked
     ? "Du har fått en melding, logg inn med høyere sikkerhetsnivå for å se meldingen."
@@ -11,7 +13,12 @@ const Innboks = ({ props, isMasked }) => {
   const link = isMasked ? loginserviceStepUpUrl : props.link;
 
   return (
-    <LinkPanel className="notifikasjon-link-panel innboks-link-panel" border={false} href={link}>
+    <LinkPanel
+      className="notifikasjon-link-panel innboks-link-panel"
+      border={false}
+      href={link}
+      onClick={() => logAmplitudeEvent(amplitudeKomponent)}
+    >
       <div
         style={{
           display: "grid",
