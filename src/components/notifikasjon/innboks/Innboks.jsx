@@ -1,13 +1,14 @@
 import { LinkPanel } from "@navikt/ds-react";
 import { SpeechBubble } from "@navikt/ds-icons";
 import { formatToReadableDate } from "../../../utils/date";
+import { loginserviceStepUpUrl } from "../../../api/urls";
 
 const Innboks = ({ props, isMasked }) => {
   const dato = props.forstBehandlet;
-  const link = props.link;
   const tittel = isMasked
     ? "Du har fått en melding, logg inn med høyere sikkerhetsnivå for å se meldingen."
     : props.tekst;
+  const link = isMasked ? loginserviceStepUpUrl : props.link;
 
   return (
     <LinkPanel className="notifikasjon-link-panel innboks-link-panel" border={false} href={link}>

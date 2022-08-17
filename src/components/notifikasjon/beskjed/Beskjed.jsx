@@ -23,7 +23,9 @@ const Beskjed = ({ props, aktiv, isMasked }) => {
   const removeBeskjed = useStore(selectRemoveBeskjed);
   const AddInaktivBeskjed = useStore(selectAddInaktivBeskjed);
 
-  const tittel = isMasked ? "Du har fått en beskjed." : props.tekst;
+  const tittel = isMasked
+    ? "Du har fått en beskjed, logg inn med høyere sikkerhetsnivå for å se meldingen."
+    : props.tekst;
   const link = isMasked ? loginserviceStepUpUrl : props.link;
   const dato = props.forstBehandlet;
 
