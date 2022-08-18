@@ -47,8 +47,7 @@
     "printWidth": 120
   },
   "lint-staged": {
-    "*.js": "eslint --fix ",
+    "*.js": "eslint -c .eslintrc.pre-commit.js --fix ",
     "*.{js,css,md,html,json}": "prettier --cache --write"
   }
-
 }
