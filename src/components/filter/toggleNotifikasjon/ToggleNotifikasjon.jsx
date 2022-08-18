@@ -1,4 +1,3 @@
-import React from "react";
 import { ToggleGroup } from "@navikt/ds-react";
 import "./ToggleNotifikasjon.css";
 import useStore from "../../../store/store";

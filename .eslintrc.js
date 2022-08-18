@@ -12,7 +12,7 @@ module.exports = {
   plugins: ["react", "jsx-a11y"],
   ignorePatterns: [".eslintrc.js", "**/dist/*.js", "vite.config.js", "/server/server.js"],
   rules: {
-    indent: ["error", "tab"],
+    indent: ["error", 2],
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
     //TODO: enable rules
