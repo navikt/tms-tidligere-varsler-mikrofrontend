@@ -6,7 +6,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint --fix --ext .js,.jsx .",
-    "lint:staged": "eslint -c .eslintrc.pre-commit.js --fix",
+    "lint:staged": "eslint -c .eslintrc.pre-commit.js --fix .",
     "test": "vitest",
     "prepare": "husky install"
   },
@@ -49,8 +49,12 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "eslint -c .eslintrc.pre-commit.js --fix",
-      "prettier --cache --write"
+      "prettier --cache --write",
+      "git add"
     ],
-    "*.{css,md,html,json}": "prettier --cache --write"
+    "*.{css,md,html,json}": [
+      "prettier --cache --write",
+      "git add"
+    ]
   }
 }
