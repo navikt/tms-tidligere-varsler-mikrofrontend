@@ -7,14 +7,6 @@ import "./BeskjedPanel.css";
 const BeskjedPanel = ({ tittel, dato, handleArkiver, aktiv }) => {
   const [showArkiverIkon, setShowArkiverIkon] = useState(false);
 
-  const handleArkiverknappMouseEnter = () => {
-    setShowArkiverIkon(true);
-  };
-
-  const handleArkiverknappMouseLeave = () => {
-    setShowArkiverIkon(false);
-  };
-
   return (
     <Panel className="notifikasjon-panel">
       <div

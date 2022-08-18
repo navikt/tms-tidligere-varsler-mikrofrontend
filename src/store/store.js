@@ -2,9 +2,9 @@ import create from "zustand";
 
 const actions = (set) => ({
   alle: () =>
-    set((state) => ({
+    set({
       filterType: "alle",
-    })),
+    }),
   oppgave: () =>
     set({
       filterType: "oppgave",
