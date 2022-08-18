@@ -1,3 +1,4 @@
+/*eslint no-undef: "off"*/
 const notifikasjoner = require("./mockData/notifikasjoner");
 const notifikasjonerInaktiv = require("./mockData/notifikasjoner-inaktiv");
 const oppgaver = require("./mockData/oppgave.json");
