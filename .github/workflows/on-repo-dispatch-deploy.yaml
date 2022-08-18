@@ -12,22 +12,21 @@ env:
 
 jobs:
   deploy:
-
-    runs-on: 'ubuntu-latest'
+    runs-on: "ubuntu-latest"
 
     steps:
-      - name: 'Sjekk ut koden for dette repo-et'
-        uses: 'actions/checkout@v2'
+      - name: "Sjekk ut koden for dette repo-et"
+        uses: "actions/checkout@v2"
         with:
-          FETCH-DEPTH: '0'
+          FETCH-DEPTH: "0"
 
-      - name: 'Sjekker ut gitt commit, for å få tak i riktig versjon av nais-mainifetene'
+      - name: "Sjekker ut gitt commit, for å få tak i riktig versjon av nais-mainifetene"
         if: env.COMMIT_SHA != ''
         run: |
           git fetch --prune origin +refs/heads/*:refs/remotes/origin/*
           git checkout $COMMIT_SHA
 
-      - name: 'Sjekk ut commit tilhørende release version, for å få tak i riktig versjon av nais-mainifetene'
+      - name: "Sjekk ut commit tilhørende release version, for å få tak i riktig versjon av nais-mainifetene"
         if: env.COMMIT_SHA == ''
         run: |
           SHORT_SHA=$(echo $RELEASE_VERSION | cut -c16-23)
@@ -50,8 +49,8 @@ jobs:
           IMAGE_TAG="$(git log -1 --pretty='%ad' --date=format:'%Y%m%d%H%M%S')-$(git log -1 --pretty='%h')"
           echo "IMAGE=$IMAGE_BASE:$IMAGE_TAG" >> $GITHUB_ENV
 
-      - name: 'Deploy-er til ${{ env.NAMESPACE }} i ${{ env.CLUSTER }}'
-        uses: 'nais/deploy/actions/deploy@v1'
+      - name: "Deploy-er til ${{ env.NAMESPACE }} i ${{ env.CLUSTER }}"
+        uses: "nais/deploy/actions/deploy@v1"
         env:
           REF: ${{ env.COMMIT_SHA }}
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
