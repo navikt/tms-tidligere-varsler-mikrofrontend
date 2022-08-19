@@ -38,7 +38,14 @@ const Beskjed = ({ props, aktiv, isMasked }) => {
   return isBeskjedPanel && !isMasked ? (
     <BeskjedPanel tittel={tittel} dato={dato} handleArkiver={handleArkiver} aktiv={aktiv} />
   ) : (
-    <BeskjedLinkPanel tittel={tittel} dato={dato} link={link} aktiv={aktiv} requestDone={() => requestDone(props)} />
+    <BeskjedLinkPanel
+      tittel={tittel}
+      dato={dato}
+      link={link}
+      aktiv={aktiv}
+      requestDone={() => requestDone(props)}
+      isMasked={isMasked}
+    />
   );
 };
 

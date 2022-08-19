@@ -3,7 +3,7 @@ import { formatToReadableDate } from "../../../utils/date";
 import { SpeechBubble } from "@navikt/ds-icons";
 import { logAmplitudeEvent, komponent } from "../../../utils/amplitude";
 
-const BeskjedLinkPanel = ({ tittel, dato, link, aktiv, requestDone }) => {
+const BeskjedLinkPanel = ({ tittel, dato, link, aktiv, requestDone, isMasked }) => {
   const amplitudeKomponent = aktiv ? komponent.nyBeskjed : komponent.tidligereBeskjed;
   return (
     <LinkPanel
@@ -12,7 +12,7 @@ const BeskjedLinkPanel = ({ tittel, dato, link, aktiv, requestDone }) => {
       href={link}
       onClick={() => {
         logAmplitudeEvent(amplitudeKomponent);
-        if (aktiv) {
+        if (aktiv && !isMasked) {
           requestDone();
         }
       }}
