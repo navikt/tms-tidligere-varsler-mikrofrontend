@@ -46,7 +46,7 @@ const postJSON = (url, content) =>
   new Promise((resolve, reject) => {
     fetch(url, {
       method: "POST",
-      credentials: "include",
+      credentials: "same-origin",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

@@ -27,8 +27,8 @@ const EVENT_HANDLER_URL = {
 
 const DITTNAV_API_URL = {
   local: "http://localhost:3000/api/dittnav-api",
-  development: "https://person.dev.nav.no/dittnav-api",
-  production: "https://person.nav.no/dittnav-api",
+  development: "https://www.dev.nav.no/dittnav-api",
+  production: "https://www.nav.no/dittnav-api",
 };
 
 const LOGINSERVICE_LEVEL4_URL = {
