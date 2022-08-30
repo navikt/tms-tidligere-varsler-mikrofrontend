@@ -6,7 +6,7 @@
 .search-ikon {
   position: absolute;
   left: 16px;
-  bottom: 0.65em;
+  bottom: calc(0.65em + 0.5rem);
 }
 .navds-text-field__input {
   padding-left: 2.75rem !important;
@@ -15,7 +15,7 @@
 
 .clear-button {
   position: absolute;
-  bottom: calc(0.4em - 0.4rem);
+  bottom: 0.42em;
   right: 0;
   border: 0;
   background: transparent;
