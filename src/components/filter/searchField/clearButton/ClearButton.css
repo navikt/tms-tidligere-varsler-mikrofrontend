@@ -1,0 +1,10 @@
+.clear-button {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0.43em;
+  right: 0;
+  border: 0;
+  height: calc(2.65rem + 0.22em);
+  background: transparent;
+}

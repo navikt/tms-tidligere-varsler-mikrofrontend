@@ -12,11 +12,3 @@
   padding-left: 2.75rem !important;
   padding-right: 2.75rem !important;
 }
-
-.clear-button {
-  position: absolute;
-  bottom: 0.42em;
-  right: 0;
-  border: 0;
-  background: transparent;
-}

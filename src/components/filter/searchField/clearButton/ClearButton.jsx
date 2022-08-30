@@ -1,4 +1,5 @@
 import ClearButtonIkon from "../../../../assets/ClearButtonIkon";
+import "./ClearButton.css";
 
 const ClearButton = ({ handleClearClick }) => {
   return (
