@@ -13,15 +13,15 @@ const BeskjedPanel = ({ tittel, dato, handleArkiver, aktiv }) => {
         style={{
           display: "grid",
           gridAutoFlow: "column",
-          gap: "var(--navds-spacing-6)",
+          gap: "var(--navds-spacing-4)",
           alignItems: "center",
         }}
       >
         <div className="icon-container beskjed-icon-container">
           {showArkiverIkon ? (
-            <FileFolder className="beskjed-icon" fontSize="1.5rem" />
+            <FileFolder className="beskjed-icon" fontSize="1.375rem" />
           ) : (
-            <SpeechBubble className="beskjed-icon" fontSize="1.5rem" />
+            <SpeechBubble className="beskjed-icon" fontSize="1.375rem" />
           )}
         </div>
         <div className="notifikasjon-panel-text-wrapper">
