@@ -25,9 +25,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 1.5rem;
+  padding: 0.8125rem;
+  border-radius: 50%;
 }
 
 .beskjed-icon-container {
