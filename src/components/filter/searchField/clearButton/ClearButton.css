@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   position: absolute;
-  bottom: 0.43em;
+  bottom: calc(0.48em - 0.48rem);
   right: 0;
   border: 0;
   height: calc(2.65rem + 0.22em);
