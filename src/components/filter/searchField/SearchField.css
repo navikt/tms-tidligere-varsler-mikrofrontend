@@ -6,8 +6,9 @@
 .search-ikon {
   position: absolute;
   left: 16px;
-  bottom: calc(0.65em + 0.5rem);
+  bottom: calc(0.55em + 0.3rem);
 }
+
 .navds-text-field__input {
   padding-left: 2.75rem !important;
   padding-right: 2.75rem !important;

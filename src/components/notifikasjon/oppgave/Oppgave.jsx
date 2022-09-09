@@ -24,12 +24,12 @@ const Oppgave = ({ props, isMasked, aktiv }) => {
         style={{
           display: "grid",
           gridAutoFlow: "column",
-          gap: "var(--navds-spacing-8)",
+          gap: "var(--navds-spacing-4)",
           alignItems: "center",
         }}
       >
         <div className="icon-container oppgave-icon-container">
-          <Task className="oppgave-icon" fontSize="1.5rem" />
+          <Task className="oppgave-icon" fontSize="1.375rem" />
         </div>
         <div className="notifikasjon-link-panel-text-wrapper">
           <LinkPanel.Title className="notifikasjon-link-panel-tittel">{tittel}</LinkPanel.Title>
