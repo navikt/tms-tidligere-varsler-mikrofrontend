@@ -2,10 +2,12 @@ import { Panel, Heading, BodyLong, Button } from "@navikt/ds-react";
 import { SpeechBubble, FileFolder } from "@navikt/ds-icons";
 import { formatToReadableDate } from "../../../utils/date";
 import { useState } from "react";
+import { useIntl } from "react-intl";
 import "./BeskjedPanel.css";
 
 const BeskjedPanel = ({ tittel, dato, handleArkiver, aktiv }) => {
   const [showArkiverIkon, setShowArkiverIkon] = useState(false);
+  const translate = useIntl();
 
   return (
     <Panel className="notifikasjon-panel">
@@ -35,7 +37,6 @@ const BeskjedPanel = ({ tittel, dato, handleArkiver, aktiv }) => {
             size={"small"}
             variant={"tertiary"}
             className="arkiver-button"
-            aria-label="Tøm"
             onClick={handleArkiver}
             onMouseEnter={() => {
               setShowArkiverIkon(true);
@@ -44,7 +45,7 @@ const BeskjedPanel = ({ tittel, dato, handleArkiver, aktiv }) => {
               setShowArkiverIkon(false);
             }}
           >
-            Arkiver
+            {translate.formatMessage({ id: "beskjed.arkiver-button.label" })}
           </Button>
         ) : (
           ""

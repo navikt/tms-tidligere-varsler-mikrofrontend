@@ -4,6 +4,7 @@ import useStore from "../../../store/store";
 import { selectRemoveBeskjed, selectAddInaktivBeskjed } from "../../../store/selectors";
 import { postDigisosDone, postDone } from "../../../api/api";
 import { loginserviceStepUpUrl } from "../../../api/urls";
+import { useIntl } from "react-intl";
 
 const requestDone = (beskjed) => {
   if (beskjed.produsent === "digiSos") {
@@ -22,10 +23,9 @@ const Beskjed = ({ props, aktiv, isMasked }) => {
   const isBeskjedPanel = props.link === "";
   const removeBeskjed = useStore(selectRemoveBeskjed);
   const AddInaktivBeskjed = useStore(selectAddInaktivBeskjed);
+  const transalte = useIntl();
 
-  const tittel = isMasked
-    ? "Du har fått en beskjed, logg inn med høyere sikkerhetsnivå for å se meldingen."
-    : props.tekst;
+  const tittel = isMasked ? transalte.formatMessage({ id: "beskjed.masked-title" }) : props.tekst;
   const link = isMasked ? loginserviceStepUpUrl : props.link;
   const dato = props.forstBehandlet;
 
