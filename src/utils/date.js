@@ -1,7 +1,6 @@
 import dayjs from "dayjs";
 import "dayjs/locale/nb";
 import localeData from "dayjs/plugin/localeData";
-import moment from "moment";
 
 const FormatForstBehandlet = "YYYY-MM-DDTHH:mm:ss:SSS[Z]";
 
@@ -15,8 +14,8 @@ export const formatToReadableDate = (date) => {
 };
 
 export const byForstBehandlet = (a, b) => {
-  const momentA = moment(a.forstBehandlet, FormatForstBehandlet);
-  const momentB = moment(b.forstBehandlet, FormatForstBehandlet);
+  const dayjsA = dayjs(a.forstBehandlet, FormatForstBehandlet);
+  const dayjsB = dayjs(b.forstBehandlet, FormatForstBehandlet);
 
-  return momentB.diff(momentA);
+  return dayjsB.diff(dayjsA);
 };
