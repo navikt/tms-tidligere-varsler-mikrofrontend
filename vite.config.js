@@ -7,8 +7,8 @@ import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import { terser } from "rollup-plugin-terser";
 import { resolve } from "path";
 
-const reactUrl = "https://www.nav.no/tms-min-side-assets/react/17/esm/index.js";
-const reactDomUrl = "https://www.nav.no/tms-min-side-assets/react-dom/17/esm/index.js";
+const reactUrl = "https://www.nav.no/tms-min-side-assets/react/18/esm/index.js";
+const reactDomUrl = "https://www.nav.no/tms-min-side-assets/react-dom/18/esm/index.js";
 
 const imports = {
   react: reactUrl,
