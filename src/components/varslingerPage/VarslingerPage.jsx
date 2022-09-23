@@ -19,14 +19,14 @@ const VarslingerPage = () => {
       <VarslingerList
         innloggingsstatus={innloggingsstatus?.authLevel}
         notifikasjoner={notifikasjoner}
-        tittel={translate.formatMessage({ id: "varslinger-list.tittel.nye-varsler" })}
+        tittel={translate.formatMessage({ id: "varsler-list.tittel.nye-varsler" })}
         isLoading={isLoading}
         aktiv={true}
       />
       <VarslingerList
         innloggingsstatus={innloggingsstatus?.authLevel}
         notifikasjoner={inaktiveNotifikasjoner}
-        tittel={translate.formatMessage({ id: "varslinger-list.tittel.tidligere-varsler" })}
+        tittel={translate.formatMessage({ id: "varsler-list.tittel.tidligere-varsler" })}
         isLoading={isLoadingInaktiv}
         aktiv={false}
       />
