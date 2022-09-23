@@ -1,0 +1,17 @@
+{
+  "sokefelt.label": "Søk i varslinger",
+  "filter.toggle-item.alle": "Alle",
+  "filter.toggle-item.oppgave": "Oppgave",
+  "filter.toggle-item.beskjed": "Beskjed",
+  "filter.toggle-item.innboks": "Innboks",
+
+  "varsler-list.tittel.nye-varsler": "Nye varsler",
+  "varsler-list.tittel.tidligere-varsler": "Tidligere varsler",
+
+  "beskjed.arkiver-button.label": "Arkiver",
+  "beskjed.masked-title": "Du har fått en beskjed, logg inn med høyere sikkerhetsnivå for å se meldingen.",
+  "oppgave.masked-title": "Du har fått en oppgave, logg inn med høyere sikkerhetsnivå for å se oppgaven.",
+
+  "varsler.ingen-nye-varsler": "Du har ingen nye varsler",
+  "varsler.vi-varsler-deg": "Vi varsler deg når noe skjer"
+}

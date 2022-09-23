@@ -1,4 +1,5 @@
 import { fetchInaktiveNotifikasjoner, fetchAktiveNotifikasjoner, fetchInnloggingsstatus } from "../../api/api";
+import { useIntl } from "react-intl";
 import { setLocaleDate } from "../../utils/date";
 import VarslingerList from "../varslingerList/VarslingerList";
 import Filter from "../filter/Filter";
@@ -9,6 +10,8 @@ const VarslingerPage = () => {
   const { isLoadingInaktiv, inaktiveNotifikasjoner } = fetchInaktiveNotifikasjoner();
   const innloggingsstatus = fetchInnloggingsstatus();
 
+  const translate = useIntl();
+
   setLocaleDate();
   return (
     <section className="varslinger">
@@ -16,14 +19,14 @@ const VarslingerPage = () => {
       <VarslingerList
         innloggingsstatus={innloggingsstatus?.authLevel}
         notifikasjoner={notifikasjoner}
-        tittel={"Nye varsler"}
+        tittel={translate.formatMessage({ id: "varsler-list.tittel.nye-varsler" })}
         isLoading={isLoading}
         aktiv={true}
       />
       <VarslingerList
         innloggingsstatus={innloggingsstatus?.authLevel}
         notifikasjoner={inaktiveNotifikasjoner}
-        tittel={"Tidligere varsler"}
+        tittel={translate.formatMessage({ id: "varsler-list.tittel.tidligere-varsler" })}
         isLoading={isLoadingInaktiv}
         aktiv={false}
       />

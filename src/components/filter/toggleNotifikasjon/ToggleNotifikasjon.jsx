@@ -1,6 +1,7 @@
 import { ToggleGroup } from "@navikt/ds-react";
 import "./ToggleNotifikasjon.css";
 import useStore from "../../../store/store";
+import { useIntl } from "react-intl";
 import { selectAlle, selectBeskjed, selectOppgave, selectInnboks } from "../../../store/selectors";
 
 const ToggleNotifikasjon = () => {
@@ -9,19 +10,21 @@ const ToggleNotifikasjon = () => {
   const beskjed = useStore(selectBeskjed);
   const innboks = useStore(selectInnboks);
 
+  const translate = useIntl();
+
   return (
     <ToggleGroup className="toggle-notifikasjon" size="small" defaultValue="alle">
       <ToggleGroup.Item value="alle" onClick={alle}>
-        Alle
+        {translate.formatMessage({ id: "filter.toggle-item.alle" })}
       </ToggleGroup.Item>
       <ToggleGroup.Item value="oppgave" onClick={oppgave}>
-        Oppgave
+        {translate.formatMessage({ id: "filter.toggle-item.oppgave" })}
       </ToggleGroup.Item>
       <ToggleGroup.Item value="beskjed" onClick={beskjed}>
-        Beskjed
+        {translate.formatMessage({ id: "filter.toggle-item.beskjed" })}
       </ToggleGroup.Item>
       <ToggleGroup.Item value="innboks" onClick={innboks}>
-        Innboks
+        {translate.formatMessage({ id: "filter.toggle-item.innboks" })}
       </ToggleGroup.Item>
     </ToggleGroup>
   );
