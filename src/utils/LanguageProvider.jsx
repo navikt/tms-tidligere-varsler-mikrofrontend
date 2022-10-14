@@ -1,4 +1,3 @@
-import React from "react";
 import { IntlProvider } from "react-intl";
 import nbMessages from "../language/nb.json";
 import enMessages from "../language/en.json";
