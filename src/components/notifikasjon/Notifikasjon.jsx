@@ -21,7 +21,13 @@ const Notifikasjon = ({ notifikasjon, aktiv, isMasked }) => {
   const innholderSok = notifikasjon.tekst.toLowerCase().includes(filterSok.toLowerCase());
   const showNotifikasjon = (filterType === type || filterType === "alle") && innholderSok;
 
-  return showNotifikasjon && <NotifikasjonComponent props={notifikasjon} aktiv={aktiv} isMasked={isMasked} />;
+  return (
+    showNotifikasjon && (
+      <li>
+        <NotifikasjonComponent props={notifikasjon} aktiv={aktiv} isMasked={isMasked} />
+      </li>
+    )
+  );
 };
 
 export default Notifikasjon;

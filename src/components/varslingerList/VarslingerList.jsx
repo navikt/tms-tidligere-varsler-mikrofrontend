@@ -10,7 +10,7 @@ const VarslingerList = ({ notifikasjoner, tittel, isLoading, aktiv, innloggingss
       <Heading spacing size="medium" level="4" className="varslinger-liste-heading">
         {tittel}
       </Heading>
-      <div>
+      <ul className="varsler-ul">
         {isLoading
           ? "Laster innhold..."
           : notifikasjoner.map((notifikasjon) => (
@@ -21,7 +21,7 @@ const VarslingerList = ({ notifikasjoner, tittel, isLoading, aktiv, innloggingss
                 isMasked={isMasked(innloggingsstatus, notifikasjon?.sikkerhetsnivaa)}
               />
             ))}
-      </div>
+      </ul>
     </section>
   );
 };
