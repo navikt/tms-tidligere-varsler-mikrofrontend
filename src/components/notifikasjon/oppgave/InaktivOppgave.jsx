@@ -1,4 +1,4 @@
-import { LinkPanel } from "@navikt/ds-react";
+import { Detail, LinkPanel } from "@navikt/ds-react";
 import { Task } from "@navikt/ds-icons";
 import { formatToReadableDate } from "../../../utils/date";
 import NotifikasjonPanel from "../panel/NotifikasjonPanel";
@@ -23,7 +23,7 @@ const InaktivOppgave = ({ tekst, forstBehandlet, isMasked }) => {
         </div>
         <div className="notifikasjon-link-panel-text-wrapper">
           <LinkPanel.Title className="notifikasjon-link-panel-tittel">{tittel}</LinkPanel.Title>
-          <LinkPanel.Description className="notifikasjon-dato">{formatToReadableDate(dato)}</LinkPanel.Description>
+          <Detail className="notifikasjon-dato">{formatToReadableDate(dato)}</Detail>
         </div>
       </div>
     </NotifikasjonPanel>
