@@ -5,6 +5,7 @@ import { selectRemoveBeskjed, selectAddInaktivBeskjed } from "../../../store/sel
 import { postDigisosDone, postDone } from "../../../api/api";
 import { loginserviceStepUpUrl } from "../../../api/urls";
 import { useIntl } from "react-intl";
+import InaktivBeskjed from "./InaktivBeskjed";
 
 const requestDone = (beskjed) => {
   if (beskjed.produsent === "digiSos") {
@@ -34,6 +35,10 @@ const Beskjed = ({ props, aktiv, isMasked }) => {
     removeBeskjed(props);
     AddInaktivBeskjed(props);
   };
+
+  if (!aktiv) {
+    return <InaktivBeskjed tekst={tittel} forstBehandlet={dato} isMasked={isMasked} />;
+  }
 
   return isBeskjedPanel && !isMasked ? (
     <BeskjedPanel tittel={tittel} dato={dato} handleArkiver={handleArkiver} aktiv={aktiv} />

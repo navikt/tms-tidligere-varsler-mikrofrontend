@@ -1,8 +1,9 @@
-import { LinkPanel } from "@navikt/ds-react";
-import { Task } from "@navikt/ds-icons";
+import { LinkPanel, Panel } from "@navikt/ds-react";
+import { SpeechBubble, Task } from "@navikt/ds-icons";
 import { formatToReadableDate } from "../../../utils/date";
 import { loginserviceStepUpUrl } from "../../../api/urls";
 import { logAmplitudeEvent, komponent } from "../../../utils/amplitude";
+import InaktivOppgave from "./InaktivOppgave";
 import "./Oppgave.css";
 
 const Oppgave = ({ props, isMasked, aktiv }) => {
@@ -12,6 +13,10 @@ const Oppgave = ({ props, isMasked, aktiv }) => {
   const tittel = isMasked
     ? "Du har fått en oppgave, logg inn med høyere sikkerhetsnivå for å se oppgaven."
     : props.tekst;
+
+  if (!aktiv) {
+    return <InaktivOppgave tekst={tittel} forstBehandlet={dato} isMasked={isMasked} />;
+  }
 
   return (
     <LinkPanel
