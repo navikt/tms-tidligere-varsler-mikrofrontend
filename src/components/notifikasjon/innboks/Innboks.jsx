@@ -1,9 +1,8 @@
-import { LinkPanel, Panel } from "@navikt/ds-react";
+import { LinkPanel } from "@navikt/ds-react";
 import { SpeechBubble } from "@navikt/ds-icons";
 import { formatToReadableDate } from "../../../utils/date";
 import { loginserviceStepUpUrl } from "../../../api/urls";
 import { logAmplitudeEvent, komponent } from "../../../utils/amplitude";
-import InaktivBeskjed from "../beskjed/InaktivBeskjed";
 
 const Innboks = ({ props, isMasked, aktiv }) => {
   const amplitudeKomponent = aktiv ? komponent.nyInnboks : komponent.tidligereInnboks;
@@ -12,10 +11,6 @@ const Innboks = ({ props, isMasked, aktiv }) => {
     ? "Du har fått en melding, logg inn med høyere sikkerhetsnivå for å se meldingen."
     : props.tekst;
   const link = isMasked ? loginserviceStepUpUrl : props.link;
-
-  if (!aktiv) {
-    return <InaktivBeskjed tekst={tittel} forstBehandlet={dato} isMasked={isMasked} />;
-  }
 
   return (
     <LinkPanel
