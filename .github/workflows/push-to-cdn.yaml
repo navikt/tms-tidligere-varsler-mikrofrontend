@@ -1,0 +1,89 @@
+name: 'push-to-cdn'
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'cdn'
+  workflow_dispatch:
+
+jobs:
+  dev-cdn:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - uses: 'actions/checkout@v3'
+      - name: Setup java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17.x'
+      - name: Finn cache-variabler
+        uses: navikt/pb-common-gh-actions/cache-prep@v2
+
+      - name: Sett opp cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{ env.CACHE_PATHS }}
+          key: ${{ runner.os }}${{ env.CACHE_KEY_NAMESPACE }}${{ hashFiles(env.CACHE_KEY_HASHED_PATH) }}
+
+      - name: Bygg prosjekt og kjør tester
+        uses: navikt/pb-common-gh-actions/build@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: upload
+        uses: nais/frontend-plattform-cdn-upload-action@main
+        with:
+          cdn-environment: cdn.dev.nav.no
+          cdn-team-name: min-side
+          cache-invalidation: true
+          source: ./dist/tms-min-side-varslinger.js
+          destination: ''  # uploads folder to team root
+
+      - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
+        shell: bash
+
+  prod-cdn:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - uses: 'actions/checkout@v3'
+      - name: Setup java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17.x'
+      - name: Finn cache-variabler
+        uses: navikt/pb-common-gh-actions/cache-prep@v2
+
+      - name: Sett opp cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{ env.CACHE_PATHS }}
+          key: ${{ runner.os }}${{ env.CACHE_KEY_NAMESPACE }}${{ hashFiles(env.CACHE_KEY_HASHED_PATH) }}
+
+      - name: Bygg prosjekt og kjør tester
+        uses: navikt/pb-common-gh-actions/build@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: upload
+        uses: nais/frontend-plattform-cdn-upload-action@main
+        with:
+          cdn-environment: cdn.nav.no
+          cdn-team-name: min-side
+          cache-invalidation: true
+          source: ./dist/tms-min-side-varslinger.js
+          destination: ''  # uploads folder to team root
+
+      - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
+        shell: bash
