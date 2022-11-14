@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - 'main'
-      - 'cdn-deploy'
-  workflow_dispatch:
+      - 'dev-*'
 
 jobs:
   dev-cdn:
@@ -49,6 +48,7 @@ jobs:
         shell: bash
 
   prod-cdn:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     permissions:
