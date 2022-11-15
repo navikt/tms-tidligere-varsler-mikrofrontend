@@ -1,6 +1,7 @@
 {
   "name": "tms-min-side-varslinger",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,34 +15,34 @@
     "@navikt/ds-css": "1.2.0",
     "@navikt/ds-icons": "1.2.0",
     "@navikt/ds-react": "1.2.0",
-    "amplitude-js": "^8.19.0",
+    "amplitude-js": "8.19.0",
     "dayjs": "1.11.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-intl": "^6.0.5",
+    "react-intl": "6.0.5",
     "react-query": "3.39.2",
     "rollup-plugin-terser": "7.0.2",
     "vite-plugin-css-injected-by-js": "1.4.0",
-    "zustand": "^4.0.0-rc.0"
+    "zustand": "4.0.0-rc.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "13.5.0",
     "@vitejs/plugin-react": "1.0.7",
-    "eslint": "^8.22.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.30.1",
+    "eslint": "8.22.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
+    "eslint-plugin-react": "7.30.1",
     "husky": "7.0.0",
     "jsdom": "19.0.0",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.5.1",
+    "lint-staged": "13.0.3",
+    "prettier": "2.5.1",
     "pretty-quick": "3.1.3",
-    "rollup-plugin-import-map": "2.2.2",
-    "vite": "2.7.2",
-    "vite-plugin-compression": "^0.5.1",
+    "rollup-plugin-import-map": "3.0.0",
+    "vite": "3.2.4",
+    "vite-plugin-compression": "0.5.1",
     "vite-plugin-mock": "2.9.6",
-    "vitest": "0.0.113"
+    "vitest": "0.25.2"
   },
   "prettier": {
     "printWidth": 120
