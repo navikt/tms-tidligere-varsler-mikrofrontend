@@ -1,4 +1,4 @@
-# tms-min-side-varslinger-vitejs
+# tms-min-side-varslinger
 
 Mikrofrontend på Min side som viser varsler.
 
