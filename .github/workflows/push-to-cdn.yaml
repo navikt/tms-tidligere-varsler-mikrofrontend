@@ -7,7 +7,7 @@ on:
       - 'dev-*'
 
 jobs:
-  dev-cdn:
+  deploy:
     runs-on: ubuntu-latest
 
     permissions:
@@ -25,7 +25,7 @@ jobs:
       - name: 'Build application'
         run: 'npm run build'
 
-      - id: upload
+      - id: dev-upload
         uses: nais/frontend-plattform-cdn-upload-action@main
         with:
           cdn-environment: cdn.dev.nav.no
@@ -33,30 +33,11 @@ jobs:
           cache-invalidation: true
           source: ./dist/tms-min-side-varslinger.js
           destination: 'tms-min-side-varslinger'
-
-      - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
+      - run: echo uploaded file ${{ steps.dev-upload.outputs.uploaded }}
         shell: bash
 
-  prod-cdn:
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-
-    steps:
-      - uses: 'actions/checkout@v3'
-      - uses: 'actions/setup-node@v3'
-        with:
-          node-version: '16'
-          cache: 'npm'
-      - name: 'Install dependencies'
-        run: 'npm ci'
-      - name: 'Build application'
-        run: 'npm run build'
-
-      - id: upload
+      - id: prod-upload
+        if: github.ref == 'refs/heads/main'
         uses: nais/frontend-plattform-cdn-upload-action@main
         with:
           cdn-environment: cdn.nav.no
@@ -64,6 +45,5 @@ jobs:
           cache-invalidation: true
           source: ./dist/tms-min-side-varslinger.js
           destination: 'tms-min-side-varslinger'
-
-      - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
+      - run: echo uploaded file ${{ steps.prod-upload.outputs.uploaded }}
         shell: bash
