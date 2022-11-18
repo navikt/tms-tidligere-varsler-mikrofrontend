@@ -7,7 +7,7 @@ on:
       - 'dev-*'
 
 jobs:
-  deploy:
+  upload:
     runs-on: ubuntu-latest
 
     permissions:
@@ -43,4 +43,3 @@ jobs:
           cache-invalidation: true
           source: ./dist/tms-min-side-varslinger.js
           destination: 'tms-min-side-varslinger'
-      - name: show uploaded file
