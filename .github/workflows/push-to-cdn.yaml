@@ -25,7 +25,7 @@ jobs:
       - name: 'Build application'
         run: 'npm run build'
 
-      - id: dev-upload
+      - name: dev-upload
         uses: nais/frontend-plattform-cdn-upload-action@main
         with:
           cdn-environment: cdn.dev.nav.no
@@ -33,10 +33,8 @@ jobs:
           cache-invalidation: true
           source: ./dist/tms-min-side-varslinger.js
           destination: 'tms-min-side-varslinger'
-      - run: echo uploaded file ${{ steps.dev-upload.outputs.uploaded }}
-        shell: bash
 
-      - id: prod-upload
+      - name: prod-upload
         if: github.ref == 'refs/heads/main'
         uses: nais/frontend-plattform-cdn-upload-action@main
         with:
@@ -45,5 +43,4 @@ jobs:
           cache-invalidation: true
           source: ./dist/tms-min-side-varslinger.js
           destination: 'tms-min-side-varslinger'
-      - run: echo uploaded file ${{ steps.prod-upload.outputs.uploaded }}
-        shell: bash
+      - name: show uploaded file
