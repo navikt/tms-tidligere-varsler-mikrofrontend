@@ -32,7 +32,7 @@ jobs:
           cdn-team-name: min-side
           cache-invalidation: true
           source: ./dist/tms-min-side-varslinger.js
-          destination: ''  # uploads folder to team root
+          destination: 'tms-min-side-varslinger'
 
       - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
         shell: bash
@@ -63,7 +63,7 @@ jobs:
           cdn-team-name: min-side
           cache-invalidation: true
           source: ./dist/tms-min-side-varslinger.js
-          destination: ''  # uploads folder to team root
+          destination: 'tms-min-side-varslinger'
 
       - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
         shell: bash
