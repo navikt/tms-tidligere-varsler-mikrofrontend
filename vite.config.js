@@ -45,7 +45,6 @@ export default ({ command }) => ({
       entry: resolve(__dirname, "src/Mikrofrontend.jsx"),
       name: "tms-min-side-varslinger",
       formats: ["es"],
-      fileName: () => `tms-min-side-varslinger.js`,
     },
   },
   test: {
