@@ -14,8 +14,7 @@ const VarslingerList = ({ notifikasjoner, tittel, isLoading, aktiv, innloggingss
         {isLoading
           ? "Laster innhold..."
           : notifikasjoner.map((notifikasjon) => (
-              <Notif
-                ikasjon
+              <Notifikasjon
                 key={notifikasjon.eventId}
                 notifikasjon={notifikasjon}
                 aktiv={aktiv}
