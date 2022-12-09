@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import { viteMockServe } from "vite-plugin-mock";
 import { rollupImportMapPlugin } from "rollup-plugin-import-map";
 import EnvironmentPlugin from "vite-plugin-environment";
+import viteCompression from "vite-plugin-compression";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import { terser } from "rollup-plugin-terser";
 import { resolve } from "path";
@@ -22,6 +23,12 @@ export default ({ command }) => ({
     cssInjectedByJsPlugin(),
     EnvironmentPlugin({
       NODE_ENV: process.env.NODE_ENV || "development",
+    }),
+    viteCompression({
+      algorithm: "gzip",
+    }),
+    viteCompression({
+      algorithm: "brotliCompress",
     }),
     viteMockServe({
       mockPath: "mock",
