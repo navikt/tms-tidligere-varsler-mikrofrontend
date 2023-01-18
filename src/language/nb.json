@@ -1,4 +1,7 @@
 {
+  "tidligere-varsler.overskrift": "Tidligere varsler",
+  "hoyere-sikkerhetnivaa": "Logg inn med et høyere sikkerhetsnivå for å se alle varslene",
+
   "sokefelt.label": "Søk i varslinger",
   "filter.toggle-item.alle": "Alle",
   "filter.toggle-item.oppgave": "Oppgave",
@@ -12,6 +15,19 @@
   "beskjed.masked-title": "Du har fått en beskjed, logg inn med høyere sikkerhetsnivå for å se meldingen.",
   "oppgave.masked-title": "Du har fått en oppgave, logg inn med høyere sikkerhetsnivå for å se oppgaven.",
 
-  "varsler.ingen-nye-varsler": "Du har ingen nye varsler",
-  "varsler.vi-varsler-deg": "Vi varsler deg når noe skjer"
+  "ingen-tidligere-varsler-header": "Du har ingen tidligere varsler",
+  "ingen-tidligere-varsler-body": "Når du har gjort en oppgave eller lest en beskjed havner de her. Nye oppgaver og beskjeder finner du i varsler øverst på siden, eller under navnet ditt på Min side.",
+  "gaa-til-min-side": "Gå til Min side",
+
+  "varsel.beskjed-mottatt": "Beskjed mottatt",
+  "varsel.beskjed-fullført": "Lest",
+  "varsel.beskjed-arkivert-av-nav": "Arkivert av NAV",
+
+  "varsel.oppgave-mottatt": "Oppgave mottatt",
+  "varsel.oppgave-fullført": "Fullført",
+  "varsel.oppgave-arkivert-av-nav": "Ikke fullført, NAV arkiverte oppgaven",
+
+  "varsel.varslet-paa-sms": "Varslet på SMS",
+  "varsel.varslet-paa-epost": "Varslet på e-post",
+  "varsel.varslet-paa-epost-sms": "Varslet på e-post og SMS"
 }

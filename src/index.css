@@ -5,7 +5,7 @@ body {
 }
 
 body {
-  background-color: var(--navds-semantic-color-canvas-background);
+  background-color: var(--a-bg-default);
 }
 
 .page-wrapper {
@@ -22,5 +22,4 @@ body {
 
 main {
   width: 100%;
-  max-width: 808px;
 }

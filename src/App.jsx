@@ -1,15 +1,10 @@
-import VarslingerPage from "./components/varslingerPage/VarslingerPage";
-import "./App.css";
+import TidligereVarsler from "./components/tidligereVarsler/TidligereVarsler";
+
+import style from "./App.module.css";
 import "@navikt/ds-css";
 
 function App() {
-  return (
-    <main className="main">
-      <div className="app">
-        <VarslingerPage />
-      </div>
-    </main>
-  );
+  return <TidligereVarsler />;
 }
 
 export default App;
