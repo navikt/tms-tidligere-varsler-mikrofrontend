@@ -41,10 +41,16 @@ export default ({ command }) => ({
     },
   ],
   build: {
-    lib: {
-      entry: resolve(__dirname, "src/Mikrofrontend.jsx"),
-      name: "tms-min-side-varslinger",
-      formats: ["es"],
+    manifest: true,
+    rollupOptions: {
+      input: {
+        "tms-min-side-varslinger": resolve(__dirname, "src/Mikrofrontend.jsx"),
+      },
+      preserveEntrySignatures: "exports-only",
+      output: {
+        entryFileNames: "[name].js",
+        format: "esm",
+      },
     },
   },
   test: {
