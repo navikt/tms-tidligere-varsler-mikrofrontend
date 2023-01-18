@@ -19,10 +19,10 @@ const INNLOGGINSSTATUS_URL = {
   production: "https://www.nav.no/person/innloggingsstatus/summary",
 };
 
-const DITTNAV_API_URL = {
+const TMS_VARSEL_API = {
   local: "http://localhost:3000/api/dittnav-api",
-  development: "https://www.dev.nav.no/dittnav-api",
-  production: "https://www.nav.no/dittnav-api",
+  development: "https://www.dev.nav.no/tms-varsel-api",
+  production: "https://www.nav.no/tms-varsel-api",
 };
 
 const LOGINSERVICE_LEVEL4_URL = {
@@ -37,9 +37,9 @@ const MIN_SIDE_URL = {
   production: "https://www.nav.no/minside",
 };
 
-const dittNavApiUrl = DITTNAV_API_URL[getEnvironment()];
+const tmsVarselAPI = TMS_VARSEL_API[getEnvironment()];
 
-export const inaktiveVarslerApiUrl = `${dittNavApiUrl}/varsler/inaktive`;
+export const inaktiveVarslerApiUrl = `${tmsVarselAPI}/inaktive`;
 
 export const innloggingsstatusUrl = INNLOGGINSSTATUS_URL[getEnvironment()];
 
