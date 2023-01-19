@@ -2,6 +2,8 @@ import React from "react";
 import { apiStatusUrl, apiLoginUrl, tidligereVarslerUrl } from "../../api/urls";
 import { useQuery } from "react-query";
 import { fetcher } from "../../api/api";
+import { Loader } from "@navikt/ds-react";
+import style from "./Authentication.module.css";
 
 export const Authentication = ({ children }) => {
   const { data: status, isLoading, isError } = useQuery(apiStatusUrl, fetcher);
@@ -10,5 +12,11 @@ export const Authentication = ({ children }) => {
     return null;
   }
 
-  return <React.Fragment>{children}</React.Fragment>;
+  return isLoading ? (
+    <div className={style.pageLoader}>
+      <Loader transparent title="Laster inn..." size="2xlarge" />
+    </div>
+  ) : (
+    <React.Fragment>{children}</React.Fragment>
+  );
 };

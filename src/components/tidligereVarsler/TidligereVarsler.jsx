@@ -1,18 +1,17 @@
-import { Heading, Ingress, Alert } from "@navikt/ds-react";
 import { useIntl } from "react-intl";
-import { setLocaleDate } from "../../utils/date";
-import Filter from "../filter/Filter";
-import globalStyle from "../../App.module.css";
-import style from "./TidligereVarsler.module.css";
 import { useQuery } from "react-query";
 import { useMemo } from "react";
+import { Heading, Alert } from "@navikt/ds-react";
+import EmptyVarselList from "../emptyVarselList/EmptyVarselList";
+import Filter from "../filter/Filter";
+import Varsel from "../varsel/Varsel";
+import { setLocaleDate, byForstBehandlet } from "../../utils/date";
 import { fetcher } from "../../api/api";
 import { inaktiveVarslerApiUrl } from "../../api/urls";
-import Varsel from "../varsel/Varsel";
 import { selectSearch, selectType } from "../../store/selectors";
 import useStore from "../../store/store";
-import EmptyVarselList from "../emptyVarselList/EmptyVarselList";
-import { byForstBehandlet } from "../../utils/date";
+import style from "./TidligereVarsler.module.css";
+import globalStyle from "../../App.module.css";
 
 const VarslingerPage = () => {
   const translate = useIntl();
