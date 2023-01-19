@@ -13,14 +13,8 @@ export const getEnvironment = () => {
   return "local";
 };
 
-const INNLOGGINSSTATUS_URL = {
-  local: "http://localhost:3000/innloggingsstatus/summary",
-  development: "https://innloggingsstatus.dev.nav.no/person/innloggingsstatus/summary",
-  production: "https://www.nav.no/person/innloggingsstatus/summary",
-};
-
 const TMS_VARSEL_API = {
-  local: "http://localhost:3000/api/dittnav-api",
+  local: "http://localhost:3000/api/tms-varsel-api",
   development: "https://www.dev.nav.no/tms-varsel-api",
   production: "https://www.nav.no/tms-varsel-api",
 };
@@ -39,10 +33,12 @@ const MIN_SIDE_URL = {
 
 const tmsVarselAPI = TMS_VARSEL_API[getEnvironment()];
 
+export const apiLoginUrl = `${tmsVarselAPI}/login`;
+export const apiStatusUrl = `${apiLoginUrl}/status`;
 export const inaktiveVarslerApiUrl = `${tmsVarselAPI}/inaktive`;
-
-export const innloggingsstatusUrl = INNLOGGINSSTATUS_URL[getEnvironment()];
 
 export const loginserviceStepUpUrl = `${LOGINSERVICE_LEVEL4_URL[getEnvironment()]}&redirect=${
   MIN_SIDE_URL[getEnvironment()]
 }`;
+
+export const tidligereVarslerUrl = `${MIN_SIDE_URL}/tidligere-varsler`;

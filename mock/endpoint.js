@@ -3,7 +3,7 @@ const inaktiveVarsler = require("./mockData/varsler-inaktiv.json");
 
 export default [
   {
-    url: "/api/dittnav-api/inaktive",
+    url: "/api/tms-varsel-api/inaktive",
     method: "get",
     response: () => {
       return [
@@ -78,17 +78,12 @@ export default [
     },
   },
   {
-    url: "/innloggingsstatus/summary",
+    url: "/api/tms-varsel-api/login/status",
     method: "get",
     response: () => {
       return {
         authenticated: true,
-        authLevel: 4,
-        oidc: {
-          authLevel: 4,
-          issueTime: "2022-06-11T01:45:40",
-          expiryTime: "2022-06-11T02:45:40",
-        },
+        level: 4,
       };
     },
   },
