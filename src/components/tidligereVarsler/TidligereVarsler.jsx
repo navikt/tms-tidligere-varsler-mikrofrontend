@@ -15,12 +15,11 @@ import EmptyVarselList from "../emptyVarselList/EmptyVarselList";
 const VarslingerPage = () => {
   const translate = useIntl();
   const { data: varsler, isSuccess } = useQuery(inaktiveVarslerApiUrl, fetcher);
-  const { data: innloggingsstatus } = useQuery(innloggingsstatusUrl, fetcher);
 
   const filterType = useStore(selectType);
   const filterSok = useStore(selectSearch);
   const filtertedVarseler = varsler?.filter(
-    (varsel) => (filterType === "alle" || varsel.type === filterType) && varsel.tekst.toLowerCase().includes(filterSok)
+    (varsel) => (filterType === "ALLE" || varsel.type === filterType) && varsel.tekst.toLowerCase().includes(filterSok)
   );
   const hasMaskedVarsel = varsler && varsler.some((varsel) => varsel.tekst === "");
 

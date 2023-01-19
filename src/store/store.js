@@ -3,15 +3,15 @@ import create from "zustand";
 const actions = (set) => ({
   alle: () =>
     set({
-      filterType: "alle",
+      filterType: "ALLE",
     }),
   oppgave: () =>
     set({
-      filterType: "oppgave",
+      filterType: "OPPGAVE",
     }),
   beskjed: () =>
     set({
-      filterType: "beskjed",
+      filterType: "BESKJED",
     }),
   search: (search) =>
     set({
@@ -20,7 +20,7 @@ const actions = (set) => ({
 });
 
 const useStore = create((set) => ({
-  filterType: "alle",
+  filterType: "ALLE",
   filterSearch: "",
   ...actions(set),
 }));

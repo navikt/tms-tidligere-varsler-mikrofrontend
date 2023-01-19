@@ -16,7 +16,7 @@ const getVarsletPaa = (kanaler) => {
 };
 
 function Varsel({ varselData }) {
-  const isOppgave = varselData.type === "oppgave";
+  const isOppgave = varselData.type === "OPPGAVE";
   const varselMottatt = isOppgave ? "varsel.oppgave-mottatt" : "varsel.beskjed-mottatt";
   const translate = useIntl();
   const maskedText = "** ******* ******* *** * ***** ******** ******** *** ** ***********************";
@@ -27,7 +27,7 @@ function Varsel({ varselData }) {
         {varselData.isMasked ? maskedText : varselData.tekst}
       </Heading>
       <BodyLong size="small" className={style.varselDate}>
-        {`${translate.formatMessage({ id: varselMottatt })} ${formatToReadableDate(varselData.varselMottatt)}`}
+        {`${translate.formatMessage({ id: varselMottatt })} ${formatToReadableDate(varselData.forstBehandlet)}`}
       </BodyLong>
     </div>
   );
