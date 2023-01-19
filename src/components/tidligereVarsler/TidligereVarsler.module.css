@@ -1,9 +1,11 @@
 .tidligereVarslerHeading {
   padding-top: 1rem;
   margin-bottom: 2rem;
+  max-width: 912px;
+  padding-right: 1rem;
 }
 
-.hoyereSikkerhetsnivaaIngress {
+.hoyereSikkerhetsnivaaAlert {
   margin-top: 1.25rem !important ;
 }
 

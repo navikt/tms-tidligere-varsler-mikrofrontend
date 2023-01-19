@@ -1,4 +1,4 @@
-import { Heading, Ingress } from "@navikt/ds-react";
+import { Heading, Ingress, Alert } from "@navikt/ds-react";
 import { useIntl } from "react-intl";
 import { setLocaleDate } from "../../utils/date";
 import Filter from "../filter/Filter";
@@ -33,9 +33,10 @@ const VarslingerPage = () => {
       <div className={`${style.tidligereVarslerHeading} ${globalStyle.tekstInnhold}`}>
         <Heading size={"large"}>{translate.formatMessage({ id: "tidligere-varsler.overskrift" })}</Heading>
         {hasMaskedVarsel && (
-          <Ingress className={style.hoyereSikkerhetsnivaaIngress}>
+          <Alert className={style.hoyereSikkerhetsnivaaAlert} variant="info">
+            {" "}
             {translate.formatMessage({ id: "hoyere-sikkerhetnivaa" })}
-          </Ingress>
+          </Alert>
         )}
       </div>
       {varsler?.length === 0 ? (
