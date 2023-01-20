@@ -33,7 +33,6 @@ const VarslingerPage = () => {
         <Heading size={"large"}>{translate.formatMessage({ id: "tidligere-varsler.overskrift" })}</Heading>
         {hasMaskedVarsel && (
           <Alert className={style.hoyereSikkerhetsnivaaAlert} variant="info">
-            {" "}
             {translate.formatMessage({ id: "hoyere-sikkerhetnivaa" })}
           </Alert>
         )}
