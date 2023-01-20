@@ -41,4 +41,4 @@ export const loginserviceStepUpUrl = `${LOGINSERVICE_LEVEL4_URL[getEnvironment()
   MIN_SIDE_URL[getEnvironment()]
 }`;
 
-export const tidligereVarslerUrl = `${MIN_SIDE_URL[getEnvironment()]}/tidligere-varsler`;
+export const tidligereVarslerUrl = `${MIN_SIDE_URL[getEnvironment()]}/varslinger`;
