@@ -37,38 +37,38 @@ function IngenVarslerKatt() {
         <path
           d="M94.3741 122.449C98.8124 124.591 109.383 128.752 129.755 128.263"
           stroke="#262626"
-          stroke-width="0.807146"
-          stroke-linecap="round"
+          strokeWidth="0.807146"
+          strokeLinecap="round"
         />
         <path
           d="M39.495 122.449C35.0567 124.591 24.4861 128.752 4.11426 128.263"
           stroke="#262626"
-          stroke-width="0.807146"
-          stroke-linecap="round"
+          strokeWidth="0.807146"
+          strokeLinecap="round"
         />
         <path
           d="M98.0326 118.058C101.695 117.928 112.76 119.238 125.837 114.4"
           stroke="#262626"
-          stroke-width="0.807146"
-          stroke-linecap="round"
+          strokeWidth="0.807146"
+          strokeLinecap="round"
         />
         <path
           d="M35.837 118.058C32.1742 117.928 21.1092 119.238 8.03271 114.4"
           stroke="#262626"
-          stroke-width="0.807146"
-          stroke-linecap="round"
+          strokeWidth="0.807146"
+          strokeLinecap="round"
         />
         <path
           d="M99.5427 121.127C104.83 122.26 118.425 123.771 132.776 121.127"
           stroke="#262626"
-          stroke-width="0.744606"
-          stroke-linecap="round"
+          strokeWidth="0.744606"
+          strokeLinecap="round"
         />
         <path
           d="M34.3269 121.127C29.0397 122.26 15.4442 123.771 1.09326 121.127"
           stroke="#262626"
-          stroke-width="0.744606"
-          stroke-linecap="round"
+          strokeWidth="0.744606"
+          strokeLinecap="round"
         />
         <path
           fillRule="evenodd"

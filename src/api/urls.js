@@ -32,13 +32,12 @@ const MIN_SIDE_URL = {
 };
 
 const tmsVarselAPI = TMS_VARSEL_API[getEnvironment()];
+export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 
 export const apiLoginUrl = `${tmsVarselAPI}/login`;
 export const apiStatusUrl = `${apiLoginUrl}/status`;
 export const inaktiveVarslerApiUrl = `${tmsVarselAPI}/inaktive`;
 
-export const loginserviceStepUpUrl = `${LOGINSERVICE_LEVEL4_URL[getEnvironment()]}&redirect=${
-  MIN_SIDE_URL[getEnvironment()]
-}`;
+export const loginserviceStepUpUrl = `${LOGINSERVICE_LEVEL4_URL[getEnvironment()]}&redirect=${minSideUrl}`;
 
-export const tidligereVarslerUrl = `${MIN_SIDE_URL[getEnvironment()]}/varslinger`;
+export const tidligereVarslerUrl = `${minSideUrl}/varslinger`;
