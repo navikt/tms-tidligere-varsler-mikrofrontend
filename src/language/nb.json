@@ -1,6 +1,6 @@
 {
   "tidligere-varsler.overskrift": "Tidligere varsler",
-  "hoyere-sikkerhetnivaa": "Logg inn med et høyere sikkerhetsnivå for å se alle varslene",
+  "hoyere-sikkerhetnivaa": "Du må logge inn med BankID, Buypass eller Commfides for å se alle varslene.",
 
   "sokefelt.label": "Søk i varsler",
   "filter.toggle-item.alle": "Alle",
