@@ -68,7 +68,7 @@ export default [
           type: "BESKJED",
           forstBehandlet: "2019-11-27T12:24:34.671Z",
           arkivertAvNAV: true,
-          tekst: "",
+          tekst: null,
           produsent: "henvendelse",
           isMasked: true,
           eksternVarslingSendt: false,

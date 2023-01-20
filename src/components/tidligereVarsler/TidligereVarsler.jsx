@@ -22,7 +22,9 @@ const VarslingerPage = () => {
 
   const sortedVarsler = useMemo(() => varsler?.sort(byForstBehandlet));
   const filtertedVarseler = sortedVarsler?.filter(
-    (varsel) => (filterType === "ALLE" || varsel.type === filterType) && varsel.tekst.toLowerCase().includes(filterSok)
+    (varsel) =>
+      (filterType === "ALLE" || varsel.type === filterType) &&
+      (varsel.tekst === null || varsel.tekst.toLowerCase().includes(filterSok))
   );
   const hasMaskedVarsel = varsler && varsler.some((varsel) => varsel.tekst === "");
 
