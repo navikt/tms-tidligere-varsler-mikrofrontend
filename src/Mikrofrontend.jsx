@@ -3,7 +3,7 @@ import { initializeAmplitude } from "./utils/amplitude";
 import LanguageProvider from "./utils/LanguageProvider";
 import queryClient from "./utils/query";
 import App from "./App";
-import "./App.css";
+import "./App.module.css";
 
 const Mikrofrontend = () => {
   initializeAmplitude();

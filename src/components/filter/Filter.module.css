@@ -1,0 +1,16 @@
+.filterWrapper {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgba(247, 247, 247, 1);
+}
+
+@media (min-width: 800px) {
+  .filterWrapper {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.filter{
+  max-width: 443px;
+}

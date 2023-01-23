@@ -1,0 +1,12 @@
+.varselWrapper{
+  margin-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #E5E5E5;
+}
+.varselHeading{
+  font-weight: 400 !important;
+  line-height: 28px !important;
+}
+.varselDate{
+  color: rgba(0, 0, 0, 0.56);
+}

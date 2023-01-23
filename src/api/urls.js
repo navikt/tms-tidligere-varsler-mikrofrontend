@@ -13,22 +13,10 @@ export const getEnvironment = () => {
   return "local";
 };
 
-const INNLOGGINSSTATUS_URL = {
-  local: "http://localhost:3000/innloggingsstatus/summary",
-  development: "https://innloggingsstatus.dev.nav.no/person/innloggingsstatus/summary",
-  production: "https://www.nav.no/person/innloggingsstatus/summary",
-};
-
-const EVENT_HANDLER_URL = {
-  local: "http://localhost:3000/api",
-  development: "https://person.dev.nav.no/dittnav-event-handler",
-  production: "https://person.nav.no/dittnav-event-handler",
-};
-
-const DITTNAV_API_URL = {
-  local: "http://localhost:3000/api/dittnav-api",
-  development: "https://www.dev.nav.no/dittnav-api",
-  production: "https://www.nav.no/dittnav-api",
+const TMS_VARSEL_API = {
+  local: "http://localhost:3000/api/tms-varsel-api",
+  development: "https://www.dev.nav.no/tms-varsel-api",
+  production: "https://www.nav.no/tms-varsel-api",
 };
 
 const LOGINSERVICE_LEVEL4_URL = {
@@ -43,23 +31,13 @@ const MIN_SIDE_URL = {
   production: "https://www.nav.no/minside",
 };
 
-const dittNavApiUrl = DITTNAV_API_URL[getEnvironment()];
+const tmsVarselAPI = TMS_VARSEL_API[getEnvironment()];
+export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 
-export const notifikasjonerUrl = `${EVENT_HANDLER_URL[getEnvironment()]}/fetch/event`;
-export const inaktiveNotifikasjonerUrl = `${EVENT_HANDLER_URL[getEnvironment()]}/fetch/event/inaktive`;
+export const apiLoginUrl = `${tmsVarselAPI}/login`;
+export const apiStatusUrl = `${apiLoginUrl}/status`;
+export const inaktiveVarslerApiUrl = `${tmsVarselAPI}/inaktive`;
 
-export const oppgaverApiUrl = `${dittNavApiUrl}/oppgave`;
-export const beskjederApiUrl = `${dittNavApiUrl}/beskjed`;
-export const innboksApiUrl = `${dittNavApiUrl}/innboks`;
+export const loginserviceStepUpUrl = `${LOGINSERVICE_LEVEL4_URL[getEnvironment()]}&redirect=${minSideUrl}`;
 
-export const inaktiveOppgaverApiUrl = `${dittNavApiUrl}/oppgave/inaktiv`;
-export const inaktiveBeskjederApiUrl = `${dittNavApiUrl}/beskjed/inaktiv`;
-export const inaktiveInnboksApiUrl = `${dittNavApiUrl}/innboks/inaktiv`;
-
-export const doneUrl = `${dittNavApiUrl}/produce/done`;
-export const digisosDoneUrl = `${dittNavApiUrl}/digisos/paabegynte/done`;
-
-export const loginserviceStepUpUrl = `${LOGINSERVICE_LEVEL4_URL[getEnvironment()]}&redirect=${
-  MIN_SIDE_URL[getEnvironment()]
-}`;
-export const innloggingsstatusUrl = INNLOGGINSSTATUS_URL[getEnvironment()];
+export const tidligereVarslerUrl = `${minSideUrl}/varslinger`;

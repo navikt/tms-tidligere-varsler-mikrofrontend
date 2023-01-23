@@ -1,82 +1,89 @@
 /*eslint no-undef: "off"*/
-const notifikasjoner = require("./mockData/notifikasjoner");
-const notifikasjonerInaktiv = require("./mockData/notifikasjoner-inaktiv");
-const oppgaver = require("./mockData/oppgave.json");
-const beskjeder = require("./mockData/beskjed.json");
-const innboks = require("./mockData/innboks.json");
-const inaktiveOppgave = require("./mockData/oppgave-inaktiv.json");
-const inaktiveBeskjed = require("./mockData/beskjed-inaktiv.json");
-const inaktiveInnboks = require("./mockData/innboks-inaktiv.json");
+const inaktiveVarsler = require("./mockData/varsler-inaktiv.json");
 
 export default [
   {
-    url: "/api/fetch/event",
+    url: "/api/tms-varsel-api/inaktive",
     method: "get",
     response: () => {
-      return notifikasjoner;
+      return [
+        {
+          eventId: "1584093204636",
+          type: "OPPGAVE",
+          forstBehandlet: "2022-02-01T11:12:04+01:00",
+          arkivertAvNAV: false,
+          tekst: "Du har sagt du skal ettersende vedlegg til Søknad om stønad til anskaffelse av motorkjøretøy",
+          produsent: "henvendelse",
+          isMasked: false,
+          eksternVarslingSendt: false,
+          eksternVarslingKanaler: ["SMS"],
+        },
+        {
+          eventId: "1584093785733",
+          type: "OPPGAVE",
+          forstBehandlet: "2020-03-13T09:03:05.934825",
+          arkivertAvNAV: true,
+          tekst: "Mangelende dokumentasjon til søknad",
+          produsent: "henvendelse",
+          isMasked: false,
+          eksternVarslingSendt: false,
+          eksternVarslingKanaler: ["EPOST"],
+        },
+        {
+          eventId: "3984093204236",
+          type: "BESKJED",
+          forstBehandlet: "2021-01-01T11:12:04+01:00",
+          arkivertAvNAV: false,
+          tekst: "Svar fra veilederen din i innboksen: Hei, nå har jeg sjekket om...",
+          produsent: "henvendelse",
+          isMasked: false,
+          eksternVarslingSendt: false,
+          eksternVarslingKanaler: ["SMS", "EPOST"],
+        },
+        {
+          eventId: "1584093197470",
+          type: "BESKJED",
+          forstBehandlet: "2021-01-01T11:12:04+01:00",
+          arkivertAvNAV: false,
+          tekst:
+            "Søknad om forskudd på dagpenger er mottatt. Hvis du trenger forskudd på dagpenger eller ettersende vedlegg til sønakden din kan du trykke deg inn i den nye forskuddskøsningen ved å gå til denne siden.",
+          produsent: "henvendelse",
+          isMasked: false,
+          eksternVarslingSendt: false,
+          eksternVarslingKanaler: [],
+        },
+        {
+          eventId: "1174857474672",
+          type: "BESKJED",
+          forstBehandlet: "2019-11-27T12:24:34.671Z",
+          arkivertAvNAV: true,
+          tekst: "Vi mangler vedlegg for å kunne behandle søknaden din om dagpenger",
+          produsent: "henvendelse",
+          isMasked: false,
+          eksternVarslingSendt: false,
+          eksternVarslingKanaler: [],
+        },
+        {
+          eventId: "1584093781449",
+          type: "BESKJED",
+          forstBehandlet: "2019-11-27T12:24:34.671Z",
+          arkivertAvNAV: true,
+          tekst: null,
+          produsent: "henvendelse",
+          isMasked: true,
+          eksternVarslingSendt: false,
+          eksternVarslingKanaler: [],
+        },
+      ];
     },
   },
   {
-    url: "/api/fetch/event/inaktive",
-    method: "get",
-    response: () => {
-      return notifikasjonerInaktiv;
-    },
-  },
-  {
-    url: "/api/dittnav-api/oppgave",
-    method: "get",
-    response: () => {
-      return oppgaver;
-    },
-  },
-  {
-    url: "/api/dittnav-api/innboks",
-    method: "get",
-    response: () => {
-      return innboks;
-    },
-  },
-  {
-    url: "/api/dittnav-api/beskjed",
-    method: "get",
-    response: () => {
-      return beskjeder;
-    },
-  },
-  {
-    url: "/api/dittnav-api/oppgave/inaktiv",
-    method: "get",
-    response: () => {
-      return inaktiveOppgave;
-    },
-  },
-  {
-    url: "/api/dittnav-api/innboks/inaktiv",
-    method: "get",
-    response: () => {
-      return inaktiveInnboks;
-    },
-  },
-  {
-    url: "/api/dittnav-api/beskjed/inaktiv",
-    method: "get",
-    response: () => {
-      return inaktiveBeskjed;
-    },
-  },
-  {
-    url: "/innloggingsstatus/summary",
+    url: "/api/tms-varsel-api/login/status",
     method: "get",
     response: () => {
       return {
         authenticated: true,
-        authLevel: 4,
-        oidc: {
-          authLevel: 4,
-          issueTime: "2022-06-11T01:45:40",
-          expiryTime: "2022-06-11T02:45:40",
-        },
+        level: 4,
       };
     },
   },

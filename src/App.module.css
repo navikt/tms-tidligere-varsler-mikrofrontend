@@ -1,0 +1,19 @@
+.app {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+main{
+  max-width: none !important;
+}
+@media (min-width: 800px) {
+  .tekstInnhold {
+    margin-left: 15%;
+  }
+}
+@media (max-width: 800px) {
+  .tekstInnhold {
+    margin-left: 1%;
+    padding: 0rem 1rem;
+  }
+}
