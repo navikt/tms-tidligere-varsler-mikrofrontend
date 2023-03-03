@@ -26,7 +26,7 @@ const VarslingerPage = () => {
       (filterType === "ALLE" || varsel.type === filterType) &&
       (varsel.tekst === null || varsel.tekst.toLowerCase().includes(filterSok))
   );
-  const hasMaskedVarsel = varsler && varsler.some((varsel) => varsel.tekst === "");
+  const hasMaskedVarsel = varsler && varsler.some((varsel) => varsel.isMasked);
 
   setLocaleDate();
   return (
