@@ -77,14 +77,4 @@ export default [
       ];
     },
   },
-  {
-    url: "/api/tms-varsel-api/login/status",
-    method: "get",
-    response: () => {
-      return {
-        authenticated: true,
-        level: 4,
-      };
-    },
-  },
 ];
