@@ -19,12 +19,6 @@ const TMS_VARSEL_API = {
   production: "https://www.nav.no/tms-min-side-proxy/varsel/tms-varsel-api",
 };
 
-const LOGINSERVICE_LEVEL4_URL = {
-  local: "http://localhost:3000/loginservice",
-  development: "https://loginservice.dev.nav.no/login?level=Level4",
-  production: "https://loginservice.nav.no/login?level=Level4",
-};
-
 const MIN_SIDE_URL = {
   local: "http://localhost:3000/minside",
   development: "https://www.dev.nav.no/minside",
@@ -34,10 +28,6 @@ const MIN_SIDE_URL = {
 const tmsVarselAPI = TMS_VARSEL_API[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 
-export const apiLoginUrl = `${tmsVarselAPI}/login`;
-export const apiStatusUrl = `${apiLoginUrl}/status`;
 export const inaktiveVarslerApiUrl = `${tmsVarselAPI}/inaktive`;
-
-export const loginserviceStepUpUrl = `${LOGINSERVICE_LEVEL4_URL[getEnvironment()]}&redirect=${minSideUrl}`;
 
 export const tidligereVarslerUrl = `${minSideUrl}/varslinger`;
