@@ -28,7 +28,7 @@ function Varsel({ varselData }) {
   return (
     <div className={style.varselWrapper}>
       <Heading
-        level="4"
+        level="2"
         size="xsmall"
         aria-label={varselData.isMasked ? maskedAriaLabel : undefined}
         className={style.varselHeading}
