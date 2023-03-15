@@ -41,7 +41,7 @@ function Varsel({ varselData }) {
       <BodyLong size="small" className={style.varselDate}>
         {`${translate.formatMessage({ id: varselMottatt })} ${formatToReadableDate(varselData.forstBehandlet)}`}
 
-        {eksternVarslingStatus && " | " + eksternVarslingStatus}
+        {eksternVarslingStatus && <span className={style.eksternVarslingStatus}>{eksternVarslingStatus}</span>}
       </BodyLong>
     </div>
   );
