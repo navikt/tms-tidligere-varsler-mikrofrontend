@@ -6,12 +6,13 @@ import { formatToReadableDate } from "../../utils/date";
 import { useIntl } from "react-intl";
 
 const getVarsletPaa = (kanaler) => {
+  const translate = useIntl();
   if (kanaler.includes("SMS") && kanaler.includes("EPOST")) {
-    return "varsel.varslet-paa-epost-sms";
+    return translate.formatMessage({ id: "varsel.varslet-paa-epost-sms" });
   } else if (kanaler.includes("SMS")) {
-    return "varsel.varslet-paa-sms";
+    return translate.formatMessage({ id: "varsel.varslet-paa-sms" });
   } else if (kanaler.includes("EPOST")) {
-    return "varsel.varslet-paa-epost";
+    return translate.formatMessage({ id: "varsel.varslet-paa-epost" });
   }
 };
 
@@ -22,10 +23,12 @@ function Varsel({ varselData }) {
   const maskedText = "** ******* ******* *** * ***** ******** ******** *** ** ***********************";
   const maskedAriaLabel = "Tekst ikke synlig";
 
+  const eksternVarslingStatus = getVarsletPaa(varselData.eksternVarslingKanaler);
+
   return (
     <div className={style.varselWrapper}>
       <Heading
-        level="2"
+        level="4"
         size="xsmall"
         aria-label={varselData.isMasked ? maskedAriaLabel : undefined}
         className={style.varselHeading}
@@ -37,6 +40,8 @@ function Varsel({ varselData }) {
 
       <BodyLong size="small" className={style.varselDate}>
         {`${translate.formatMessage({ id: varselMottatt })} ${formatToReadableDate(varselData.forstBehandlet)}`}
+
+        {eksternVarslingStatus && " | " + eksternVarslingStatus}
       </BodyLong>
     </div>
   );
