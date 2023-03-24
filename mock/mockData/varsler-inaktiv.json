@@ -7,8 +7,8 @@
     "tekst": "Du har sagt du skal ettersende vedlegg til Søknad om stønad til anskaffelse av motorkjøretøy",
     "produsent": "henvendelse",
     "isMasked": false,
-    "eksternVarslingSendt": false,
-    "eksternVarslingKanaler": []
+    "eksternVarslingSendt": true,
+    "eksternVarslingKanaler": ["SMS"]
   },
   {
     "eventId": "1584093785733",
@@ -18,8 +18,8 @@
     "tekst": "Mangelende dokumentasjon til søknad",
     "produsent": "henvendelse",
     "isMasked": false,
-    "eksternVarslingSendt": false,
-    "eksternVarslingKanaler": []
+    "eksternVarslingSendt": true,
+    "eksternVarslingKanaler": ["SMS", "EPOST"]
   },
   {
     "eventId": "3984093204236",
@@ -29,8 +29,8 @@
     "tekst": "Svar fra veilederen din i innboksen: Hei, nå har jeg sjekket om...",
     "produsent": "henvendelse",
     "isMasked": false,
-    "eksternVarslingSendt": false,
-    "eksternVarslingKanaler": []
+    "eksternVarslingSendt": true,
+    "eksternVarslingKanaler": ["EPOST"]
   },
   {
     "eventId": "1584093197470",

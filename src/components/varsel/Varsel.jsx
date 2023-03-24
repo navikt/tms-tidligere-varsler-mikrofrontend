@@ -6,13 +6,13 @@ import { useContext } from "react";
 import { LanguageContext } from "../../provider/LanguageProvider";
 import text from "../../language/text";
 
-const getVarsletPaa = (kanaler) => {
+const getVarsletPaa = (kanaler, language) => {
   if (kanaler.includes("SMS") && kanaler.includes("EPOST")) {
-    return "varsel.varslet-paa-epost-sms";
+    return text["varselEksterntVarsletEpostOgSMS"][language];
   } else if (kanaler.includes("SMS")) {
-    return "varsel.varslet-paa-sms";
+    return text["varselEksterntVarsletSMS"][language];
   } else if (kanaler.includes("EPOST")) {
-    return "varsel.varslet-paa-epost";
+    return text["varselEksterntVarsletEpost"][language];
   }
 };
 
@@ -22,6 +22,8 @@ function Varsel({ varselData }) {
   const language = useContext(LanguageContext);
   const maskedText = "** ******* ******* *** * ***** ******** ******** *** ** ***********************";
   const maskedAriaLabel = "Tekst ikke synlig";
+
+  const eksternVarslingStatus = getVarsletPaa(varselData.eksternVarslingKanaler, language);
 
   return (
     <div className={style.varselWrapper}>
@@ -37,7 +39,9 @@ function Varsel({ varselData }) {
       </Heading>
 
       <BodyLong size="small" className={style.varselDate}>
-        {text[varselMottatt][language]} {formatToReadableDate(varselData.forstBehandlet)}
+        {`${text[varselMottatt][language]} ${formatToReadableDate(varselData.forstBehandlet)}`}
+
+        {eksternVarslingStatus && <span className={style.eksternVarslingStatus}>{eksternVarslingStatus}</span>}
       </BodyLong>
     </div>
   );

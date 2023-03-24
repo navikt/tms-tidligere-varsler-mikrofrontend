@@ -94,6 +94,21 @@ const text = {
     nn: "Gå til Mi Side",
     en: "Go to My page",
   },
+  varselEksterntVarsletSMS: {
+    nb: "Varslet på SMS",
+    nn: "Varslet på SMS",
+    en: "Notified by SMS",
+  },
+  varselEksterntVarsletEpost: {
+    nb: "Varslet på e-post",
+    nn: "Varslet på e-post",
+    en: "Notified by e-mail",
+  },
+  varselEksterntVarsletEpostOgSMS: {
+    nb: "Varslet på e-post og SMS",
+    nn: "Varslet på e-post og SMS",
+    en: "Notified by e-mail and SMS",
+  },
 };
 
 export default text;
