@@ -1,29 +1,29 @@
 import React from "react";
-import { Heading, Ingress, BodyShort, Tag, BodyLong } from "@navikt/ds-react";
+import { Heading, BodyLong } from "@navikt/ds-react";
 import style from "./Varsel.module.css";
-import VarselTag from "../varselTag/VarselTag";
 import { formatToReadableDate } from "../../utils/date";
-import { useIntl } from "react-intl";
+import { useContext } from "react";
+import { LanguageContext } from "../../provider/LanguageProvider";
+import text from "../../language/text";
 
-const getVarsletPaa = (kanaler) => {
-  const translate = useIntl();
+const getVarsletPaa = (kanaler, language) => {
   if (kanaler.includes("SMS") && kanaler.includes("EPOST")) {
-    return translate.formatMessage({ id: "varsel.varslet-paa-epost-sms" });
+    return text["varselEksterntVarsletEpostOgSMS"][language];
   } else if (kanaler.includes("SMS")) {
-    return translate.formatMessage({ id: "varsel.varslet-paa-sms" });
+    return text["varselEksterntVarsletSMS"][language];
   } else if (kanaler.includes("EPOST")) {
-    return translate.formatMessage({ id: "varsel.varslet-paa-epost" });
+    return text["varselEksterntVarsletEpost"][language];
   }
 };
 
 function Varsel({ varselData }) {
   const isOppgave = varselData.type === "OPPGAVE";
-  const varselMottatt = isOppgave ? "varsel.oppgave-mottatt" : "varsel.beskjed-mottatt";
-  const translate = useIntl();
+  const varselMottatt = isOppgave ? "varselOppgaveMottatt" : "varselBeskjedMottatt";
+  const language = useContext(LanguageContext);
   const maskedText = "** ******* ******* *** * ***** ******** ******** *** ** ***********************";
   const maskedAriaLabel = "Tekst ikke synlig";
 
-  const eksternVarslingStatus = getVarsletPaa(varselData.eksternVarslingKanaler);
+  const eksternVarslingStatus = getVarsletPaa(varselData.eksternVarslingKanaler, language);
 
   return (
     <div className={style.varselWrapper}>
@@ -39,7 +39,7 @@ function Varsel({ varselData }) {
       </Heading>
 
       <BodyLong size="small" className={style.varselDate}>
-        {`${translate.formatMessage({ id: varselMottatt })} ${formatToReadableDate(varselData.forstBehandlet)}`}
+        {`${text[varselMottatt][language]} ${formatToReadableDate(varselData.forstBehandlet)}`}
 
         {eksternVarslingStatus && <span className={style.eksternVarslingStatus}>{eksternVarslingStatus}</span>}
       </BodyLong>

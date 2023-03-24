@@ -1,7 +1,6 @@
 import style from "./VarselTag.module.css";
 import { Tag } from "@navikt/ds-react";
 import "@navikt/ds-css";
-import { useIntl } from "react-intl";
 
 const VarselTag = ({ dato, varselType, arkivertAvNAV }) => {
   let tagClassName;
