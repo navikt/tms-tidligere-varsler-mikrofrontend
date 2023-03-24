@@ -1,6 +1,5 @@
-import { useIntl } from "react-intl";
 import { useQuery } from "react-query";
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
 import { Heading, Alert } from "@navikt/ds-react";
 import EmptyVarselList from "../emptyVarselList/EmptyVarselList";
 import Filter from "../filter/Filter";
@@ -12,9 +11,11 @@ import { selectSearch, selectType } from "../../store/selectors";
 import useStore from "../../store/store";
 import style from "./TidligereVarsler.module.css";
 import globalStyle from "../../App.module.css";
+import text from "../../language/text";
+import { LanguageContext } from "../../provider/LanguageProvider";
 
 const VarslingerPage = () => {
-  const translate = useIntl();
+  const language = useContext(LanguageContext);
   const { data: varsler, isSuccess } = useQuery(inaktiveVarslerApiUrl, fetcher);
 
   const filterType = useStore(selectType);
@@ -32,10 +33,10 @@ const VarslingerPage = () => {
   return (
     <div className={style.mainWrapper}>
       <div className={`${style.tidligereVarslerHeading} ${globalStyle.tekstInnhold}`}>
-        <Heading size={"large"}>{translate.formatMessage({ id: "tidligere-varsler.overskrift" })}</Heading>
+        <Heading size={"large"}>{text["tidligereVarslerOverskrift"][language]}</Heading>
         {hasMaskedVarsel && (
           <Alert className={style.hoyereSikkerhetsnivaaAlert} variant="info">
-            {translate.formatMessage({ id: "hoyere-sikkerhetnivaa" })}
+            {text["hoyereSikkerhetsnivaa"][language]}
           </Alert>
         )}
       </div>

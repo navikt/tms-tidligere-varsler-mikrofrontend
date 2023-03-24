@@ -1,9 +1,10 @@
 import React from "react";
-import { Heading, Ingress, BodyShort, Tag, BodyLong } from "@navikt/ds-react";
+import { Heading, BodyLong } from "@navikt/ds-react";
 import style from "./Varsel.module.css";
-import VarselTag from "../varselTag/VarselTag";
 import { formatToReadableDate } from "../../utils/date";
-import { useIntl } from "react-intl";
+import { useContext } from "react";
+import { LanguageContext } from "../../provider/LanguageProvider";
+import text from "../../language/text";
 
 const getVarsletPaa = (kanaler) => {
   if (kanaler.includes("SMS") && kanaler.includes("EPOST")) {
@@ -17,8 +18,8 @@ const getVarsletPaa = (kanaler) => {
 
 function Varsel({ varselData }) {
   const isOppgave = varselData.type === "OPPGAVE";
-  const varselMottatt = isOppgave ? "varsel.oppgave-mottatt" : "varsel.beskjed-mottatt";
-  const translate = useIntl();
+  const varselMottatt = isOppgave ? "varselOppgaveMottatt" : "varselBeskjedMottatt";
+  const language = useContext(LanguageContext);
   const maskedText = "** ******* ******* *** * ***** ******** ******** *** ** ***********************";
   const maskedAriaLabel = "Tekst ikke synlig";
 
@@ -36,7 +37,7 @@ function Varsel({ varselData }) {
       </Heading>
 
       <BodyLong size="small" className={style.varselDate}>
-        {`${translate.formatMessage({ id: varselMottatt })} ${formatToReadableDate(varselData.forstBehandlet)}`}
+        {text[varselMottatt][language]} {formatToReadableDate(varselData.forstBehandlet)}
       </BodyLong>
     </div>
   );
