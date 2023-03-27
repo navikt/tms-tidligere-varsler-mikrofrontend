@@ -7,6 +7,7 @@ const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(defaultLanguage);
   useEffect(() => {
     window.addEventListener("storage", () => {
+      console.log("New event listener");
       setLanguage(sessionStorage.getItem("language") ?? "nb");
     });
   }, []);
