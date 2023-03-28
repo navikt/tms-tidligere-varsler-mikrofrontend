@@ -7,16 +7,14 @@ const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(defaultLanguage);
 
   useEffect(() => {
-    console.log("useEffect");
-    const handleStorageOnEvent = () => {
+    const handleLanguageEvent = () => {
       setLanguage(sessionStorage.getItem("language") ?? "nb");
-      console.log("listiner ---");
     };
 
-    window.addEventListener("storage", handleStorageOnEvent);
+    window.addEventListener("language", handleLanguageEvent);
 
     return () => {
-      window.removeEventListener("storage", handleStorageOnEvent);
+      window.removeEventListener("language", handleLanguageEvent);
     };
   }, []);
 
