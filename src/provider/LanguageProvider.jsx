@@ -5,10 +5,17 @@ export const LanguageContext = createContext(defaultLanguage);
 
 const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(defaultLanguage);
+
   useEffect(() => {
-    window.addEventListener("storage", () => {
+    const handleLanguageEvent = () => {
       setLanguage(sessionStorage.getItem("language") ?? "nb");
-    });
+    };
+
+    window.addEventListener("language", handleLanguageEvent);
+
+    return () => {
+      window.removeEventListener("language", handleLanguageEvent);
+    };
   }, []);
 
   return <LanguageContext.Provider value={language}>{children}</LanguageContext.Provider>;

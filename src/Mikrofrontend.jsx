@@ -9,11 +9,11 @@ const Mikrofrontend = () => {
   initializeAmplitude();
 
   return (
-    <LanguageProvider>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <LanguageProvider>
         <App />
-      </QueryClientProvider>
-    </LanguageProvider>
+      </LanguageProvider>
+    </QueryClientProvider>
   );
 };
 
