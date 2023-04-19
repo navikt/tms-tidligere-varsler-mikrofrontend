@@ -1,5 +1,5 @@
-const isProduction = window.location.href.includes("www.intern.nav.no") || window.location.href.includes("www.nav.no");
-const isDevelopment = window.location.href.includes("www.dev.nav.no");
+const isProduction = window.location.href.includes("www.nav.no");
+const isDevelopment = window.location.href.includes("www.intern.dev.nav.no");
 
 export const getEnvironment = () => {
   if (isDevelopment) {
@@ -21,13 +21,11 @@ const TMS_VARSEL_API = {
 
 const MIN_SIDE_URL = {
   local: "http://localhost:3000/minside",
-  development: "https://www.dev.nav.no/minside",
+  development: "https://www.intern.dev.nav.no/minside",
   production: "https://www.nav.no/minside",
 };
 
 const tmsVarselAPI = TMS_VARSEL_API[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
-
 export const inaktiveVarslerApiUrl = `${tmsVarselAPI}/inaktive`;
-
 export const tidligereVarslerUrl = `${minSideUrl}/varslinger`;
