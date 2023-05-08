@@ -12,9 +12,8 @@
     "pretty-quick": "pretty-quick --pattern \"**/*.*(jsx)\""
   },
   "dependencies": {
-    "@navikt/ds-css": "1.2.0",
-    "@navikt/ds-icons": "1.2.0",
-    "@navikt/ds-react": "1.2.0",
+    "@navikt/ds-icons": "2.9.3",
+    "@navikt/ds-react": "2.9.3",
     "amplitude-js": "8.19.0",
     "dayjs": "1.11.0",
     "react": "18.2.0",
