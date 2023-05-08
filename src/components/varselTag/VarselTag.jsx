@@ -1,6 +1,5 @@
 import style from "./VarselTag.module.css";
 import { Tag } from "@navikt/ds-react";
-import "@navikt/ds-css";
 
 const VarselTag = ({ dato, varselType, arkivertAvNAV }) => {
   let tagClassName;
