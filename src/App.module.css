@@ -1,11 +1,27 @@
 .app {
   max-width: 39.5rem;
-  margin: 0rem 1rem;
+  margin: 0rem 1rem ;
   display: flex;
   flex-direction: column;
+}
+.pageTitle{
+  margin-top: 1.25rem;
+}
+
+.authenticationAlert{
+  margin-top: 1rem;
+}
+
+.loader{
+  align-self: center;
+}
+
+.pageBody{
+  margin-top: 2rem;
 }
 
 .varslerList {
   list-style-type: none;
   padding-inline-start: 0px;
+  margin-top: 2rem;
 }
