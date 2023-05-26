@@ -21,6 +21,6 @@ export const initializeAmplitude = () => {
 
 export function logAmplitudeEvent(komponent) {
   amplitude.getInstance().logEvent("navigere", {
-    komponent,
+    label,
   });
 }
