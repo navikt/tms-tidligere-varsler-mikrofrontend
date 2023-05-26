@@ -12,8 +12,10 @@ import { selectSearch, selectType } from "./store/selectors";
 import useStore from "./store/store";
 import Filter from "./components/filter/Filter";
 import EmptyVarselList from "./components/emptyVarselList/EmptyVarselList.jsx";
+import TomSokKatt from "./assets/TomSokKatt";
 
 const PageBody = ({ varsler, isSuccess }) => {
+  const language = useContext(LanguageContext);
   const filterType = useStore(selectType);
   const filterSok = useStore(selectSearch);
 
@@ -27,14 +29,21 @@ const PageBody = ({ varsler, isSuccess }) => {
   return (
     <div className={style.pageBody}>
       <Filter />
-      <ul className={`${style.varslerList}`}>
-        {isSuccess &&
-          filtertedVarseler?.map((varsel) => (
-            <li key={varsel.eventId}>
-              <Varsel varselData={varsel} />
-            </li>
-          ))}
-      </ul>
+      {filtertedVarseler.length > 0 ? (
+        <ul className={style.varslerList}>
+          {isSuccess &&
+            filtertedVarseler?.map((varsel) => (
+              <li key={varsel.eventId}>
+                <Varsel varselData={varsel} />
+              </li>
+            ))}
+        </ul>
+      ) : (
+        <div className={style.emptySearchContainer}>
+          <TomSokKatt />
+          <BodyLong className={style.emptySearchDescription}>{text["ingenSokeresultat"][language]}</BodyLong>
+        </div>
+      )}
     </div>
   );
 };
