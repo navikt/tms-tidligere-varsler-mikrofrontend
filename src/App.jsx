@@ -43,21 +43,20 @@ function App() {
   const language = useContext(LanguageContext);
   const { data: varsler, isSuccess, isLoading } = useQuery(inaktiveVarslerApiUrl, fetcher);
   const hasMaskedVarsel = varsler && varsler.some((varsel) => varsel.isMasked);
-  const visVarsel = false;
 
   return (
     <div className={style.app}>
       <Heading className={style.pageTitle} size={"large"}>
         {text["tidligereVarslerOverskrift"][language]}
       </Heading>
-      {!visVarsel && (
+      {hasMaskedVarsel && (
         <Alert className={style.authenticationAlert} variant="info">
           {text["hoyereSikkerhetsnivaa"][language]}
         </Alert>
       )}
       {isLoading ? (
         <Loader className={style.loader} size="3xlarge" title="venter..." />
-      ) : visVarsel ? (
+      ) : varsler.length === 0 ? (
         <EmptyVarselList />
       ) : (
         <PageBody varsler={varsler} isSuccess={isSuccess} />
