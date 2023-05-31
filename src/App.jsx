@@ -11,10 +11,10 @@ import Varsel from "./components/varsel/Varsel";
 import { selectSearch, selectType } from "./store/selectors";
 import useStore from "./store/store";
 import Filter from "./components/filter/Filter";
-import EmptyVarselList from "./components/emptyVarselList/EmptyVarselList.jsx";
+import NoTidligereVarslerPage from "./components/NoTidligereVarslerPage/NoTidligereVarslerPage.jsx";
 import TomSokKatt from "./assets/TomSokKatt";
 
-const PageBody = ({ varsler, isSuccess }) => {
+const TidligereVarslerPage = ({ varsler, isSuccess }) => {
   const language = useContext(LanguageContext);
   const filterType = useStore(selectType);
   const filterSok = useStore(selectSearch);
@@ -27,7 +27,7 @@ const PageBody = ({ varsler, isSuccess }) => {
   );
 
   return (
-    <div className={style.pageBody}>
+    <div className={style.tidligereVarslerPage}>
       <Filter />
       {filtertedVarseler.length > 0 ? (
         <ul className={style.varslerList}>
@@ -66,9 +66,9 @@ function App() {
       {isLoading ? (
         <Loader className={style.loader} size="3xlarge" title="venter..." />
       ) : varsler.length === 0 ? (
-        <EmptyVarselList />
+        <NoTidligereVarslerPage />
       ) : (
-        <PageBody varsler={varsler} isSuccess={isSuccess} />
+        <TidligereVarslerPage varsler={varsler} isSuccess={isSuccess} />
       )}
     </div>
   );
