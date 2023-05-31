@@ -12,12 +12,12 @@
   margin-top: 1rem;
 }
 
-.loader{
-  align-self: center;
+.pageBodyWrapper{
+  margin-top: 2rem;
 }
 
-.tidligereVarslerPage{
-  margin-top: 2rem;
+.loader{
+  align-self: center;
 }
 
 .varslerList {

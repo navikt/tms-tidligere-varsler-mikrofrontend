@@ -27,7 +27,7 @@ const TidligereVarslerPage = ({ varsler, isSuccess }) => {
   );
 
   return (
-    <div className={style.tidligereVarslerPage}>
+    <>
       <Filter />
       {filtertedVarseler.length > 0 ? (
         <ul className={style.varslerList}>
@@ -44,7 +44,7 @@ const TidligereVarslerPage = ({ varsler, isSuccess }) => {
           <BodyLong className={style.emptySearchDescription}>{text["ingenSokeresultat"][language]}</BodyLong>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
@@ -63,13 +63,15 @@ function App() {
           {text["hoyereSikkerhetsnivaa"][language]}
         </Alert>
       )}
-      {isLoading ? (
-        <Loader className={style.loader} size="3xlarge" title="venter..." />
-      ) : varsler.length === 0 ? (
-        <NoTidligereVarslerPage />
-      ) : (
-        <TidligereVarslerPage varsler={varsler} isSuccess={isSuccess} />
-      )}
+      <div className={style.pageBodyWrapper}>
+        {isLoading ? (
+          <Loader className={style.loader} size="3xlarge" title="venter..." />
+        ) : varsler.length === 0 ? (
+          <NoTidligereVarslerPage />
+        ) : (
+          <TidligereVarslerPage varsler={varsler} isSuccess={isSuccess} />
+        )}
+      </div>
     </div>
   );
 }
