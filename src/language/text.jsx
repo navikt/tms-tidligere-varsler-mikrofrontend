@@ -119,7 +119,7 @@ const text = {
     if (language === "en") {
       return `Displaying ${hits} av ${totalNumberOfSearch} notifications`;
     } else if (language === "nn") {
-      return `Visar ${hits} av ${totalNumberOfSearch} varsler`;
+      return `Viser ${hits} av ${totalNumberOfSearch} varsel`;
     } else {
       return `Viser ${hits} av ${totalNumberOfSearch} varsler`;
     }
