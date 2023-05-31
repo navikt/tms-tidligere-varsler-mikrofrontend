@@ -20,10 +20,16 @@
   align-self: center;
 }
 
+.numberOfSearchHit{
+  margin-top: 2.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #E5E5E5;
+}
+
 .varslerList {
   list-style-type: none;
   padding-inline-start: 0px;
-  margin-top: 1.5rem;
+  margin-top: 0rem;
   margin-bottom: 0rem;
 }
 

@@ -5,6 +5,7 @@ const text = {
     en: "Past notifications",
   },
   sidebeskrivelse: {
+    //Fylle inn oversettelsene for nn og en før bruk
     nb: "Vi tar vare på varslene i ett år før de fjernes. Ta kontakt for å få tilgang til varsler eldre enn ett år.",
     nn: "",
     en: "",
@@ -118,6 +119,15 @@ const text = {
     nb: "Varslet på e-post og SMS",
     nn: "Varslet på e-post og SMS",
     en: "Notified by e-mail and SMS",
+  },
+  antallSokeTreff: (language, hits, totalNumberOfSearch) => {
+    if (language === "en") {
+      return `Displaying ${hits} av ${totalNumberOfSearch} notifications`;
+    } else if (language === "nn") {
+      return `Visar ${hits} av ${totalNumberOfSearch} varsler`;
+    } else {
+      return `Viser ${hits} av ${totalNumberOfSearch} varsler`;
+    }
   },
 };
 

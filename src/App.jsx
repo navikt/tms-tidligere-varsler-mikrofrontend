@@ -5,7 +5,7 @@ import { inaktiveVarslerApiUrl } from "./api/urls";
 import { fetcher } from "./api/api";
 import { byForstBehandlet } from "./utils/date";
 import { useQuery } from "react-query";
-import { Alert, BodyLong, Heading, Loader } from "@navikt/ds-react";
+import { Alert, BodyLong, BodyShort, Heading, Loader } from "@navikt/ds-react";
 import text from "./language/text";
 import Varsel from "./components/varsel/Varsel";
 import { selectSearch, selectType } from "./store/selectors";
@@ -29,6 +29,9 @@ const TidligereVarslerPage = ({ varsler, isSuccess }) => {
   return (
     <>
       <Filter />
+      <BodyShort className={style.numberOfSearchHit}>
+        {text.antallSokeTreff(language, filtertedVarseler.length, varsler.length)}
+      </BodyShort>
       {filtertedVarseler.length > 0 ? (
         <ul className={style.varslerList}>
           {isSuccess &&
