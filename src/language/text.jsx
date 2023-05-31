@@ -90,15 +90,10 @@ const text = {
     nn: "Vi fann dessverre ikkje det du søkte etter. Sjekk om du har skrive feil eller prøv med eit anna søkeord.",
     en: "Unfortunately, we did not find what you were looking for. Check if you have typed it wrong or try another search term.",
   },
-  varselOppgaveMottatt: {
-    nb: "Oppgave mottatt",
-    nn: "Oppgave motteke",
-    en: "Task received",
-  },
-  varselBeskjedMottatt: {
-    nb: "Beskjed mottatt",
-    nn: "Beskjed motteke",
-    en: "Message received",
+  varselMottatt: {
+    nb: "Mottatt",
+    nn: "Motteke",
+    en: "Received",
   },
   gaaTilMinSide: {
     nb: "Gå til Min side",
