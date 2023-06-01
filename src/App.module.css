@@ -19,30 +19,3 @@
 .loader{
   align-self: center;
 }
-
-.numberOfSearchHit{
-  margin-top: 2.75rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #E5E5E5;
-}
-
-.varslerList {
-  list-style-type: none;
-  padding-inline-start: 0px;
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-}
-
-.emptySearchContainer{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 2rem;
-  justify-content: center;  padding: 3.5rem 2.5rem 2.75rem 2.5rem;
-  border-radius: 12px;
-  border: 2px dashed var(--border-divider, rgba(0, 0, 0, 0.19));
-}
-
-.emptySearchDescription{
-  margin-top: 2.5rem;
-}
