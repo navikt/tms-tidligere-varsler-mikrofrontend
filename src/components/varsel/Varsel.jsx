@@ -21,7 +21,7 @@ const getVarsletPaa = (kanaler, language) => {
 function Varsel({ varselData }) {
   const isOppgave = varselData.type === "OPPGAVE";
   const language = useContext(LanguageContext);
-  const maskedText = "** ******* ******* *** * ***** ******** ******** *** ** ***********************";
+  const maskedText = "**** **** **** **** **** ****";
   const maskedAriaLabel = "Tekst ikke synlig";
 
   const eksternVarslingStatus = getVarsletPaa(varselData.eksternVarslingKanaler, language);
@@ -40,11 +40,11 @@ function Varsel({ varselData }) {
       </Heading>
       <div className={style.varselMetaData}>
         {isOppgave ? <OppgaveIkon /> : <BeskjedIkon />}
-        <Tag className={style.tag} variant="neutral">{`${text["varselMottatt"][language]} ${formatToReadableDate(
-          varselData.forstBehandlet
-        )}`}</Tag>
+        <Tag className={style.tag} variant="neutral" size="small">{`${
+          text["varselMottatt"][language]
+        } ${formatToReadableDate(varselData.forstBehandlet)}`}</Tag>
         {eksternVarslingStatus && (
-          <Tag variant="neutral" className={`${style.tag} ${style.eksternVarslingStatus}`}>
+          <Tag variant="neutral" size="small" className={`${style.tag} ${style.eksternVarslingStatus}`}>
             {eksternVarslingStatus}
           </Tag>
         )}
