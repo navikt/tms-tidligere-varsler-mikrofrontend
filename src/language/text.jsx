@@ -7,7 +7,7 @@ const text = {
   sidebeskrivelse: {
     //Fylle inn oversettelsene for nn og en før bruk
     nb: "Vi viser tidligere varsler fra siste 12 måneder.",
-    nn: "Vi visar tidligare varsel fra dei siste 12 månadar.",
+    nn: "Vi viser tidligare varsel fra dei siste 12 månadar.",
     en: "Showing inactive notifications from last 12 months.",
   },
   hoyereSikkerhetsnivaa: {
@@ -117,7 +117,7 @@ const text = {
   },
   antallSokeTreff: (language, hits, totalNumberOfSearch) => {
     if (language === "en") {
-      return `Displaying ${hits} av ${totalNumberOfSearch} notifications`;
+      return `Showing ${hits} out of ${totalNumberOfSearch} notifications`;
     } else if (language === "nn") {
       return `Viser ${hits} av ${totalNumberOfSearch} varsel`;
     } else {
