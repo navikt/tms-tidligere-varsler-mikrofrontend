@@ -3,10 +3,6 @@
   padding-bottom: 1.25rem;
   border-bottom: 1px solid #e5e5e5;
 }
-.varselHeading {
-  font-weight: 400 !important;
-  line-height: 28px !important;
-}
 .varselMetaData {
   display: flex;
   gap: 0.5rem;

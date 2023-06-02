@@ -6,9 +6,9 @@ const text = {
   },
   sidebeskrivelse: {
     //Fylle inn oversettelsene for nn og en før bruk
-    nb: "Vi tar vare på varslene i ett år før de fjernes. Ta kontakt for å få tilgang til varsler eldre enn ett år.",
-    nn: "",
-    en: "",
+    nb: "Vi viser tidligere varsler fra siste 12 måneder.",
+    nn: "Vi visar tidligare varsel fra dei siste 12 månadar.",
+    en: "Showing inactive notifications from last 12 months.",
   },
   hoyereSikkerhetsnivaa: {
     nb: "Du må logge inn med BankID, Buypass eller Commfides for å se alle varslene.",
@@ -81,9 +81,9 @@ const text = {
     en: "You have no past notifications",
   },
   ingenTidligereVarslerbody: {
-    nb: "Når du har gjort en oppgave eller lest en beskjed havner de her. Nye oppgaver og beskjeder finner du i varsler øverst på siden, eller under navnet ditt på Min side.",
-    nn: "Når du har gjort ei oppgåve eller lest ein beskjed ligg dei her. Nye oppgåver eller beskjedar finn du i varsel øvst på sida, eller under namnet ditt på Mi side.",
-    en: "When you have completed a task or read a message, you will find them here. You will find new tasks or messages on top of the page, or underneath your name on My page.",
+    nb: "Når du har gjort en oppgave eller lest en beskjed havner de her.",
+    nn: "Når du har gjort ei oppgåve eller lest ein beskjed ligg dei her.",
+    en: "When you have completed a task or read a message, you will find them here.",
   },
   ingenSokeresultat: {
     nb: "Vi fant dessverre ikke det du søkte etter. Sjekk om du har skrevet feil eller prøv med et annet søkeord.",

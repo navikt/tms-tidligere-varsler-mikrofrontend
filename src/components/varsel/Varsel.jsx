@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Tag } from "@navikt/ds-react";
+import { BodyLong, Tag } from "@navikt/ds-react";
 import style from "./Varsel.module.css";
 import { formatToReadableDate } from "../../utils/date";
 import { useContext } from "react";
@@ -28,16 +28,11 @@ function Varsel({ varselData }) {
 
   return (
     <div className={style.varselWrapper}>
-      <Heading
-        level="2"
-        size="xsmall"
-        aria-label={varselData.isMasked ? maskedAriaLabel : undefined}
-        className={style.varselHeading}
-      >
+      <BodyLong aria-label={varselData.isMasked ? maskedAriaLabel : undefined} className={style.varselHeading}>
         <span aria-hidden={varselData.isMasked ? true : undefined}>
           {varselData.isMasked ? maskedText : varselData.tekst}
         </span>
-      </Heading>
+      </BodyLong>
       <div className={style.varselMetaData}>
         {isOppgave ? <OppgaveIkon /> : <BeskjedIkon />}
         <Tag className={style.tag} variant="neutral" size="small">{`${

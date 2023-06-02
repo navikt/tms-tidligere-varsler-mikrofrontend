@@ -178,56 +178,56 @@ const TomSokKatt = () => {
         fill="#262626"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M42.4166 123.682L20.8728 138.086L34.3878 137.331L42.479 131.564L42.4166 123.682Z"
         fill="#A86400"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M97.5503 123.685L119.023 138.089L105.847 137.2L97.4165 131.567L97.5503 123.685Z"
         fill="#A86400"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M97.5291 170.33H42.293L39.2075 149.621L42.293 123.657L61.4204 125.158H78.5483L97.5291 123.657L100.627 162.941L97.5291 170.33Z"
         fill="#C77300"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M83.7297 163.965H85.8559V157.601H83.7297V163.965Z"
         fill="#523300"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M90.1084 163.965H92.2346V157.601H90.1084V163.965Z"
         fill="#523300"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M82.6658 168.208H93.2968V166.086H82.6658V168.208Z"
         fill="#523300"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M84.8585 154.901L82.8584 158.33H86.8585L84.8585 154.901Z"
         fill="#523300"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M91.1446 154.901L89.1445 158.33H93.1446L91.1446 154.901Z"
         fill="#523300"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M74.7913 136.385H65.025C64.1997 136.385 63.5295 137.097 63.5295 137.977C63.5295 138.855 64.1997 139.568 65.025 139.568H74.7913C75.6177 139.568 76.2868 138.855 76.2868 137.977C76.2868 137.097 75.6177 136.385 74.7913 136.385"
         fill="#262626"
       />

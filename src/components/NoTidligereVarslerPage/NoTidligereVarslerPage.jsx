@@ -11,11 +11,13 @@ const NoTidligereVarslerPage = () => {
   return (
     <div className={style.noTidligereVarslerPage}>
       <IngenVarslerKatt />
-      <Heading level="2" className={style.header} size={"small"}>
+      <Heading level="2" className={style.noTidligereVarslerHeader} size="small">
         {text["ingenTidligereVarslerHeader"][language]}
       </Heading>
-      <BodyLong className={style.body}>{text["ingenTidligereVarslerbody"][language]} </BodyLong>
-      <Link href={minSideUrl} className={style.link}>
+      <BodyLong className={style.noTidligereVarslerDescription}>
+        {text["ingenTidligereVarslerbody"][language]}{" "}
+      </BodyLong>
+      <Link href={minSideUrl} className={style.minSideLink}>
         {text["gaaTilMinSide"][language]}
       </Link>
     </div>

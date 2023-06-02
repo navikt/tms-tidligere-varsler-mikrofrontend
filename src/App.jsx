@@ -1,10 +1,10 @@
 import style from "./App.module.css";
 import { LanguageContext } from "./provider/LanguageProvider";
-import { useContext, useMemo } from "react";
+import { useContext } from "react";
 import { inaktiveVarslerApiUrl } from "./api/urls";
 import { fetcher } from "./api/api";
 import { useQuery } from "react-query";
-import { Alert, Heading, Loader } from "@navikt/ds-react";
+import { Alert, Heading, Loader, Ingress } from "@navikt/ds-react";
 import text from "./language/text";
 import NoTidligereVarslerPage from "./components/NoTidligereVarslerPage/NoTidligereVarslerPage.jsx";
 import TidligereVarslerPage from "./components/TidligereVarslerPage/TidligereVarslerPage.jsx";
@@ -16,9 +16,10 @@ function App() {
 
   return (
     <div className={style.app}>
-      <Heading className={style.pageTitle} size={"large"}>
+      <Heading className={style.pageTitle} size="large">
         {text["tidligereVarslerOverskrift"][language]}
       </Heading>
+      <Ingress className={style.pageDescription}>{text["sidebeskrivelse"][language]}</Ingress>
       {hasMaskedVarsel && (
         <Alert className={style.authenticationAlert} variant="info">
           {text["hoyereSikkerhetsnivaa"][language]}

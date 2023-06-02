@@ -1,5 +1,5 @@
 import { useContext, useMemo } from "react";
-import { BodyLong, BodyShort } from "@navikt/ds-react";
+import { BodyLong, Heading } from "@navikt/ds-react";
 import Varsel from "../varsel/Varsel";
 import style from "./TidligereVarslerPage.module.css";
 import { selectSearch, selectType } from "../../store/selectors";
@@ -25,9 +25,9 @@ const TidligereVarslerPage = ({ varsler, isSuccess }) => {
   return (
     <>
       <Filter />
-      <BodyShort className={style.numberOfSearchHit}>
+      <Heading level={2} size="xsmall" className={style.varslerListHeading}>
         {text.antallSokeTreff(language, filtertedVarseler.length, varsler.length)}
-      </BodyShort>
+      </Heading>
       {filtertedVarseler.length > 0 ? (
         <ul className={style.varslerList}>
           {isSuccess &&
