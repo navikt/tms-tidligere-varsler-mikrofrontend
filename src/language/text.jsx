@@ -4,6 +4,12 @@ const text = {
     nn: "Tidlegare varsel",
     en: "Past notifications",
   },
+  sidebeskrivelse: {
+    //Fylle inn oversettelsene for nn og en før bruk
+    nb: "Vi viser tidligere varsler fra siste 12 måneder.",
+    nn: "Vi viser tidligare varsel fra dei siste 12 månadar.",
+    en: "Showing inactive notifications from last 12 months.",
+  },
   hoyereSikkerhetsnivaa: {
     nb: "Du må logge inn med BankID, Buypass eller Commfides for å se alle varslene.",
     nn: "Du må logge inn med BankID, Buypass eller Commfides for å sjå alle varsla.",
@@ -75,19 +81,19 @@ const text = {
     en: "You have no past notifications",
   },
   ingenTidligereVarslerbody: {
-    nb: "Når du har gjort en oppgave eller lest en beskjed havner de her. Nye oppgaver og beskjeder finner du i varsler øverst på siden, eller under navnet ditt på Min side.",
-    nn: "Når du har gjort ei oppgåve eller lest ein beskjed ligg dei her. Nye oppgåver eller beskjedar finn du i varsel øvst på sida, eller under namnet ditt på Mi side.",
-    en: "When you have completed a task or read a message, you will find them here. You will find new tasks or messages on top of the page, or underneath your name on My page.",
+    nb: "Når du har gjort en oppgave eller lest en beskjed havner de her.",
+    nn: "Når du har gjort ei oppgåve eller lest ein beskjed ligg dei her.",
+    en: "When you have completed a task or read a message, you will find them here.",
   },
-  varselOppgaveMottatt: {
-    nb: "Oppgave mottatt",
-    nn: "Oppgave motteke",
-    en: "Task received",
+  ingenSokeresultat: {
+    nb: "Vi fant dessverre ikke det du søkte etter. Sjekk om du har skrevet feil eller prøv med et annet søkeord.",
+    nn: "Vi fann dessverre ikkje det du søkte etter. Sjekk om du har skrive feil eller prøv med eit anna søkeord.",
+    en: "Unfortunately, we did not find what you were looking for. Check if you have typed it wrong or try another search term.",
   },
-  varselBeskjedMottatt: {
-    nb: "Beskjed mottatt",
-    nn: "Beskjed motteke",
-    en: "Message received",
+  varselMottatt: {
+    nb: "Mottatt",
+    nn: "Motteke",
+    en: "Received",
   },
   gaaTilMinSide: {
     nb: "Gå til Min side",
@@ -108,6 +114,15 @@ const text = {
     nb: "Varslet på e-post og SMS",
     nn: "Varslet på e-post og SMS",
     en: "Notified by e-mail and SMS",
+  },
+  antallSokeTreff: (language, hits, totalNumberOfSearch) => {
+    if (language === "en") {
+      return `Showing ${hits} out of ${totalNumberOfSearch} notifications`;
+    } else if (language === "nn") {
+      return `Viser ${hits} av ${totalNumberOfSearch} varsel`;
+    } else {
+      return `Viser ${hits} av ${totalNumberOfSearch} varsler`;
+    }
   },
 };
 

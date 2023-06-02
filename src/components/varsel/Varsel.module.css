@@ -1,17 +1,21 @@
-.varselWrapper{
+.varselWrapper {
   margin-top: 1.25rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom: 1px solid #e5e5e5;
 }
-.varselHeading{
-  font-weight: 400 !important;
-  line-height: 28px !important;
+.varselMetaData {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0.75rem;
 }
+
 .varselDate{
-  color: rgba(0, 0, 0, 0.56);
+  display: flex;
+  gap: 0.7rem;
 }
-.eksternVarslingStatus{
-  border-left: 1px solid rgba(0, 0, 0, 0.56);
-  padding-left: 0.5rem;
-  margin-left: 0.5rem;
+
+.tag{
+  border: none;
 }
