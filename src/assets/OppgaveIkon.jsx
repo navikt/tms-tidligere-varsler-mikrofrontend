@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./Ikon.module.css";
 
 const OppgaveIkon = () => {

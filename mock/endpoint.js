@@ -1,6 +1,4 @@
 /*eslint no-undef: "off"*/
-const inaktiveVarsler = require("./mockData/varsler-inaktiv.json");
-
 export default [
   {
     url: "/api/tms-varsel-api/inaktive",

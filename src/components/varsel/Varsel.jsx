@@ -1,4 +1,3 @@
-import React from "react";
 import { BodyLong, Tag } from "@navikt/ds-react";
 import style from "./Varsel.module.css";
 import { formatToReadableDate } from "../../utils/date";
