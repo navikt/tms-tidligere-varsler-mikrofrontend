@@ -1,5 +1,5 @@
 import { BodyLong, Tag } from "@navikt/ds-react";
-import style from "./Varsel.module.css";
+import styles from "./Varsel.module.css";
 import { formatToReadableDate } from "../../utils/date";
 import { useContext } from "react";
 import { LanguageContext } from "../../provider/LanguageProvider";
@@ -26,19 +26,19 @@ function Varsel({ varselData }) {
   const eksternVarslingStatus = getVarsletPaa(varselData.eksternVarslingKanaler, language);
 
   return (
-    <div className={style.varselWrapper}>
-      <BodyLong aria-label={varselData.isMasked ? maskedAriaLabel : undefined} className={style.varselHeading}>
+    <div className={styles.varselWrapper}>
+      <BodyLong aria-label={varselData.isMasked ? maskedAriaLabel : undefined} className={styles.varselHeading}>
         <span aria-hidden={varselData.isMasked ? true : undefined}>
           {varselData.isMasked ? maskedText : varselData.tekst}
         </span>
       </BodyLong>
-      <div className={style.varselMetaData}>
+      <div className={styles.varselMetaData}>
         {isOppgave ? <OppgaveIkon /> : <BeskjedIkon />}
-        <Tag className={style.tag} variant="neutral" size="small">{`${
+        <Tag className={styles.tag} variant="neutral" size="small">{`${
           text["varselMottatt"][language]
         } ${formatToReadableDate(varselData.forstBehandlet)}`}</Tag>
         {eksternVarslingStatus && (
-          <Tag variant="neutral" size="small" className={`${style.tag} ${style.eksternVarslingStatus}`}>
+          <Tag variant="neutral" size="small" className={`${styles.tag} ${styles.eksternVarslingStatus}`}>
             {eksternVarslingStatus}
           </Tag>
         )}

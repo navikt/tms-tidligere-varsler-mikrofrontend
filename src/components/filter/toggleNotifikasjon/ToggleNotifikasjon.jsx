@@ -1,5 +1,5 @@
 import { ToggleGroup } from "@navikt/ds-react";
-import style from "./ToggleNotifikasjon.module.css";
+import styles from "./ToggleNotifikasjon.module.css";
 import useStore from "../../../store/store";
 import { selectAlle, selectBeskjed, selectOppgave } from "../../../store/selectors";
 import { useContext } from "react";
@@ -13,7 +13,7 @@ const ToggleNotifikasjon = () => {
   const language = useContext(LanguageContext);
 
   return (
-    <ToggleGroup className={style.toggleNotifikasjon} size="medium" defaultValue="alle">
+    <ToggleGroup className={styles.toggleNotifikasjon} size="medium" defaultValue="alle">
       <ToggleGroup.Item value="alle" onClick={alle}>
         {text["filterToggleItemAlle"][language]}
       </ToggleGroup.Item>

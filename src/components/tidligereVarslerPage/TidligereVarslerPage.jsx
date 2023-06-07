@@ -1,7 +1,7 @@
 import { useContext, useMemo } from "react";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import Varsel from "../varsel/Varsel";
-import style from "./TidligereVarslerPage.module.css";
+import styles from "./TidligereVarslerPage.module.css";
 import { selectSearch, selectType } from "../../store/selectors";
 import { byForstBehandlet } from "../../utils/date";
 import TomSokKatt from "../../assets/TomSokKatt";
@@ -25,11 +25,11 @@ const TidligereVarslerPage = ({ varsler, isSuccess }) => {
   return (
     <>
       <Filter />
-      <Heading level={2} size="xsmall" className={style.varslerListHeading}>
+      <Heading level={2} size="xsmall" className={styles.varslerListHeading}>
         {text.antallSokeTreff(language, filtertedVarseler.length, varsler.length)}
       </Heading>
       {filtertedVarseler.length > 0 ? (
-        <ul className={style.varslerList}>
+        <ul className={styles.varslerList}>
           {isSuccess &&
             filtertedVarseler?.map((varsel) => (
               <li key={varsel.eventId}>
@@ -38,9 +38,9 @@ const TidligereVarslerPage = ({ varsler, isSuccess }) => {
             ))}
         </ul>
       ) : (
-        <div className={style.emptySearchContainer}>
+        <div className={styles.emptySearchContainer}>
           <TomSokKatt />
-          <BodyLong className={style.emptySearchDescription}>{text["ingenSokeresultat"][language]}</BodyLong>
+          <BodyLong className={styles.emptySearchDescription}>{text["ingenSokeresultat"][language]}</BodyLong>
         </div>
       )}
     </>

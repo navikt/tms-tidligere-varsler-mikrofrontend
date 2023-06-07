@@ -1,9 +1,9 @@
-import style from "./Ikon.module.css";
+import styles from "./Ikon.module.css";
 
 const OppgaveIkon = () => {
   return (
     <svg
-      className={style.varselIkon}
+      className={styles.varselIkon}
       width="24"
       height="24"
       viewBox="0 0 24 24"
