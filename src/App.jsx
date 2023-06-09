@@ -6,8 +6,8 @@ import { fetcher } from "./api/api";
 import { useQuery } from "react-query";
 import { Alert, Heading, Loader, Ingress } from "@navikt/ds-react";
 import text from "./language/text";
-import NoTidligereVarslerPage from "./components/NoTidligereVarslerPage/NoTidligereVarslerPage.jsx";
-import TidligereVarslerPage from "./components/TidligereVarslerPage/TidligereVarslerPage.jsx";
+import NoTidligereVarslerPage from "./components/noTidligereVarslerPage/NoTidligereVarslerPage.jsx";
+import TidligereVarslerPage from "./components/tidligereVarslerPage/TidligereVarslerPage.jsx";
 
 function App() {
   const language = useContext(LanguageContext);
