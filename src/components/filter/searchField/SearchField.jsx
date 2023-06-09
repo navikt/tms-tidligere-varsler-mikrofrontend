@@ -1,5 +1,5 @@
 import { Search } from "@navikt/ds-react";
-import style from "./SearchField.module.css";
+import styles from "./SearchField.module.css";
 import useStore from "../../../store/store";
 import { updateSearch } from "../../../store/selectors";
 import text from "../../../language/text";
@@ -12,7 +12,7 @@ const SearchField = () => {
 
   return (
     <Search
-      className={style.searchField}
+      className={styles.searchField}
       label={text["sokefeltLabel"][language]}
       variant="simple"
       hideLabel={false}
