@@ -1,6 +1,11 @@
 import styles from "./Ikon.module.css";
+import text from "../language/text";
+import { LanguageContext } from "../provider/LanguageProvider";
+import { useContext } from "react";
 
 const BeskjedIkon = () => {
+  const language = useContext(LanguageContext);
+
   return (
     <svg
       className={styles.varselIkon}
@@ -9,6 +14,7 @@ const BeskjedIkon = () => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-label={text["filterToggleItemBeskjed"][language]}
     >
       <rect width="24" height="24" rx="4" fill="#3380A5" />
       <path
