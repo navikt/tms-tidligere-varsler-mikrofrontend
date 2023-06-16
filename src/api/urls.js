@@ -15,8 +15,8 @@ export const getEnvironment = () => {
 
 const TMS_VARSEL_API = {
   local: "http://localhost:3000/api/tms-varsel-api",
-  development: "https://www.intern.dev.nav.no/tms-min-side-proxy/varsel/tms-varsel-api",
-  production: "https://www.nav.no/tms-min-side-proxy/varsel/tms-varsel-api",
+  development: "https://www.intern.dev.nav.no/tms-varsel-api",
+  production: "https://www.nav.no/tms-varsel-api",
 };
 
 const MIN_SIDE_URL = {
