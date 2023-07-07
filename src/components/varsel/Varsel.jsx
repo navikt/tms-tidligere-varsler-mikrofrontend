@@ -18,7 +18,7 @@ const getVarsletPaa = (kanaler, language) => {
 };
 
 function Varsel({ varselData }) {
-  const isOppgave = varselData.type === "OPPGAVE";
+  const isOppgave = varselData.type.toLowerCase() === "oppgave";
   const language = useContext(LanguageContext);
   const maskedText = "**** **** **** **** **** ****";
   const maskedAriaLabel = "Tekst ikke synlig";
