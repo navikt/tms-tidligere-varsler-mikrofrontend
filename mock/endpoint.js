@@ -7,7 +7,7 @@ export default [
       return [
         {
           eventId: "1584093204636",
-          type: "OPPGAVE",
+          type: "oppgave",
           forstBehandlet: "2022-02-01T11:12:04+01:00",
           arkivertAvNAV: false,
           tekst: "Du har sagt du skal ettersende vedlegg til Søknad om stønad til anskaffelse av motorkjøretøy",
@@ -18,7 +18,7 @@ export default [
         },
         {
           eventId: "1584093785733",
-          type: "OPPGAVE",
+          type: "oppgave",
           forstBehandlet: "2020-03-13T09:03:05.934825",
           arkivertAvNAV: true,
           tekst: "Mangelende dokumentasjon til søknad",
@@ -40,7 +40,7 @@ export default [
         },
         {
           eventId: "1584093197470",
-          type: "BESKJED",
+          type: "beskjed",
           forstBehandlet: "2021-01-01T11:12:04+01:00",
           arkivertAvNAV: false,
           tekst:
@@ -63,7 +63,7 @@ export default [
         },
         {
           eventId: "1584093781449",
-          type: "BESKJED",
+          type: "beskjed",
           forstBehandlet: "2019-11-27T12:24:34.671Z",
           arkivertAvNAV: true,
           tekst: null,

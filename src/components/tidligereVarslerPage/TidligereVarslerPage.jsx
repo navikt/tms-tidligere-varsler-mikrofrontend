@@ -18,7 +18,7 @@ const TidligereVarslerPage = ({ varsler, isSuccess }) => {
   const sortedVarsler = useMemo(() => varsler?.sort(byForstBehandlet));
   const filtertedVarseler = sortedVarsler?.filter(
     (varsel) =>
-      (filterType === "ALLE" || varsel.type === filterType) &&
+      (filterType === "alle" || varsel.type.toLowerCase() === filterType) &&
       (varsel.tekst === null || varsel.tekst.toLowerCase().includes(filterSok))
   );
 
