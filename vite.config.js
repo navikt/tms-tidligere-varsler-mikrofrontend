@@ -59,5 +59,6 @@ export default ({ command }) => ({
     deps: {
       inline: ["@testing-library/user-event"],
     },
+    setupFiles: ["vitest-setup.js"],
   },
 });
