@@ -1,10 +1,10 @@
 import { Search } from "@navikt/ds-react";
-import styles from "./SearchField.module.css";
-import useStore from "../../../store/store";
-import { updateSearch } from "../../../store/selectors";
-import text from "../../../language/text";
 import { useContext } from "react";
+import text from "../../../language/text";
 import { LanguageContext } from "../../../provider/LanguageProvider";
+import { updateSearch } from "../../../store/selectors";
+import useStore from "../../../store/store";
+import styles from "./SearchField.module.css";
 
 const SearchField = () => {
   const sok = useStore(updateSearch);
@@ -13,7 +13,7 @@ const SearchField = () => {
   return (
     <Search
       className={styles.searchField}
-      label={text["sokefeltLabel"][language]}
+      label={text.sokefeltLabel[language]}
       variant="simple"
       hideLabel={false}
       onChange={(obj) => {

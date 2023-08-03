@@ -1,6 +1,6 @@
 import create from "zustand";
 
-const actions = (set) => ({
+const actions = (set: any) => ({
   alle: () =>
     set({
       filterType: "alle",
@@ -13,13 +13,18 @@ const actions = (set) => ({
     set({
       filterType: "beskjed",
     }),
-  search: (search) =>
+  search: (search: string) =>
     set({
       filterSearch: search,
     }),
 });
 
-const useStore = create((set) => ({
+export interface SelectionState extends ReturnType<typeof actions> {
+  filterType: String,
+  filterSearch: String
+}
+
+const useStore = create<SelectionState>((set) => ({
   filterType: "alle",
   filterSearch: "",
   ...actions(set),
