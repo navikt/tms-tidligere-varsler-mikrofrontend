@@ -20,8 +20,8 @@ const actions = (set: any) => ({
 });
 
 export interface SelectionState extends ReturnType<typeof actions> {
-  filterType: String,
-  filterSearch: String
+  filterType: string,
+  filterSearch: string
 }
 
 const useStore = create<SelectionState>((set) => ({

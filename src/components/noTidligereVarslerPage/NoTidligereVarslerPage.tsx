@@ -12,13 +12,13 @@ const NoTidligereVarslerPage = () => {
     <div className={styles.noTidligereVarslerPage}>
       <IngenVarslerKatt />
       <Heading level="2" className={styles.noTidligereVarslerHeader} size="small">
-        {text["ingenTidligereVarslerHeader"][language]}
+        {text.ingenTidligereVarslerHeader[language]}
       </Heading>
       <BodyLong className={styles.noTidligereVarslerDescription}>
-        {text["ingenTidligereVarslerbody"][language]}{" "}
+        {text.ingenTidligereVarslerbody[language]}{" "}
       </BodyLong>
       <Link href={minSideUrl} className={styles.minSideLink}>
-        {text["gaaTilMinSide"][language]}
+        {text.gaaTilMinSide[language]}
       </Link>
     </div>
   );
