@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import "dayjs/locale/nb";
 import localeData from "dayjs/plugin/localeData";
-import { Varsel } from "../App";
+import { Varsel } from "../components/varsel/Varsel";
 
 const FormatForstBehandlet = "YYYY-MM-DDTHH:mm:ss:SSS[Z]";
 

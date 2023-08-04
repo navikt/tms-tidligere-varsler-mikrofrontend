@@ -1,12 +1,11 @@
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { viteMockServe } from "vite-plugin-mock";
+import { resolve } from "path";
 import { rollupImportMapPlugin } from "rollup-plugin-import-map";
-import EnvironmentPlugin from "vite-plugin-environment";
+import { terser } from "rollup-plugin-terser";
 import viteCompression from "vite-plugin-compression";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
-import { terser } from "rollup-plugin-terser";
-import { resolve } from "path";
+import EnvironmentPlugin from "vite-plugin-environment";
+import { viteMockServe } from "vite-plugin-mock";
 
 const reactUrl = "https://www.nav.no/tms-min-side-assets/react/18/esm/index.js";
 const reactDomUrl = "https://www.nav.no/tms-min-side-assets/react-dom/18/esm/index.js";

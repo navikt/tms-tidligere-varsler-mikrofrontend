@@ -1,10 +1,10 @@
 import { ToggleGroup } from "@navikt/ds-react";
-import styles from "./ToggleNotifikasjon.module.css";
-import useStore from "../../../store/store";
-import { selectAlle, selectBeskjed, selectOppgave } from "../../../store/selectors";
 import { useContext } from "react";
-import { LanguageContext } from "../../../provider/LanguageProvider";
 import text from "../../../language/text";
+import { LanguageContext } from "../../../provider/LanguageProvider";
+import { selectAlle, selectBeskjed, selectOppgave } from "../../../store/selectors";
+import useStore from "../../../store/store";
+import styles from "./ToggleNotifikasjon.module.css";
 
 const ToggleNotifikasjon = () => {
   const language = useContext(LanguageContext);

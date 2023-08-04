@@ -1,13 +1,12 @@
 import { BodyLong, Tag } from "@navikt/ds-react";
-import styles from "./Varsel.module.css";
-import { formatToReadableDate } from "../../utils/date";
 import { useContext } from "react";
-import { Language, LanguageContext } from "../../provider/LanguageProvider";
-import text from "../../language/text";
 import BeskjedIkon from "../../assets/BeskjedIkon";
 import OppgaveIkon from "../../assets/OppgaveIkon";
-import { Varsel } from "../../App";
-
+import text from "../../language/text";
+import { Language, LanguageContext } from "../../provider/LanguageProvider";
+import { formatToReadableDate } from "../../utils/date";
+import { Varsel } from "./Varsel";
+import styles from "./Varsel.module.css";
 
 const getVarsletPaa = (kanaler: string[], language: Language) => {
   if (kanaler.includes("SMS") && kanaler.includes("EPOST")) {
@@ -19,7 +18,7 @@ const getVarsletPaa = (kanaler: string[], language: Language) => {
   }
 };
 
-function TidligereVarsel({ varselData }: {varselData: Varsel}) {
+function TidligereVarsel({ varselData }: { varselData: Varsel }) {
   const isOppgave = varselData.type.toLowerCase() === "oppgave";
   const language = useContext(LanguageContext);
   const maskedText = "**** **** **** **** **** ****";

@@ -1,17 +1,17 @@
-import { useContext, useMemo } from "react";
 import { BodyLong, Heading } from "@navikt/ds-react";
-import TidligereVarsel from "../varsel/TidligereVarsel";
-import styles from "./TidligereVarslerPage.module.css";
-import { selectSearch, selectType } from "../../store/selectors";
-import { byForstBehandlet } from "../../utils/date";
+import { useContext, useMemo } from "react";
 import TomSokKatt from "../../assets/TomSokKatt";
-import Filter from "../filter/Filter";
-import useStore from "../../store/store";
-import { LanguageContext } from "../../provider/LanguageProvider";
 import text from "../../language/text";
-import { Varsel } from "../../App";
+import { LanguageContext } from "../../provider/LanguageProvider";
+import { selectSearch, selectType } from "../../store/selectors";
+import useStore from "../../store/store";
+import { byForstBehandlet } from "../../utils/date";
+import Filter from "../filter/Filter";
+import TidligereVarsel from "../varsel/TidligereVarsel";
+import { Varsel } from "../varsel/Varsel";
+import styles from "./TidligereVarslerPage.module.css";
 
-const TidligereVarslerPage = ({ varsler, isSuccess }: {varsler: Array<Varsel>, isSuccess: boolean}) => {
+const TidligereVarslerPage = ({ varsler, isSuccess }: { varsler: Array<Varsel>; isSuccess: boolean }) => {
   const language = useContext(LanguageContext);
   const filterType = useStore(selectType);
   const filterSok = useStore(selectSearch);

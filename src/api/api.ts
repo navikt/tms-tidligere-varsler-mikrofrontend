@@ -6,15 +6,15 @@ const checkResponse = (response: Response) => {
   }
 };
 
-export const fetcher = async (queryFunctionContext: QueryFunctionContext) => {
-  const url = queryFunctionContext.queryKey.toString();
-
-  const response = await fetch(url, {
+export const fetcher = async (path: string) => {
+  const response = await fetch(path, {
     method: "GET",
     credentials: "include",
   });
 
-  checkResponse(response);
+  if (!response.ok) {
+    throw new Error("Fetch request failed");
+  }
 
   return await response.json();
 };
