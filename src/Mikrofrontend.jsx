@@ -1,9 +1,9 @@
 import { QueryClientProvider } from "react-query";
-import { initializeAmplitude } from "./utils/amplitude";
-import LanguageProvider from "./provider/LanguageProvider";
-import queryClient from "./utils/query";
 import App from "./App";
 import "./App.module.css";
+import LanguageProvider from "./provider/LanguageProvider";
+import { initializeAmplitude } from "./utils/amplitude";
+import queryClient from "./utils/query";
 
 const Mikrofrontend = () => {
   initializeAmplitude();

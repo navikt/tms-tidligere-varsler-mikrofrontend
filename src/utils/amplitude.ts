@@ -18,9 +18,3 @@ export const initializeAmplitude = () => {
     platform: window.location.toString(),
   });
 };
-
-export function logAmplitudeEvent(komponent) {
-  amplitude.getInstance().logEvent("navigere", {
-    label,
-  });
-}

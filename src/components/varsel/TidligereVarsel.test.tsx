@@ -1,11 +1,11 @@
 import { render } from "@testing-library/react";
 import { expect, test } from "vitest";
-import Varsel from "./Varsel";
+import TidligereVarsel from "./TidligereVarsel";
 import { axe } from "vitest-axe";
 
 test("rendrer varsel", async () => {
   const { container } = render(
-    <Varsel
+    <TidligereVarsel
       varselData={{
         eventId: "1584093204636",
         type: "oppgave",

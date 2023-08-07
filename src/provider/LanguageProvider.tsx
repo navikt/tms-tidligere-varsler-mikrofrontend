@@ -1,14 +1,16 @@
-import { useEffect, useState, createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 
-const defaultLanguage = sessionStorage.getItem("language") ?? "nb";
+export type Language = "nb" | "en" | "nn";
+
+const defaultLanguage = (sessionStorage.getItem("language") ?? "nb") as Language;
 export const LanguageContext = createContext(defaultLanguage);
 
-const LanguageProvider = ({ children }) => {
+const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const [language, setLanguage] = useState(defaultLanguage);
 
   useEffect(() => {
     const handleLanguageEvent = () => {
-      setLanguage(sessionStorage.getItem("language") ?? "nb");
+      setLanguage((sessionStorage.getItem("language") ?? "nb") as Language);
     };
 
     window.addEventListener("language", handleLanguageEvent);

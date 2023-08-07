@@ -1,23 +1,24 @@
 import { BodyLong, Tag } from "@navikt/ds-react";
-import styles from "./Varsel.module.css";
-import { formatToReadableDate } from "../../utils/date";
 import { useContext } from "react";
-import { LanguageContext } from "../../provider/LanguageProvider";
-import text from "../../language/text";
 import BeskjedIkon from "../../assets/BeskjedIkon";
 import OppgaveIkon from "../../assets/OppgaveIkon";
+import text from "../../language/text";
+import { Language, LanguageContext } from "../../provider/LanguageProvider";
+import { formatToReadableDate } from "../../utils/date";
+import { Varsel } from "./Varsel";
+import styles from "./Varsel.module.css";
 
-const getVarsletPaa = (kanaler, language) => {
+const getVarsletPaa = (kanaler: string[], language: Language) => {
   if (kanaler.includes("SMS") && kanaler.includes("EPOST")) {
-    return text["varselEksterntVarsletEpostOgSMS"][language];
+    return text.varselEksterntVarsletEpostOgSMS[language];
   } else if (kanaler.includes("SMS")) {
-    return text["varselEksterntVarsletSMS"][language];
+    return text.varselEksterntVarsletSMS[language];
   } else if (kanaler.includes("EPOST")) {
-    return text["varselEksterntVarsletEpost"][language];
+    return text.varselEksterntVarsletEpost[language];
   }
 };
 
-function Varsel({ varselData }) {
+function TidligereVarsel({ varselData }: { varselData: Varsel }) {
   const isOppgave = varselData.type.toLowerCase() === "oppgave";
   const language = useContext(LanguageContext);
   const maskedText = "**** **** **** **** **** ****";
@@ -35,7 +36,7 @@ function Varsel({ varselData }) {
       <div className={styles.varselMetaData}>
         {isOppgave ? <OppgaveIkon /> : <BeskjedIkon />}
         <Tag className={styles.tag} variant="neutral" size="small">{`${
-          text["varselMottatt"][language]
+          text.varselMottatt[language]
         } ${formatToReadableDate(varselData.forstBehandlet)}`}</Tag>
         {eksternVarslingStatus && (
           <Tag variant="neutral" size="small" className={`${styles.tag} ${styles.eksternVarslingStatus}`}>
@@ -47,4 +48,4 @@ function Varsel({ varselData }) {
   );
 }
 
-export default Varsel;
+export default TidligereVarsel;
