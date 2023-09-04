@@ -9,6 +9,6 @@
   border: 2px dashed var(--a-border-subtle);
 }
 
-.noTidligereVarslerDescription{
+.noTidligereVarslerDescription, .noTidligereVarslerHeader{
 text-align: center;
 }
