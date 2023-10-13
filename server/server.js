@@ -14,7 +14,7 @@ server.use(
   expressStaticGzip(buildPath, {
     enableBrotli: true,
     orderPreference: ["br"],
-  }),
+  })
 );
 
 server.get(`${basePath}/internal/isAlive`, (req, res) => {

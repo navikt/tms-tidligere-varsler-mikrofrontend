@@ -4,22 +4,22 @@
   display: flex;
   flex-direction: column;
 }
-.pageTitle {
+.pageTitle{
   margin-top: 1.25rem;
 }
 
-.pageDescription {
+.pageDescription{
   margin-top: 1rem;
 }
 
-.authenticationAlert {
+.authenticationAlert{
   margin-top: 1rem;
 }
 
-.pageBodyWrapper {
+.pageBodyWrapper{
   margin-top: 2rem;
 }
 
-.loader {
+.loader{
   align-self: center;
 }

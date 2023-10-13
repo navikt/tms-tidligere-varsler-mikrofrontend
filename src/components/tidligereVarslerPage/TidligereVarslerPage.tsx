@@ -20,7 +20,7 @@ const TidligereVarslerPage = ({ varsler, isSuccess }: { varsler: Array<Varsel>; 
   const filtertedVarseler = sortedVarsler?.filter(
     (varsel) =>
       (filterType === "alle" || varsel.type.toLowerCase() === filterType) &&
-      (varsel.tekst === null || varsel.tekst.toLowerCase().includes(filterSok)),
+      (varsel.tekst === null || varsel.tekst.toLowerCase().includes(filterSok))
   );
 
   return (
