@@ -17,7 +17,7 @@ test("rendrer varsel", async () => {
         eksternVarslingSendt: false,
         eksternVarslingKanaler: ["SMS"],
       }}
-    />
+    />,
   );
 
   expect(await axe(container)).toHaveNoViolations();
