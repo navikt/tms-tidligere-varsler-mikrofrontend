@@ -115,7 +115,7 @@ const text = {
     nn: "Varslet på e-post og SMS",
     en: "Notified by e-mail and SMS",
   },
-  antallSokeTreff: (language: string, hits: Number, totalNumberOfSearch: Number) => {
+  antallSokeTreff: (language: string, hits: number, totalNumberOfSearch: number) => {
     if (language === "en") {
       return `Showing ${hits} out of ${totalNumberOfSearch} notifications`;
     } else if (language === "nn") {
