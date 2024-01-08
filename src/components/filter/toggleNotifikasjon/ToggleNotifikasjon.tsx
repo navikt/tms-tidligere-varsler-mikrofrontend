@@ -2,18 +2,11 @@ import { ToggleGroup } from "@navikt/ds-react";
 import { useContext } from "react";
 import text from "../../../language/text";
 import { LanguageContext } from "../../../provider/LanguageProvider";
-import { selectAlle, selectBeskjed, selectOppgave } from "../../../store/selectors";
-import useStore from "../../../store/store";
+import { FilterTypes, setFilterType } from "../../../store/store";
 import styles from "./ToggleNotifikasjon.module.css";
 
 const ToggleNotifikasjon = () => {
   const language = useContext(LanguageContext);
-
-  const toggleVarsler: Record<string, () => any> = {
-    alle: useStore(selectAlle),
-    oppgave: useStore(selectOppgave),
-    beskjed: useStore(selectBeskjed),
-  };
 
   return (
     <ToggleGroup
@@ -21,8 +14,7 @@ const ToggleNotifikasjon = () => {
       size="medium"
       defaultValue="alle"
       onChange={(value) => {
-        console.log(value);
-        toggleVarsler[value]();
+        setFilterType(value as FilterTypes);
       }}
     >
       <ToggleGroup.Item value="alle">{text.filterToggleItemAlle[language]}</ToggleGroup.Item>
