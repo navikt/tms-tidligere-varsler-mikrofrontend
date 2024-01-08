@@ -24,9 +24,6 @@ const TidligereVarslerPage = ({ varsler, isSuccess }: { varsler: Array<Varsel>; 
       (varsel.tekst === null || varsel.tekst.toLowerCase().includes(searchTextInput)),
   );
 
-  console.log(filterType.get());
-  console.log(filtertedVarseler);
-
   return (
     <>
       <Filter />
