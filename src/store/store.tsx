@@ -1,33 +1,15 @@
-import create from "zustand";
+import { atom } from "nanostores";
 
-const actions = (set: any) => ({
-  alle: () =>
-    set({
-      filterType: "alle",
-    }),
-  oppgave: () =>
-    set({
-      filterType: "oppgave",
-    }),
-  beskjed: () =>
-    set({
-      filterType: "beskjed",
-    }),
-  search: (search: string) =>
-    set({
-      filterSearch: search,
-    }),
-});
+export type FilterTypes = "alle" | "oppgave" | "beskjed";
 
-export interface SelectionState extends ReturnType<typeof actions> {
-  filterType: string;
-  filterSearch: string;
-}
+export const filterType = atom<string>("alle");
 
-const useStore = create<SelectionState>((set) => ({
-  filterType: "alle",
-  filterSearch: "",
-  ...actions(set),
-}));
+export const setFilterType = (type: FilterTypes) => {
+  filterType.set(type);
+};
 
-export default useStore;
+export const filterSearch = atom<string>("");
+
+export const setFilterSearch = (searchWord: string) => {
+  filterSearch.set(searchWord);
+};
