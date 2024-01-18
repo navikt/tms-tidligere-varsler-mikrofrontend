@@ -7,6 +7,7 @@ import { Language, LanguageContext } from "../../provider/LanguageProvider";
 import { formatToReadableDate } from "../../utils/date";
 import { Varsel } from "./Varsel";
 import styles from "./Varsel.module.css";
+import { logNavigereBeskjed } from "../../utils/amplitude";
 
 const getVarsletPaa = (kanaler: string[], language: Language) => {
   if (kanaler.includes("SMS") && kanaler.includes("EPOST")) {
@@ -36,6 +37,7 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
         </BodyLong>
       ) : (
         <Link
+          onClick={logNavigereBeskjed}
           href={varselData.link}
           aria-label={varselData.isMasked ? maskedAriaLabel : undefined}
           className={styles.varselHeading}

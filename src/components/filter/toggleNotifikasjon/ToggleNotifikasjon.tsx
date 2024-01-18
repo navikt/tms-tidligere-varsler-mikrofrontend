@@ -4,6 +4,7 @@ import text from "../../../language/text";
 import { LanguageContext } from "../../../provider/LanguageProvider";
 import { FilterTypes, setFilterType } from "../../../store/store";
 import styles from "./ToggleNotifikasjon.module.css";
+import { logFilterToggle } from "../../../utils/amplitude";
 
 const ToggleNotifikasjon = () => {
   const language = useContext(LanguageContext);
@@ -15,6 +16,7 @@ const ToggleNotifikasjon = () => {
       defaultValue="alle"
       onChange={(value) => {
         setFilterType(value as FilterTypes);
+        logFilterToggle(value);
       }}
     >
       <ToggleGroup.Item value="alle">{text.filterToggleItemAlle[language]}</ToggleGroup.Item>
