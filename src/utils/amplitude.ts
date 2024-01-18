@@ -6,8 +6,8 @@ export const logNavigereBeskjed = () => {
   logEvent("navigere", { app: APP_NAME, komponent: "tidligere-beskjed" });
 };
 
-export const logFilterToggle = (filterBy: string) => {
-  logEvent("fitler", { app: APP_NAME, filterBy: filterBy });
+export const logFilterToggle = (filterValg: string) => {
+  logEvent("tidligere-varsler-filter", { app: APP_NAME, filterValg: filterValg });
 };
 
 export const initAmplitude = () => {
