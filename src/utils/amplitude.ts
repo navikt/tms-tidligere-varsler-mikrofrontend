@@ -13,6 +13,7 @@ export const logFilterToggle = (filterValg: string) => {
 export const initAmplitude = () => {
   init("default", undefined, {
     useBatch: true,
+    defaultTracking: false,
     serverUrl: "https://amplitude.nav.no/collect-auto",
     ingestionMetadata: {
       sourceName: window.location.toString(),
