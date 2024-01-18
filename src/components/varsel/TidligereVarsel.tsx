@@ -1,4 +1,4 @@
-import { BodyLong, Tag } from "@navikt/ds-react";
+import { BodyLong, Link, Tag } from "@navikt/ds-react";
 import { useContext } from "react";
 import BeskjedIkon from "../../assets/BeskjedIkon";
 import OppgaveIkon from "../../assets/OppgaveIkon";
@@ -28,11 +28,23 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
 
   return (
     <div className={styles.varselWrapper}>
-      <BodyLong aria-label={varselData.isMasked ? maskedAriaLabel : undefined} className={styles.varselHeading}>
-        <span aria-hidden={varselData.isMasked ? true : undefined}>
-          {varselData.isMasked ? maskedText : varselData.tekst}
-        </span>
-      </BodyLong>
+      {varselData.isMasked || isOppgave || !varselData.link ? (
+        <BodyLong aria-label={varselData.isMasked ? maskedAriaLabel : undefined} className={styles.varselHeading}>
+          <span aria-hidden={varselData.isMasked ? true : undefined}>
+            {varselData.isMasked ? maskedText : varselData.tekst}
+          </span>
+        </BodyLong>
+      ) : (
+        <Link
+          href={varselData.link}
+          aria-label={varselData.isMasked ? maskedAriaLabel : undefined}
+          className={styles.varselHeading}
+        >
+          <span aria-hidden={varselData.isMasked ? true : undefined}>
+            {varselData.isMasked ? maskedText : varselData.tekst}
+          </span>
+        </Link>
+      )}
       <div className={styles.varselMetaData}>
         {isOppgave ? <OppgaveIkon /> : <BeskjedIkon />}
         <Tag className={styles.tag} variant="neutral" size="small">{`${
