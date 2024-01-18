@@ -1,4 +1,5 @@
 export interface Varsel {
+  link: null | string;
   eventId: string;
   type: string;
   forstBehandlet: string;
