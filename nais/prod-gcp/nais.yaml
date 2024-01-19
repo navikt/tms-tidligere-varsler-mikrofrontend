@@ -25,6 +25,7 @@ spec:
   ingresses:
     - "https://person.intern.nav.no/tms-min-side-varslinger"
     - "https://www.nav.no/tms-min-side-varslinger"
+    - "https://www.nav.no/tms-tidligere-varsler-mikrofrontend"
   resources:
     limits:
       cpu: "3"
