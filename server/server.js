@@ -17,6 +17,14 @@ server.use(
   })
 );
 
+server.use(
+  "/tms-min-side-varslinger",
+  expressStaticGzip(buildPath, {
+    enableBrotli: true,
+    orderPreference: ["br"],
+  })
+);
+
 server.get(`${basePath}/internal/isAlive`, (req, res) => {
   res.sendStatus(200);
 });
