@@ -18,7 +18,7 @@ server.use(
 );
 
 server.use(
-  "/tms-min-side-varslinger",
+  "/tms-tidligere-varsler-mikrofrontend",
   expressStaticGzip(buildPath, {
     enableBrotli: true,
     orderPreference: ["br"],
