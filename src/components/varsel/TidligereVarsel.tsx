@@ -1,4 +1,4 @@
-import { BodyLong, Link, Tag } from "@navikt/ds-react";
+import { BodyLong, BodyShort, Chat, Detail, Link, Tag } from "@navikt/ds-react";
 import { useContext } from "react";
 import BeskjedIkon from "../../assets/BeskjedIkon";
 import OppgaveIkon from "../../assets/OppgaveIkon";
@@ -28,35 +28,37 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
   const eksternVarslingStatus = getVarsletPaa(varselData.eksternVarslingKanaler, language);
 
   return (
-    <div className={styles.varselWrapper}>
-      {varselData.isMasked || isOppgave || !varselData.link ? (
-        <BodyLong aria-label={varselData.isMasked ? maskedAriaLabel : undefined} className={styles.varselHeading}>
-          <span aria-hidden={varselData.isMasked ? true : undefined}>
-            {varselData.isMasked ? maskedText : varselData.tekst}
-          </span>
-        </BodyLong>
-      ) : (
-        <Link
-          onClick={logNavigereBeskjed}
-          href={varselData.link}
-          aria-label={varselData.isMasked ? maskedAriaLabel : undefined}
-          className={styles.varselHeading}
-        >
-          <span aria-hidden={varselData.isMasked ? true : undefined}>
-            {varselData.isMasked ? maskedText : varselData.tekst}
-          </span>
-        </Link>
-      )}
-      <div className={styles.varselMetaData}>
-        {isOppgave ? <OppgaveIkon /> : <BeskjedIkon />}
-        <Tag className={styles.tag} variant="neutral" size="small">{`${
-          text.varselMottatt[language]
-        } ${formatToReadableDate(varselData.forstBehandlet)}`}</Tag>
-        {eksternVarslingStatus && (
-          <Tag variant="neutral" size="small" className={`${styles.tag} ${styles.eksternVarslingStatus}`}>
-            {eksternVarslingStatus}
-          </Tag>
+    <div className={styles.varselContainer}>
+      <div className={styles.iconWrapper}>{isOppgave ? <OppgaveIkon /> : <BeskjedIkon />}</div>
+      <div className={styles.textContainer}>
+        {varselData.isMasked || isOppgave || !varselData.link ? (
+          <BodyShort
+            size="small"
+            aria-label={varselData.isMasked ? maskedAriaLabel : undefined}
+            className={styles.varselHeading}
+          >
+            <span aria-hidden={varselData.isMasked ? true : undefined}>
+              {varselData.isMasked ? maskedText : varselData.tekst}
+            </span>
+          </BodyShort>
+        ) : (
+          <a
+            onClick={logNavigereBeskjed}
+            href={varselData.link}
+            aria-label={varselData.isMasked ? maskedAriaLabel : undefined}
+            className={styles.link}
+          >
+            <BodyShort size="small" className={styles.linkText}>
+              <span aria-hidden={varselData.isMasked ? true : undefined}>
+                {varselData.isMasked ? maskedText : varselData.tekst}
+              </span>
+            </BodyShort>
+          </a>
         )}
+        <BodyShort className={styles.varselMetaData}>
+          {formatToReadableDate(varselData.forstBehandlet)}
+          {eksternVarslingStatus && ` - ${eksternVarslingStatus}`}
+        </BodyShort>
       </div>
     </div>
   );

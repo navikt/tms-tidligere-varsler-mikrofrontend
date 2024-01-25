@@ -1,19 +1,36 @@
-.varselWrapper {
-  margin-top: 1.25rem;
-  padding-bottom: 1.25rem;
+.varselContainer {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid #e5e5e5;
-}
-.varselMetaData {
   display: flex;
-  gap: 0.5rem;
-  flex-direction: row;
   align-items: center;
-  margin-top: 0.75rem;
+  color: var(--a-text-subtle);
+  gap: 16px;
+}
+
+.iconWrapper {
+  display: flex;
+  background-color: var(--a-surface-neutral-subtle);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.varselMetaData {
+  font-size: 14px;
 }
 
 .varselDate {
   display: flex;
   gap: 0.7rem;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.linkText {
+  font-weight: 600;
+  color: var(--a-text-default);
 }
 
 .tag {
