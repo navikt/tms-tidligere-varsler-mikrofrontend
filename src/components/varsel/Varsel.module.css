@@ -1,30 +1,46 @@
 .varselContainer {
   padding: 1rem 0;
-  display: flex;
-  align-items: center;
   color: var(--a-text-subtle);
   gap: 16px;
   border-bottom: 1px solid #e5e5e5;
 }
 
-.textContainer {
-  border-bottom: 3px;
+.header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-bottom: 4px;
 }
 
 .iconWrapper {
   display: flex;
-  background-color: var(--a-surface-neutral-subtle);
-  padding: 8px;
   border-radius: 4px;
-  font-size: 24px;
+  background: var(--a-surface-neutral-moderate);
+  padding: 2px;
+}
+
+.icon {
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clickableTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.chevron {
+  flex-shrink: 0;
 }
 
 .metadata {
-  font-size: 14px;
-}
-
-.link {
-  text-decoration: none;
+  padding-top: 4px;
+  border-bottom: 3px;
 }
 
 .linkText {
@@ -32,12 +48,14 @@
   color: var(--a-text-default);
 }
 
-@media (min-width: 648px) {
-  .metadata {
-    font-size: 16px;
-  }
+.link:hover .linkText {
+  color: var(--a-text-action);
+}
 
-  .title {
-    font-size: 18px;
-  }
+.link:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}
+
+@media (min-width: 648px) {
 }
