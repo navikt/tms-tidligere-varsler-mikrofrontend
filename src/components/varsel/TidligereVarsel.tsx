@@ -8,6 +8,7 @@ import { formatToReadableDate } from "../../utils/date";
 import { Varsel } from "./Varsel";
 import styles from "./Varsel.module.css";
 import { logNavigereBeskjed } from "../../utils/amplitude";
+import { ChatIcon, TasklistIcon } from "@navikt/aksel-icons";
 
 const getVarsletPaa = (kanaler: string[], language: Language) => {
   if (kanaler.includes("SMS") && kanaler.includes("EPOST")) {
@@ -29,13 +30,15 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
 
   return (
     <div className={styles.varselContainer}>
-      <div className={styles.iconWrapper}>{isOppgave ? <OppgaveIkon /> : <BeskjedIkon />}</div>
+      <div className={styles.iconWrapper} aria-hidden>
+        {isOppgave ? <TasklistIcon /> : <ChatIcon />}
+      </div>
       <div className={styles.textContainer}>
         {varselData.isMasked || isOppgave || !varselData.link ? (
           <BodyShort
             size="small"
             aria-label={varselData.isMasked ? maskedAriaLabel : undefined}
-            className={styles.varselHeading}
+            className={styles.title}
           >
             <span aria-hidden={varselData.isMasked ? true : undefined}>
               {varselData.isMasked ? maskedText : varselData.tekst}
@@ -48,14 +51,14 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
             aria-label={varselData.isMasked ? maskedAriaLabel : undefined}
             className={styles.link}
           >
-            <BodyShort size="small" className={styles.linkText}>
+            <BodyShort size="small" className={`${styles.title} ${styles.linkText}`}>
               <span aria-hidden={varselData.isMasked ? true : undefined}>
                 {varselData.isMasked ? maskedText : varselData.tekst}
               </span>
             </BodyShort>
           </a>
         )}
-        <BodyShort className={styles.varselMetaData}>
+        <BodyShort className={styles.metadata}>
           {formatToReadableDate(varselData.forstBehandlet)}
           {eksternVarslingStatus && ` - ${eksternVarslingStatus}`}
         </BodyShort>

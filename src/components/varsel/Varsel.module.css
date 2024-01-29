@@ -1,11 +1,14 @@
 .varselContainer {
-  margin-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #e5e5e5;
+  padding: 1rem 0;
   display: flex;
   align-items: center;
   color: var(--a-text-subtle);
   gap: 16px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.textContainer {
+  border-bottom: 3px;
 }
 
 .iconWrapper {
@@ -13,15 +16,11 @@
   background-color: var(--a-surface-neutral-subtle);
   padding: 8px;
   border-radius: 4px;
+  font-size: 24px;
 }
 
-.varselMetaData {
+.metadata {
   font-size: 14px;
-}
-
-.varselDate {
-  display: flex;
-  gap: 0.7rem;
 }
 
 .link {
@@ -33,6 +32,12 @@
   color: var(--a-text-default);
 }
 
-.tag {
-  border: none;
+@media (min-width: 648px) {
+  .metadata {
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
 }
