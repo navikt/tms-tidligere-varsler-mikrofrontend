@@ -23,6 +23,10 @@
   font-size: 20px;
 }
 
+.iconClickable {
+  background: var(--a-icon-alt-3);
+}
+
 a {
   text-decoration: none;
 }
@@ -38,7 +42,7 @@ a {
   flex-shrink: 0;
 }
 
-.metadata {
+.footer {
   padding-top: 4px;
   border-bottom: 3px;
 }

@@ -1,4 +1,4 @@
-import { ChatIcon, CheckmarkCircleIcon, ChevronRightIcon } from "@navikt/aksel-icons";
+import { ChatFillIcon, ChatIcon, CheckmarkCircleIcon, ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort } from "@navikt/ds-react";
 import { useContext } from "react";
 import text from "../../language/text";
@@ -26,13 +26,6 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
 
   const eksternVarslingStatus = getVarsletPaa(varselData.eksternVarslingKanaler, language);
 
-  const VarselMetadata = (
-    <BodyShort size="small" className={styles.metadata}>
-      {formatToReadableDate(varselData.forstBehandlet)}
-      {eksternVarslingStatus && ` - ${eksternVarslingStatus}`}
-    </BodyShort>
-  );
-
   const VarselHeader = (
     <div className={styles.header}>
       {isOppgave ? (
@@ -44,13 +37,26 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
         </>
       ) : (
         <>
-          <div className={styles.iconWrapper}>
-            <ChatIcon className={styles.icon} aria-hidden />
-          </div>
-          <BodyShort>{text.filterToggleItemBeskjed[language]}</BodyShort>
+          {varselData.link ? (
+            <div className={`${styles.iconWrapper} ${styles.iconClickable}`}>
+              <ChatFillIcon className={styles.icon} color="white" aria-hidden />
+            </div>
+          ) : (
+            <div className={styles.iconWrapper}>
+              <ChatIcon className={styles.icon} aria-hidden />
+            </div>
+          )}
+          <BodyShort className="">{text.filterToggleItemBeskjed[language]}</BodyShort>
         </>
       )}
     </div>
+  );
+
+  const VarselFooter = (
+    <BodyShort size="small" className={styles.footer}>
+      {formatToReadableDate(varselData.forstBehandlet)}
+      {eksternVarslingStatus && ` - ${eksternVarslingStatus}`}
+    </BodyShort>
   );
 
   if (varselData.isMasked) {
@@ -60,7 +66,7 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
         <BodyLong aria-label={maskedAriaLabel} className={styles.title}>
           <span aria-hidden={true}>{maskedText}</span>
         </BodyLong>
-        {VarselMetadata}
+        {VarselFooter}
       </div>
     );
   } else if (varselData.link && !isOppgave) {
@@ -72,7 +78,7 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
             <BodyLong className={styles.linkText}>{varselData.tekst}</BodyLong>
             <ChevronRightIcon fontSize="24px" className={styles.chevron} />
           </div>
-          {VarselMetadata}
+          {VarselFooter}
         </div>
       </a>
     );
@@ -81,7 +87,7 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
       <div className={styles.varselContainer}>
         {VarselHeader}
         <BodyLong>{varselData.tekst}</BodyLong>
-        {VarselMetadata}
+        {VarselFooter}
       </div>
     );
   }
