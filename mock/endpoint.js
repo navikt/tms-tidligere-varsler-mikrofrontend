@@ -37,6 +37,7 @@ export default [
           isMasked: false,
           eksternVarslingSendt: false,
           eksternVarslingKanaler: ["SMS", "EPOST"],
+          link: "www.nav.no"
         },
         {
           eventId: "1584093197470",

@@ -1,13 +1,12 @@
-import { BodyLong, Link, Tag } from "@navikt/ds-react";
+import { ChatFillIcon, ChatIcon, CheckmarkCircleIcon, ChevronRightIcon } from "@navikt/aksel-icons";
+import { BodyLong, BodyShort } from "@navikt/ds-react";
 import { useContext } from "react";
-import BeskjedIkon from "../../assets/BeskjedIkon";
-import OppgaveIkon from "../../assets/OppgaveIkon";
 import text from "../../language/text";
 import { Language, LanguageContext } from "../../provider/LanguageProvider";
+import { logNavigereBeskjed } from "../../utils/amplitude";
 import { formatToReadableDate } from "../../utils/date";
 import { Varsel } from "./Varsel";
 import styles from "./Varsel.module.css";
-import { logNavigereBeskjed } from "../../utils/amplitude";
 
 const getVarsletPaa = (kanaler: string[], language: Language) => {
   if (kanaler.includes("SMS") && kanaler.includes("EPOST")) {
@@ -27,39 +26,73 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
 
   const eksternVarslingStatus = getVarsletPaa(varselData.eksternVarslingKanaler, language);
 
-  return (
-    <div className={styles.varselWrapper}>
-      {varselData.isMasked || isOppgave || !varselData.link ? (
-        <BodyLong aria-label={varselData.isMasked ? maskedAriaLabel : undefined} className={styles.varselHeading}>
-          <span aria-hidden={varselData.isMasked ? true : undefined}>
-            {varselData.isMasked ? maskedText : varselData.tekst}
-          </span>
-        </BodyLong>
+  const VarselHeader = (
+    <div className={styles.header}>
+      {isOppgave ? (
+        <>
+          <div className={styles.iconWrapper}>
+            <CheckmarkCircleIcon className={styles.icon} aria-hidden />
+          </div>
+          <BodyShort>{text.filterToggleItemOppgave[language]}</BodyShort>
+        </>
       ) : (
-        <Link
-          onClick={logNavigereBeskjed}
-          href={varselData.link}
-          aria-label={varselData.isMasked ? maskedAriaLabel : undefined}
-          className={styles.varselHeading}
-        >
-          <span aria-hidden={varselData.isMasked ? true : undefined}>
-            {varselData.isMasked ? maskedText : varselData.tekst}
-          </span>
-        </Link>
+        <>
+          {varselData.link ? (
+            <div className={`${styles.iconWrapper} ${styles.iconClickable}`}>
+              <ChatFillIcon className={styles.icon} color="white" aria-hidden />
+            </div>
+          ) : (
+            <div className={styles.iconWrapper}>
+              <ChatIcon className={styles.icon} aria-hidden />
+            </div>
+          )}
+          <BodyShort className={!varselData.link ? styles.secondaryText : ""}>
+            {text.filterToggleItemBeskjed[language]}
+          </BodyShort>
+        </>
       )}
-      <div className={styles.varselMetaData}>
-        {isOppgave ? <OppgaveIkon /> : <BeskjedIkon />}
-        <Tag className={styles.tag} variant="neutral" size="small">{`${
-          text.varselMottatt[language]
-        } ${formatToReadableDate(varselData.forstBehandlet)}`}</Tag>
-        {eksternVarslingStatus && (
-          <Tag variant="neutral" size="small" className={`${styles.tag} ${styles.eksternVarslingStatus}`}>
-            {eksternVarslingStatus}
-          </Tag>
-        )}
-      </div>
     </div>
   );
+
+  const VarselFooter = (
+    <BodyShort size="small" className={`${styles.footer} ${styles.secondaryText}`}>
+      {formatToReadableDate(varselData.forstBehandlet)}
+      {eksternVarslingStatus && ` - ${eksternVarslingStatus}`}
+    </BodyShort>
+  );
+
+  if (varselData.isMasked) {
+    return (
+      <div className={styles.varselContainer}>
+        {VarselHeader}
+        <BodyLong aria-label={maskedAriaLabel} className={styles.title}>
+          <span aria-hidden={true}>{maskedText}</span>
+        </BodyLong>
+        {VarselFooter}
+      </div>
+    );
+  } else if (varselData.link && !isOppgave) {
+    return (
+      <a onClick={logNavigereBeskjed} href={varselData.link} className={styles.link}>
+        <div className={styles.varselContainer}>
+          {VarselHeader}
+          <div className={styles.clickableTitleContainer}>
+            <BodyLong className={styles.linkText}>{varselData.tekst}</BodyLong>
+            <ChevronRightIcon fontSize="24px" className={styles.chevron} />
+          </div>
+          {VarselFooter}
+        </div>
+      </a>
+    );
+  } else {
+    return (
+      <div className={styles.varselContainer}>
+        {VarselHeader}
+        <BodyLong>{varselData.tekst}</BodyLong>
+        {VarselFooter}
+      </div>
+    );
+  }
 }
 
 export default TidligereVarsel;
