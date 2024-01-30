@@ -46,14 +46,16 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
               <ChatIcon className={styles.icon} aria-hidden />
             </div>
           )}
-          <BodyShort className="">{text.filterToggleItemBeskjed[language]}</BodyShort>
+          <BodyShort className={!varselData.link ? styles.secondaryText : ""}>
+            {text.filterToggleItemBeskjed[language]}
+          </BodyShort>
         </>
       )}
     </div>
   );
 
   const VarselFooter = (
-    <BodyShort size="small" className={styles.footer}>
+    <BodyShort size="small" className={`${styles.footer} ${styles.secondaryText}`}>
       {formatToReadableDate(varselData.forstBehandlet)}
       {eksternVarslingStatus && ` - ${eksternVarslingStatus}`}
     </BodyShort>
