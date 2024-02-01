@@ -18,7 +18,7 @@ const TidligereVarslerPage = ({ varsler, isSuccess }: { varsler: Array<Varsel>; 
   const searchTextInput = useStore(filterSearch);
 
   const sortedVarsler = useMemo(() => varsler?.sort(byForstBehandlet), [varsler]);
-  const filtertedVarseler = sortedVarsler?.filter(
+  const filteredVarsler = sortedVarsler?.filter(
     (varsel) =>
       (selectedFilter === "alle" || varsel.type.toLowerCase() === selectedFilter) &&
       (varsel.tekst === null || varsel.tekst.toLowerCase().includes(searchTextInput)),
@@ -28,12 +28,12 @@ const TidligereVarslerPage = ({ varsler, isSuccess }: { varsler: Array<Varsel>; 
     <>
       <Filter />
       <Heading level="2" size="xsmall" className={styles.varslerListHeading}>
-        {text.antallSokeTreff(language, filtertedVarseler.length, varsler.length)}
+        {text.antallSokeTreff(language, filteredVarsler.length, varsler.length)}
       </Heading>
-      {filtertedVarseler.length > 0 ? (
+      {filteredVarsler.length > 0 ? (
         <ul className={styles.varslerList}>
           {isSuccess &&
-            filtertedVarseler?.map((varsel) => (
+            filteredVarsler?.map((varsel) => (
               <li key={varsel.eventId}>
                 <TidligereVarsel varselData={varsel} />
               </li>
