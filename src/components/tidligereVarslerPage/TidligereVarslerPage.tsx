@@ -20,7 +20,9 @@ const TidligereVarslerPage = ({ varsler, isSuccess }: { varsler: Array<Varsel>; 
   const sortedVarsler = useMemo(() => varsler?.sort(byForstBehandlet), [varsler]);
   const filteredVarsler = sortedVarsler?.filter(
     (varsel) =>
-      (selectedFilter === "alle" || varsel.type.toLowerCase() === selectedFilter) &&
+      (selectedFilter === "alle" ||
+        varsel.type.toLowerCase() === selectedFilter ||
+        (varsel.type.toLowerCase() === "innboks" && selectedFilter === "beskjed")) &&
       (varsel.tekst === null || varsel.tekst.toLowerCase().includes(searchTextInput)),
   );
 
