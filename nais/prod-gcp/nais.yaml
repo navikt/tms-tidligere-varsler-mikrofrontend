@@ -26,7 +26,6 @@ spec:
     - "https://www.nav.no/tms-tidligere-varsler-mikrofrontend"
   resources:
     limits:
-      cpu: "3"
       memory: 768Mi
     requests:
       cpu: "50m"
