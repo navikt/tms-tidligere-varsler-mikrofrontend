@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM gcr.io/distroless/nodejs20-debian12
 ENV NODE_ENV production
 
 WORKDIR usr/src/app
@@ -7,7 +7,6 @@ COPY dist dist/
 COPY dist/.vite dist/
 
 WORKDIR server
-RUN npm install
 
 CMD ["node", "./server.js"]
 
