@@ -7,21 +7,6 @@ permissions:
   packages: 'write'
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Install server dependencies"
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          registry-url: "https://npm.pkg.github.com"
-          cache: "npm"
-
-      - name: "Install dependencies"
-        run: |
-          cd server
-          npm i
-
   deploy:
     uses: navikt/tms-deploy/.github/workflows/mikrofrontend-deploy-v2.yaml@main
     with:
