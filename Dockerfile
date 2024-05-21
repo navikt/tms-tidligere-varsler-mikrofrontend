@@ -8,7 +8,7 @@ COPY dist/.vite dist/
 
 WORKDIR server
 
-CMD ["node", "./server.js"]
+CMD ["./server.js"]
 
 ENV PORT=7600
 EXPOSE $PORT
