@@ -12,4 +12,8 @@ jobs:
     with:
       cluster: '["dev-gcp"]'
       node-version: 20
+        - name: "Install server dependencies"
+          run: |
+            cd server
+            npm i
     secrets: inherit
