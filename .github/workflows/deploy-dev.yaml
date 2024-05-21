@@ -7,20 +7,24 @@ permissions:
   packages: 'write'
 
 jobs:
-  steps:
-    - name: "install server dependcies"
-      uses: "actions/setup-node@v3"
-      with:
-        node-version: 20
-        registry-url: "https://npm.pkg.github.com"
-        cache: "npm"
-      run: "|
-        cd server
-        npm i"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Install server dependencies"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          registry-url: "https://npm.pkg.github.com"
+          cache: "npm"
 
-    - name: "deploy"
-      uses: navikt/tms-deploy/.github/workflows/mikrofrontend-deploy-v2.yaml@main
-      with:
-        cluster: '["dev-gcp"]'
-        node-version: 20
-      secrets: inherit
+      - name: "Install dependencies"
+        run: |
+          cd server
+          npm i
+
+  deploy:
+    uses: navikt/tms-deploy/.github/workflows/mikrofrontend-deploy.yaml-v2@main
+    with:
+      cluster: '["dev-gcp"]'
+      node-version: 20
+    secrets: inherit
