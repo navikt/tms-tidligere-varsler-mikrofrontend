@@ -13,18 +13,19 @@ permissions:
 
 jobs:
   steps:
-    - uses: "actions/setup-node@v3"
+    - name: "install server dependcies"
+      uses: "actions/setup-node@v3"
       with:
         node-version: 20
         registry-url: "https://npm.pkg.github.com"
         cache: "npm"
-    - name: install server dependcies
       run: |
         cd server
         npm i
-  deploy:
-    uses: navikt/tms-deploy/.github/workflows/mikrofrontend-deploy-v2.yaml@main
-    with:
-      cluster: '["dev-gcp", "prod-gcp"]'
-      node-version: 20
-    secrets: inherit
+
+    - name: deploy
+      uses: navikt/tms-deploy/.github/workflows/mikrofrontend-deploy-v2.yaml@main
+      with:
+        cluster: '["dev-gcp", "prod-gcp"]'
+        node-version: 20
+      secrets: inherit
