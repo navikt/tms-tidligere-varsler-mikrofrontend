@@ -7,6 +7,7 @@ COPY dist dist/
 COPY dist/.vite dist/
 
 WORKDIR server
+RUN npm install
 
 CMD ["./server.js"]
 
