@@ -29,7 +29,7 @@ export default [
         },
         {
           eventId: "3984093204236",
-          type: "BESKJED",
+          type: "innboks",
           forstBehandlet: "2021-01-01T11:12:04+01:00",
           arkivertAvNAV: false,
           tekst: "Svar fra veilederen din i innboksen: Hei, nå har jeg sjekket om...",
@@ -37,6 +37,7 @@ export default [
           isMasked: false,
           eksternVarslingSendt: false,
           eksternVarslingKanaler: ["SMS", "EPOST"],
+          link: "www.nav.no"
         },
         {
           eventId: "1584093197470",

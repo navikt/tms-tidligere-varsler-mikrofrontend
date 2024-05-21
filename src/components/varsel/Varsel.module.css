@@ -1,21 +1,71 @@
-.varselWrapper {
-  margin-top: 1.25rem;
-  padding-bottom: 1.25rem;
+.varselContainer {
+  padding: 1rem 0;
+  gap: 16px;
   border-bottom: 1px solid #e5e5e5;
 }
-.varselMetaData {
+
+.header {
   display: flex;
-  gap: 0.5rem;
-  flex-direction: row;
+  gap: 8px;
   align-items: center;
-  margin-top: 0.75rem;
+  padding-bottom: 4px;
 }
 
-.varselDate {
+.iconWrapper {
   display: flex;
-  gap: 0.7rem;
+  border-radius: 4px;
+  background: var(--a-surface-neutral-moderate);
+  padding: 2px;
 }
 
-.tag {
-  border: none;
+.icon {
+  font-size: 20px;
+}
+
+.iconClickable {
+  background: var(--a-icon-alt-3);
+}
+
+.clickableTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.chevron {
+  flex-shrink: 0;
+}
+
+.footer {
+  padding-top: 4px;
+  border-bottom: 3px;
+}
+
+.secondaryText {
+  color: var(--a-text-subtle);
+}
+
+a {
+  text-decoration: none;
+}
+
+.link {
+  color: var(--a-text-default);
+}
+
+.linkText {
+  font-weight: 600;
+}
+
+.link:hover .linkText {
+  color: var(--a-text-action);
+}
+
+.link:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}
+
+@media (min-width: 648px) {
 }

@@ -14,6 +14,6 @@ root.render(
           <Mikrofrontend />
         </main>
       </div>
-    </div>{" "}
+    </div>
   </React.StrictMode>,
 );

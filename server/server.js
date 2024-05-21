@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-const basePath = "/tms-min-side-varslinger";
+const basePath = "/tms-tidligere-varsler-mikrofrontend";
 const buildPath = path.resolve(__dirname, "../dist");
 const expressStaticGzip = require("express-static-gzip");
 const server = express();

@@ -1,20 +1,22 @@
-import amplitude from "amplitude-js";
+import { init, logEvent } from "@amplitude/analytics-browser";
 
-export const komponent = {
-  nyOppgave: "Nye varsler - oppgave",
-  nyBeskjed: "Nye varsler - beskjed",
-  nyInnboks: "Nye varsler - innboks",
-  tidligereOppgave: "Tidligere varsler - oppgave",
-  tidligereBeskjed: "Tidligere varsler - beskjed",
-  tidligereInnboks: "Tidligere varsler - innboks",
+const APP_NAME = "tms-min-side-varslinger";
+
+export const logNavigereBeskjed = () => {
+  logEvent("navigere", { app: APP_NAME, komponent: "tidligere-beskjed" });
 };
 
-export const initializeAmplitude = () => {
-  amplitude.getInstance().init("default", "", {
-    apiEndpoint: "amplitude.nav.no/collect-auto",
-    saveEvents: false,
-    includeUtm: true,
-    includeReferrer: true,
-    platform: window.location.toString(),
+export const logFilterToggle = (filterValg: string) => {
+  logEvent("tidligere-varsler-filter", { app: APP_NAME, filterValg: filterValg });
+};
+
+export const initAmplitude = () => {
+  init("default", undefined, {
+    useBatch: true,
+    defaultTracking: false,
+    serverUrl: "https://amplitude.nav.no/collect-auto",
+    ingestionMetadata: {
+      sourceName: window.location.toString(),
+    },
   });
 };

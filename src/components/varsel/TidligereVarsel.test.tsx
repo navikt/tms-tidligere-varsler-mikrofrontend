@@ -7,6 +7,7 @@ test("rendrer varsel", async () => {
   const { container } = render(
     <TidligereVarsel
       varselData={{
+        link: null,
         eventId: "1584093204636",
         type: "oppgave",
         forstBehandlet: "2022-02-01T11:12:04+01:00",
