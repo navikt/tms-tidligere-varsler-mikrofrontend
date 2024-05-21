@@ -12,10 +12,9 @@ permissions:
   packages: 'write'
 
 jobs:
-  steps:
-    - name: "deploy"
-      uses: navikt/tms-deploy/.github/workflows/mikrofrontend-deploy-v2.yaml@main
-      with:
-        cluster: '["dev-gcp", "prod-gcp"]'
-        node-version: 20
-      secrets: inherit
+  deploy:
+    uses: navikt/tms-deploy/.github/workflows/mikrofrontend-deploy.yaml-v2@main
+    with:
+      cluster: '["dev-gcp", "prod-gcp"]'
+      node-version: 18
+    secrets: inherit
