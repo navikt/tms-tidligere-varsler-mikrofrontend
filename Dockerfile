@@ -11,7 +11,7 @@ USER nonroot
 WORKDIR usr/src/app
 COPY --from=build  usr/src/app/server server/
 COPY --from=build  usr/src/app/dist dist/
-
+WORKDIR server
 CMD ["./server.js"]
 
 ENV PORT=7600
