@@ -1,6 +1,6 @@
-# tms-min-side-varslinger
+# tms-min-side-tidligere-varsler-mikrofrontend
 
-Mikrofrontend på Min side som viser varsler.
+Mikrofrontend på Min side som viser tidligere varsler.
 
 # Kom i gang
 

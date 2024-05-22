@@ -1,15 +1,20 @@
-FROM node:18-alpine
+FROM node:20-alpine as build
 ENV NODE_ENV production
-
 WORKDIR usr/src/app
 COPY server server/
 COPY dist dist/
 COPY dist/.vite dist/
-
 WORKDIR server
 RUN npm install
 
-CMD ["node", "./server.js"]
+FROM gcr.io/distroless/nodejs20-debian12
+WORKDIR usr/src/app
+COPY --from=build  usr/src/app/server server/
+COPY --from=build  usr/src/app/dist dist/
+COPY --from=build  usr/src/app/dist/.vite dist/
+WORKDIR server
+CMD ["./server.js"]
 
+USER nonroot
 ENV PORT=7600
 EXPOSE $PORT
