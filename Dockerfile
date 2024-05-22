@@ -14,6 +14,7 @@ COPY --from=build  usr/src/app/dist dist/
 COPY --from=build  usr/src/app/dist/.vite dist/
 WORKDIR server
 CMD ["./server.js"]
+
 USER nonroot
 ENV PORT=7600
 EXPOSE $PORT
