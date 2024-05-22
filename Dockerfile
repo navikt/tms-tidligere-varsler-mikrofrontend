@@ -3,15 +3,15 @@ ENV NODE_ENV production
 WORKDIR usr/src/app
 COPY server server/
 COPY dist dist/
-COPY dist/.vite dist/
-
-WORKDIR /server
+WORKDIR server
 RUN npm install
 
 FROM gcr.io/distroless/nodejs20-debian12
-
-WORKDIR /server
 USER nonroot
+WORKDIR usr/src/app
+COPY --from=build  usr/src/app/server server/
+COPY --from=build  usr/src/app/dist dist/
+
 CMD ["./server.js"]
 
 ENV PORT=7600
