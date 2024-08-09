@@ -1,5 +1,6 @@
 const isProduction = window.location.href.includes("www.nav.no");
-const isDevelopment = window.location.href.includes("www.intern.dev.nav.no");
+const isDevelopment =
+  window.location.href.includes("www.intern.dev.nav.no") || window.location.href.includes("www.ansatt.dev.nav.no");
 
 export const getEnvironment = () => {
   if (isDevelopment) {
@@ -15,17 +16,16 @@ export const getEnvironment = () => {
 
 const TMS_VARSEL_API = {
   local: "http://localhost:3000/api/tms-varsel-api",
-  development: "https://www.intern.dev.nav.no/tms-varsel-api",
+  development: `${window.location.origin}/tms-varsel-api`,
   production: "https://www.nav.no/tms-varsel-api",
 };
 
 const MIN_SIDE_URL = {
   local: "http://localhost:3000/minside",
-  development: "https://www.intern.dev.nav.no/minside",
+  development: `${window.location.origin}/minside`,
   production: "https://www.nav.no/minside",
 };
 
 const tmsVarselAPI = TMS_VARSEL_API[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const inaktiveVarslerApiUrl = `${tmsVarselAPI}/inaktive`;
-export const tidligereVarslerUrl = `${minSideUrl}/varslinger`;
