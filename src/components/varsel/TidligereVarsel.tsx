@@ -3,7 +3,7 @@ import { BodyLong, BodyShort } from "@navikt/ds-react";
 import { useContext } from "react";
 import text from "../../language/text";
 import { Language, LanguageContext } from "../../provider/LanguageProvider";
-import { logNavigereBeskjed } from "../../utils/amplitude";
+import { logClickVarselWithoutLink, logNavigereBeskjed } from "../../utils/amplitude";
 import { formatToReadableDate } from "../../utils/date";
 import { Varsel } from "./Varsel";
 import styles from "./Varsel.module.css";
@@ -63,7 +63,7 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
 
   if (varselData.isMasked) {
     return (
-      <div className={styles.varselContainer}>
+      <div onClick={() => logClickVarselWithoutLink(varselData.type)} className={styles.varselContainer}>
         {VarselHeader}
         <BodyLong aria-label={maskedAriaLabel} className={styles.title}>
           <span aria-hidden={true}>{maskedText}</span>
@@ -86,7 +86,7 @@ function TidligereVarsel({ varselData }: { varselData: Varsel }) {
     );
   } else {
     return (
-      <div className={styles.varselContainer}>
+      <div onClick={() => logClickVarselWithoutLink(varselData.type)} className={styles.varselContainer}>
         {VarselHeader}
         <BodyLong>{varselData.tekst}</BodyLong>
         {VarselFooter}
